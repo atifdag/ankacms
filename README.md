@@ -6,6 +6,7 @@ Anka efsanevi bir kuştur. Doğu mitoloji ve efsanelerinde yer edinmiştir. Anka
 - Sunucu taraflı kaynak kodları "/src/server" klasöründe,
 - İstemci taraflı kaynak kodları "/src/client" klasöründe
 bulunmaktadır.
+Projenin sunucu taraflı kodları ".NET Core" ile istemci-web taraflı kodları ise Angular ile hazırlanmaktadır.
 ## Projeyi Çalıştırma
 Projeyi çalıştırmak için şu aşamaları takip edin:
 1. https://git-scm.com/download/win adresinden kendi sisteminize uygun olan kurulum dosyasını indirin ve kurulumu başlatın. Kurulum sonrasında komut satırından aşağıdaki komutlarla git istemcisine kendinizi tanıtın.
@@ -17,6 +18,8 @@ git config --global user.email "epostaadresiniz@siteniz.com"
 3. https://nodejs.org adresinden adresinden kendi sisteminize uygun olan kurulum dosyasını indirin ve kurulumu başlatın. Kurulum sonrasında komut satırından ```npm --version``` komutuyla kurulumu test edin. Karşınızda npm’in versiyonunu görüyorsanız kurulum başarılı demektir.
 4. https://dotnet.microsoft.com/download/dotnet-core/current/runtime adresinden kendi sisteminize uygun olan ".NET Core Runtime" ve ".NET Core Desktop Runtime" kurulum dosyalarını indirin ve kurulumu başlatın. Kurulum sonrasında komut satırından ```dotnet --version``` komutuyla kurulumu test edin. Karşınızda dotnet’in versiyonunu görüyorsanız kurulum başarılı demektir.
 5. Komut satırından ```git clone https://github.com/atifdag/ankacms.git``` komutuyla projeyi bilgisayarınıza indirin.
-6. ```npm i -g @angular/cli``` komutuyla "Angular CLI" paketini indirip kurun.
-7. Komut satırından projenin olduğu klasörde iken ```npm i``` komutuyla projede kullanılan paketleri kurun.
-8. ```ng s -o``` komutuyla projeyi çalıştırın.
+6. Komut satırından ```npm i -g @angular/cli``` komutuyla "Angular CLI" paketini indirip kurun.
+7. Komut satırından "/src/client/angular-web-admin" klasöründe iken ```npm i``` komutuyla bu projede kullanılan paketleri kurun.
+8. Komut satırından "/src/client/angular-web-admin" klasöründe iken ```ng s -o``` komutuyla Angular tabanlı web sitesi yönetim paneli projesini çalıştırın.
+9. Komut satırından "/src/client/angular-web-public" klasöründe iken ```npm i``` komutuyla bu projede kullanılan paketleri kurun.
+10. Komut satırından "/src/client/angular-web-public" klasöründe iken ```ng s -o``` komutuyla projenin Angular tabanlı halka açık web sitesini çalıştırın.
