@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.IO;
 
 
 namespace AnkaCMS.SetupConsoleApp
@@ -185,6 +186,24 @@ namespace AnkaCMS.SetupConsoleApp
                     PartInstallation.SetContents(provider);
                     Console.WriteLine(@"Bölüm içerikleri ayarlandı.");
                     Console.WriteLine(@"");
+
+                    if (Configuration["DefaultConnectionString"] == "SqliteConnection")
+                    {
+                        var setupProjectRootPath = AppContext.BaseDirectory;
+                        if (AppContext.BaseDirectory.Contains("bin"))
+                        {
+                            setupProjectRootPath = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.IndexOf("bin", StringComparison.Ordinal));
+                        }
+
+                        if (File.Exists(Path.Combine(setupProjectRootPath, dbServer)))
+                        {
+                            var apiProjectRootPath = setupProjectRootPath.Replace("AnkaCMS.SetupConsoleApp", "AnkaCMS.WebApi");
+                            File.Delete(Path.Combine(apiProjectRootPath, dbServer));
+                            File.Copy(Path.Combine(setupProjectRootPath, dbServer), Path.Combine(apiProjectRootPath, dbServer));
+                        }
+                    }
+
+                   
 
                     Console.WriteLine(@"Kurulum Tamamlandı.");
                     Console.WriteLine(@"Bitiş Zamanı: " + DateTime.Now);
