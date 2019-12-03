@@ -6,6 +6,7 @@ Anka efsanevi bir kuştur. Doğu mitoloji ve efsanelerinde yer edinmiştir. Anka
 - Sunucu taraflı kaynak kodları "/src/server" klasöründe,
 - İstemci taraflı kaynak kodları "/src/client" klasöründe
 bulunmaktadır.
+Projenin sunucu taraflı kodları ".NET Core" ile istemci-web taraflı kodları ise Angular ile hazırlanmaktadır.
 ## Projeyi Çalıştırma
 Projeyi çalıştırmak için şu aşamaları takip edin:
 1. https://git-scm.com/download/win adresinden kendi sisteminize uygun olan kurulum dosyasını indirin ve kurulumu başlatın. Kurulum sonrasında komut satırından aşağıdaki komutlarla git istemcisine kendinizi tanıtın.
