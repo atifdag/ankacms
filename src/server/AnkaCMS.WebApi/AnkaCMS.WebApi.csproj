@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnkaCMS.Core\AnkaCMS.Core.csproj" />
+    <ProjectReference Include="..\AnkaCMS.Data\AnkaCMS.Data.csproj" />
+    <ProjectReference Include="..\AnkaCMS.Service.Implementations\AnkaCMS.Service.Implementations.csproj" />
+    <ProjectReference Include="..\AnkaCMS.Service\AnkaCMS.Service.csproj" />
+  </ItemGroup>
+</Project>

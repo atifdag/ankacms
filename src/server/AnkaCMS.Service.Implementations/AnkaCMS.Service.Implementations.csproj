@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnkaCMS.Data\AnkaCMS.Data.csproj" />
+    <ProjectReference Include="..\AnkaCMS.Service\AnkaCMS.Service.csproj" />
+  </ItemGroup>
+</Project>
