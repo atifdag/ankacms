@@ -1,0 +1,11 @@
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    z-index: 102;
+    font-weight: normal;
+    font-size: 90%;
+    text-align: center;
+    padding: 0px;
+}
+

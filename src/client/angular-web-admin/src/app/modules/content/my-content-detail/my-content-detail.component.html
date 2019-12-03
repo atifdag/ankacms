@@ -1,0 +1,204 @@
+<p-toast position="center" key="d" (onClose)="onRejectDelete()" [modal]="true" [baseZIndex]="5000">
+  <ng-template let-message pTemplate="message">
+    <div style="text-align: center">
+      <i class="pi pi-exclamation-triangle" style="font-size: 3em"></i>
+      <h3>{{message.summary}}</h3>
+      <p>{{message.detail}}</p>
+    </div>
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-6 text-center">
+        <button type="button" pButton (click)="onConfirmDelete()" label="{{'Yes' | globalizationdictionary}}"
+          class="ui-button-raised ui-button-danger" icon="pi pi-check" iconPos="left"
+          style="width: auto !important;"></button>
+      </div>
+      <div class="ui-g-6 text-center">
+        <button type="button" pButton (click)="onRejectDelete()" label="{{'No' | globalizationdictionary}}"
+          icon="pi pi-angle-left" iconPos="left" style="width: auto !important;"
+          class="ui-button-raised ui-button-secondary"></button>
+      </div>
+    </div>
+  </ng-template>
+</p-toast>
+<p-toast [baseZIndex]="99999"></p-toast>
+<div class="content-section introduction">
+  <div>
+    <span class="feature-title">{{'ContentManagement' | globalizationdictionary}}</span>
+    <span>{{'Detail' | globalizationdictionary}}</span>
+  </div>
+</div>
+<div class="content-section implementation">
+  <p-breadcrumb [model]="breadcrumbItems"></p-breadcrumb>
+  <p *ngIf="loading" style="text-align: center">
+    <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+    <br>
+    {{'PleaseWait' | globalizationdictionary}}
+  </p>
+
+  <form *ngIf="!loading" [formGroup]="userForm" class="userForm">
+    <fieldset>
+      <legend>{{'Detail' | globalizationdictionary}}</legend>
+      <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'Content' | globalizationdictionary}} {{'Id' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <input pInputText type="text" formControlName="content" disabled="disabled" />
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'Category' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <input pInputText type="text" formControlName="category" disabled="disabled" />
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'Language' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <input pInputText type="text" formControlName="language" disabled="disabled" />
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'Code' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <input pInputText type="text" formControlName="code" disabled="disabled" />
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'Name' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <input pInputText type="text" formControlName="name" disabled="disabled" />
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'ShortName' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <input pInputText type="text" formControlName="shortName" disabled="disabled" />
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'Description' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <textarea pInputTextarea disabled="disabled" formControlName="description"></textarea>
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'Keywords' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <textarea pInputTextarea disabled="disabled" formControlName="keywords"></textarea>
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'ContentDetail' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <p-editor [readonly]="true" formControlName="contentDetail" [style]="{'height':'320px'}"></p-editor>
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'Url' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <input pInputText type="text" formControlName="url" disabled="disabled" />
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'ViewCount' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <input pInputText type="text" formControlName="viewCount" disabled="disabled" />
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'Image' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <p-lightbox type="content">
+              <a class="group" href="#">
+                <img alt="{{appSettingsService.apiUrl+ model.item.imagePath}}"
+                  src="{{appSettingsService.apiUrl+ model.item.imagePath}}" class="img-thumbnail coverimage" />
+              </a>
+              <img src="{{appSettingsService.apiUrl+ model.item.imagePath}}?date={{model.item.lastModificationTime}}"
+                class="lightboxImage" />
+            </p-lightbox>
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'Creator' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <input pInputText disabled="disabled" formControlName="creator" />
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'CreationTime' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <input pInputText disabled="disabled" formControlName="creationTime" />
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'LastModifier' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <input pInputText disabled="disabled" formControlName="lastModifier" />
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'LastModificationTime' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <input pInputText disabled="disabled" formControlName="lastModificationTime" />
+          </div>
+        </div>
+
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2 text-right bold">
+            {{'ApprovalStatus' | globalizationdictionary}}
+          </div>
+          <div class="ui-grid-col-10">
+            <p-checkbox formControlName="isApproved" binary="true" disabled="disabled" [(ngModel)]="isApprovedChecked"
+              label="{{isApprovedChecked ? globalizationDictionaryPipe.transform('Approved'):globalizationDictionaryPipe.transform('NotApproved')}}">
+            </p-checkbox>
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2"></div>
+          <div class="ui-grid-col-10">
+            <button pButton type="button" class="ui-button-raised ui-button-secondary" icon="pi pi-angle-left"
+              iconPos="left" style="width: auto !important;margin: 5px 5px 5px 0;"
+              label="{{'Back' | globalizationdictionary}}" (click)="backClick()"></button>
+            <button pButton type="button" class="ui-button-raised" icon="pi pi-pencil" iconPos="left"
+              style="width: auto !important;margin: 5px 5px;" label="{{'Update' | globalizationdictionary}}"
+              (click)="updateClick()"></button>
+            <button pButton type="button" class="ui-button-raised ui-button-danger" icon="pi pi-trash" iconPos="left"
+              style="width: auto !important;margin: 5px 5px;" label="{{'Delete' | globalizationdictionary}}"
+              (click)="showConfirmDelete()"></button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>

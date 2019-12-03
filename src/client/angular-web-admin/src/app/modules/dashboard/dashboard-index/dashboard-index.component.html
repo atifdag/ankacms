@@ -1,0 +1,35 @@
+<div class="content-section introduction">
+  <div>
+      <span class="feature-title">Ana Sayfa</span>
+      <span>Hoş geldiniz.</span>
+  </div>
+</div>
+<div class="content-section implementation">
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
+      <div class="ui-grid-row">
+          <div class="ui-grid-col-6">
+              <p-card header="Grafik 1 (Örnektir)" styleClass="ui-card-shadow">
+                  <p-chart type="doughnut" [data]="datadoughnut"></p-chart>
+              </p-card>
+          </div>
+          <div class="ui-grid-col-6">
+              <p-card header="Grafik 2 (Örnektir)" styleClass="ui-card-shadow">
+                  <p-chart type="bar" [data]="databar"></p-chart>
+              </p-card>
+          </div>
+      </div>
+      <div class="ui-grid-row">
+          <div class="ui-grid-col-6">
+              <p-card header="Grafik 3 (Örnektir)" styleClass="ui-card-shadow">
+                  <p-chart type="pie" [data]="datapie"></p-chart>
+              </p-card>
+          </div>
+          <div class="ui-grid-col-6">
+              <p-card header="Grafik 4 (Örnektir)" styleClass="ui-card-shadow">
+                  <p-chart type="line" [data]="dataline"></p-chart>
+              </p-card>
+          </div>
+
+      </div>
+  </div>
+</div>

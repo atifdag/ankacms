@@ -1,0 +1,112 @@
+<div class="content-section introduction">
+    <div>
+        <span class="feature-title">{{'UserProfile' | globalizationdictionary}}</span>
+        <span>{{'UserInformation' | globalizationdictionary}}</span>
+    </div>
+</div>
+<div class="content-section implementation">
+    <div class="p-grid">
+        <div class="p-col">
+            <p-footer styleClass="ui-card-shadow">
+                <!-- <p-header>
+                    <img src="Card" src="assets/showcase/images/usercard.png">
+                </p-header> -->
+                <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px; line-height:1.5;">
+                    <div class="ui-grid-row" style="border-bottom: 1px solid #dee2e6; padding: 0.75rem;">
+                        <div class="ui-grid-col-2">
+                            <strong>{{'Id' | globalizationdictionary}}</strong>
+                        </div>
+                        <div class="ui-grid-col-10">
+                            {{ profileModel.userModel.id }}
+                        </div>
+                    </div>
+
+                    <div class="ui-grid-row" style="border-bottom: 1px solid #dee2e6; padding: 0.75rem;">
+                        <div class="ui-grid-col-2">
+                            <strong>{{'FirstName' | globalizationdictionary}}</strong>
+                        </div>
+                        <div class="ui-grid-col-10">
+                            {{ profileModel.userModel.firstName }}
+                        </div>
+                    </div>
+                    <div class="ui-grid-row" style="border-bottom: 1px solid #dee2e6;padding: 0.75rem;">
+                        <div class="ui-grid-col-2">
+                            <strong>{{'LastName' | globalizationdictionary}}</strong>
+                        </div>
+                        <div class="ui-grid-col-10">
+                            {{ profileModel.userModel.lastName }}
+                        </div>
+                    </div>
+                    <div class="ui-grid-row" style="border-bottom: 1px solid #dee2e6;padding: 0.75rem;">
+                        <div class="ui-grid-col-2">
+                            <strong>{{'Email' | globalizationdictionary}}</strong>
+                        </div>
+                        <div class="ui-grid-col-10">
+                            {{ profileModel.userModel.email }}
+                        </div>
+                    </div>
+                    <div class="ui-grid-row" style="border-bottom: 1px solid #dee2e6;padding: 0.75rem;">
+                        <div class="ui-grid-col-2">
+                            <strong>{{'LastLoginTime' | globalizationdictionary}}</strong>
+                        </div>
+                        <div class="ui-grid-col-10">
+                            {{ profileModel.lastLoginTime | date:'dd/MM/yyyy HH:mm:ss' }}
+                        </div>
+                    </div>
+
+                    <div class="ui-grid-row" style="border-bottom: 1px solid #dee2e6;padding: 0.75rem;">
+                        <div class="ui-grid-col-2">
+                            <strong>{{'Creator' | globalizationdictionary}}</strong>
+                        </div>
+                        <div class="ui-grid-col-10">
+                            {{ profileModel.userModel.creator.name }}
+                        </div>
+                    </div>
+                    <div class="ui-grid-row" style="border-bottom: 1px solid #dee2e6;padding: 0.75rem;">
+                        <div class="ui-grid-col-2">
+                            <strong>{{'CreationTime' | globalizationdictionary}}</strong>
+                        </div>
+                        <div class="ui-grid-col-10">
+                            {{ profileModel.userModel.creationTime | date:'dd/MM/yyyy HH:mm:ss' }}
+                        </div>
+                    </div>
+                    <div class="ui-grid-row" style="border-bottom: 1px solid #dee2e6;padding: 0.75rem;">
+                        <div class="ui-grid-col-2">
+                            <strong>{{'LastModifier' | globalizationdictionary}}</strong>
+                        </div>
+                        <div class="ui-grid-col-10">
+                            {{ profileModel.userModel.lastModifier.name }}
+                        </div>
+                    </div>
+                    <div class="ui-grid-row" style="border-bottom: 1px solid #dee2e6;padding: 0.75rem;">
+                        <div class="ui-grid-col-2">
+                            <strong>{{'LastModificationTime' | globalizationdictionary}}</strong>
+                        </div>
+                        <div class="ui-grid-col-10">
+                            {{ profileModel.userModel.lastModificationTime | date:'dd/MM/yyyy HH:mm:ss' }}
+                        </div>
+                    </div>
+                </div>
+                <p-footer>
+                    <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-12 text-center">
+                                <p-button styleClass="ui-button-raised"
+                                    label="{{'UpdateMyInformation' | globalizationdictionary}}" icon="pi pi-pencil"
+                                    style="width: auto;margin:5px 5px" iconPos="left"
+                                    routerLink="/User/UpdateMyInformation"></p-button>
+                                <p-button styleClass="ui-button-raised"
+                                    label="{{'UpdateMyPassword' | globalizationdictionary}}" icon="pi pi-key"
+                                    style="width: auto;margin:5px 5px" iconPos="left"
+                                    routerLink="/User/UpdateMyPassword"></p-button>
+                                <p-button label="{{'SignOut' | globalizationdictionary}}" icon="pi pi-power-off"
+                                    iconPos="left" styleClass="ui-button-danger ui-button-raised"
+                                    (click)="showConfirm()" style="width: auto;margin:5px 5px"></p-button>
+                            </div>
+                        </div>
+                    </div>
+                </p-footer>
+            </p-footer>
+        </div>
+    </div>
+</div>

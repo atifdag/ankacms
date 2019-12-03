@@ -604,25 +604,9 @@
     <value>Kimlik No</value>
     <comment>Kimlik No</comment>
   </data>
-  <data name="AyatCount" xml:space="preserve">
-    <value>Ayet Sayısı</value>
-    <comment>Ayet Sayısı</comment>
-  </data>
-  <data name="ChronologicalOrder" xml:space="preserve">
-    <value>Nüzul Sırası</value>
-    <comment>Nüzul Sırası</comment>
-  </data>
-  <data name="Juz" xml:space="preserve">
-    <value>Cüz</value>
-    <comment>Cüz</comment>
-  </data>
   <data name="TurkishName" xml:space="preserve">
     <value>Adı (Türkçe)</value>
     <comment>Adı (Türkçe)</comment>
-  </data>
-  <data name="AyatText" xml:space="preserve">
-    <value>Ayet Metni</value>
-    <comment>Ayet Metni</comment>
   </data>
   <data name="Send" xml:space="preserve">
     <value>Gönder</value>
@@ -643,14 +627,6 @@
   <data name="Success" xml:space="preserve">
     <value>Başarılı!</value>
     <comment>Başarılı!</comment>
-  </data>
-  <data name="BookManagement" xml:space="preserve">
-    <value>Kitap</value>
-    <comment>Kitap</comment>
-  </data>
-  <data name="HistoricalPeriod" xml:space="preserve">
-    <value>Tarihsel Dönem</value>
-    <comment>Tarihsel Dönem</comment>
   </data>
   <data name="Select" xml:space="preserve">
     <value>Seçiniz</value>
@@ -676,57 +652,9 @@
     <value>Son Değiştiren</value>
     <comment>Son Değiştiren</comment>
   </data>
-  <data name="HistoricalPeriodManagement" xml:space="preserve">
-    <value>Tarihsel Dönem</value>
-    <comment>Tarihsel Dönem</comment>
-  </data>
   <data name="Filter" xml:space="preserve">
     <value>Filtrele</value>
     <comment>Filtrele</comment>
-  </data>
-  <data name="Surah" xml:space="preserve">
-    <value>Sure</value>
-    <comment>Sure</comment>
-  </data>
-  <data name="AyatManagement" xml:space="preserve">
-    <value>Ayet</value>
-    <comment>Ayet</comment>
-  </data>
-  <data name="Letter" xml:space="preserve">
-    <value>Harf</value>
-    <comment>Harf</comment>
-  </data>
-  <data name="LetterManagement" xml:space="preserve">
-    <value>Harf</value>
-    <comment>Harf</comment>
-  </data>
-  <data name="SurahManagement" xml:space="preserve">
-    <value>Sure</value>
-    <comment>Sure</comment>
-  </data>
-  <data name="WordGroup" xml:space="preserve">
-    <value>Kelime Grubu</value>
-    <comment>Kelime Grubu</comment>
-  </data>
-  <data name="WordGroupManagement" xml:space="preserve">
-    <value>Kelime Grubu</value>
-    <comment>Kelime Grubu</comment>
-  </data>
-  <data name="Word" xml:space="preserve">
-    <value>Kelime</value>
-    <comment>Kelime</comment>
-  </data>
-  <data name="WordManagement" xml:space="preserve">
-    <value>Kelime</value>
-    <comment>Kelime</comment>
-  </data>
-  <data name="DifferentWordsCount" xml:space="preserve">
-    <value>Farklı Kelimelerin Sayısı</value>
-    <comment>Farklı Kelimelerin Sayısı</comment>
-  </data>
-  <data name="TotalWordsCount" xml:space="preserve">
-    <value>Toplam Kelime Sayısı</value>
-    <comment>Toplam Kelime Sayısı</comment>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Dil</value>
@@ -748,21 +676,9 @@
     <value>Yeni Resim</value>
     <comment>Yeni Resim</comment>
   </data>
-  <data name="TartibOrder" xml:space="preserve">
-    <value>Tertib Sırası</value>
-    <comment>Tertip Sırası</comment>
-  </data>
-  <data name="FoundWordCount" xml:space="preserve">
-    <value>Bulunan Kelime Sayısı</value>
-    <comment>Bulunan Kelime Sayısı</comment>
-  </data>
   <data name="Level" xml:space="preserve">
     <value>Seviye</value>
     <comment>Seviye</comment>
-  </data>
-  <data name="Mudevvene" xml:space="preserve">
-    <value>Müdevvene</value>
-    <comment>Müdevvene</comment>
   </data>
   <data name="FromUser" xml:space="preserve">
     <value>Gönderici</value>
@@ -780,14 +696,6 @@
     <value>Not</value>
     <comment>Not</comment>
   </data>
-  <data name="Process" xml:space="preserve">
-    <value>İşlem</value>
-    <comment>İşlem</comment>
-  </data>
-  <data name="ProcessTime" xml:space="preserve">
-    <value>İşlem Tarihi</value>
-    <comment>İşlem Tarihi</comment>
-  </data>
   <data name="ToUser" xml:space="preserve">
     <value>Alıcı</value>
     <comment>Alıcı</comment>
@@ -804,49 +712,13 @@
     <value>Ekle</value>
     <comment>Ekle</comment>
   </data>
-  <data name="Contributor" xml:space="preserve">
-    <value>Katkıcı</value>
-    <comment>Katkıcı</comment>
-  </data>
-  <data name="ContributorManagement" xml:space="preserve">
-    <value>Katkıcı</value>
-    <comment>Katkıcı</comment>
-  </data>
-  <data name="Genre" xml:space="preserve">
-    <value>Tür</value>
-    <comment>Tür</comment>
-  </data>
-  <data name="GenreManagement" xml:space="preserve">
-    <value>Yayın Türü</value>
-    <comment>Yayın Türü</comment>
-  </data>
-  <data name="Publisher" xml:space="preserve">
-    <value>Yayınevi</value>
-    <comment>Yayınevi</comment>
-  </data>
-  <data name="PublisherManagement" xml:space="preserve">
-    <value>Yayınevi</value>
-    <comment>Yayınevi</comment>
-  </data>
   <data name="Series" xml:space="preserve">
     <value>Seri</value>
     <comment>Seri</comment>
   </data>
-  <data name="SeriesManagement" xml:space="preserve">
-    <value>Seri</value>
-    <comment>Seri</comment>
-  </data>
-  <data name="AgeGroup" xml:space="preserve">
-    <value>Yaş Grubu</value>
-    <comment>Yaş Grubu</comment>
-  </data>
   <data name="Barcode" xml:space="preserve">
     <value>Barkod</value>
     <comment>Barkod</comment>
-  </data>
-  <data name="BookDetail" xml:space="preserve">
-    <value>Kitap Detayı</value>
-    <comment>Kitap Detayı</comment>
   </data>
   <data name="Cover" xml:space="preserve">
     <value>Kapak</value>
@@ -856,53 +728,9 @@
     <value>Boyutlar</value>
     <comment>Boyutlar</comment>
   </data>
-  <data name="Isbn" xml:space="preserve">
-    <value>ISBN</value>
-    <comment>ISBN</comment>
-  </data>
   <data name="PageNumber" xml:space="preserve">
     <value>Sayfa Sayısı</value>
     <comment>Sayfa Sayısı</comment>
-  </data>
-  <data name="Price" xml:space="preserve">
-    <value>Fiyatı</value>
-    <comment>Fiyatı</comment>
-  </data>
-  <data name="PublicationDate" xml:space="preserve">
-    <value>Yayın Tarihi</value>
-    <comment>Yayın Tarihi</comment>
-  </data>
-  <data name="Weight" xml:space="preserve">
-    <value>Ağırlık</value>
-    <comment>Ağırlık</comment>
-  </data>
-  <data name="Genres" xml:space="preserve">
-    <value>Türler</value>
-    <comment>Türler</comment>
-  </data>
-  <data name="Contributors" xml:space="preserve">
-    <value>Katkıcılar</value>
-    <comment>Katkıcılar</comment>
-  </data>
-  <data name="PublicationStatus" xml:space="preserve">
-    <value>Yayın Durumu</value>
-    <comment>Yayın Durumu</comment>
-  </data>
-  <data name="PublicationStatusManagement" xml:space="preserve">
-    <value>Yayın Durumu</value>
-    <comment>Yayın Durumu</comment>
-  </data>
-  <data name="EmailSubscriber" xml:space="preserve">
-    <value>E-posta Abonesi</value>
-    <comment>E-posta Abonesi</comment>
-  </data>
-  <data name="EmailSubscriberManagement" xml:space="preserve">
-    <value>E-posta Abonesi</value>
-    <comment>E-posta Abonesi</comment>
-  </data>
-  <data name="PublicationStatuses" xml:space="preserve">
-    <value>Yayın Durumu</value>
-    <comment>Yayın Durumu</comment>
   </data>
   <data name="CacheManagement" xml:space="preserve">
     <value>Önbellek</value>
@@ -928,28 +756,12 @@
     <value>Yazarlar</value>
     <comment>Yazarlar</comment>
   </data>
-  <data name="Illustrator" xml:space="preserve">
-    <value>Çizer</value>
-    <comment>Çizer</comment>
-  </data>
-  <data name="Illustrators" xml:space="preserve">
-    <value>Çizerler</value>
-    <comment>Çizerler</comment>
-  </data>
   <data name="Languages" xml:space="preserve">
     <value>Diller</value>
     <comment>Diller</comment>
   </data>
-  <data name="Publishers" xml:space="preserve">
-    <value>Yayınevleri</value>
-    <comment>Yayınevleri</comment>
-  </data>
   <data name="Translator" xml:space="preserve">
     <value>Çevirmen</value>
     <comment>Çevirmen</comment>
-  </data>
-  <data name="Translators" xml:space="preserve">
-    <value>Çevirmenler</value>
-    <comment>Çevirmenler</comment>
   </data>
 </root>

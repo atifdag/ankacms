@@ -1,0 +1,173 @@
+<p-toast position="center" key="d" (onClose)="onRejectDelete()" [modal]="true" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div style="text-align: center">
+            <i class="pi pi-exclamation-triangle" style="font-size: 3em"></i>
+            <h3>{{message.summary}}</h3>
+            <p>{{message.detail}}</p>
+            <p><small>({{'Content' | globalizationdictionary}}: {{message.data.contentId}})</small></p>
+        </div>
+        <div class="ui-g ui-fluid">
+            <div class="ui-g-6 text-center">
+                <button type="button" pButton (click)="onConfirmDelete(message.data)"
+                    label="{{'Yes' | globalizationdictionary}}" class="ui-button-raised ui-button-danger"
+                    icon="pi pi-check" iconPos="left" style="width: auto !important;"></button>
+            </div>
+            <div class="ui-g-6 text-center">
+                <button type="button" pButton (click)="onRejectDelete()" label="{{'No' | globalizationdictionary}}"
+                    icon="pi pi-angle-left" iconPos="left" style="width: auto !important;"
+                    class="ui-button-raised ui-button-secondary"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
+<p-toast [baseZIndex]="99999"></p-toast>
+<div class="content-section introduction">
+    <div>
+        <span class="feature-title">{{'ContentManagement' | globalizationdictionary}}</span>
+        <span>{{'List' | globalizationdictionary}}</span>
+    </div>
+</div>
+<div class="content-section implementation">
+    <p-breadcrumb [model]="breadcrumbItems"></p-breadcrumb>
+    <form [formGroup]="userForm" class="userForm">
+        <p-fieldset legend="{{'Filter' | globalizationdictionary}}" [toggleable]="true">
+            <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-3">
+                        <label><strong>{{'SearchWord' | globalizationdictionary}}</strong></label>
+                        <div class="ui-inputgroup">
+                            <input pInputText type="text" formControlName="searched" (keyup)="changeForm()" />
+                            <span class="ui-inputgroup-addon"><i class="fa fa-search"></i></span>
+                        </div>
+
+                    </div>
+                    <div class="ui-grid-col-3">
+                        <label><strong>{{'StartDate' | globalizationdictionary}}</strong></label>
+                        <p-calendar formControlName="startDate" [locale]="tr" [monthNavigator]="true"
+                            dateFormat="dd/mm/yy" [yearNavigator]="true" (onSelect)="changeForm()" showButtonBar="true"
+                            baseZIndex="8888" yearRange="{{yearRange}}" [showIcon]="true">
+                        </p-calendar>
+                    </div>
+                    <div class="ui-grid-col-3">
+                        <label><strong>{{'EndDate' | globalizationdictionary}}</strong></label>
+                        <p-calendar formControlName="endDate" [locale]="tr" [monthNavigator]="true"
+                            dateFormat="dd/mm/yy" [yearNavigator]="true" (onSelect)="changeForm()" showButtonBar="true"
+                            baseZIndex="8888" yearRange="{{yearRange}}" [showIcon]="true">
+                        </p-calendar>
+                    </div>
+                    <div class="ui-grid-col-3">
+                        <label><strong>{{'ApprovalStatus' | globalizationdictionary}}</strong></label>
+                        <p-dropdown [options]="statusOptions" (onChange)="changeForm()" optionLabel="value"
+                            formControlName="selectedStatus"></p-dropdown>
+                    </div>
+
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-6">
+                        <label><strong>{{'Language' | globalizationdictionary}}</strong></label>
+                        <p-dropdown [options]="languages" formControlName="selectedLanguage" (onChange)="changeForm()">
+                        </p-dropdown>
+                    </div>
+
+                    <div class="ui-grid-col-6">
+                        <label><strong>{{'Category' | globalizationdictionary}}</strong></label>
+                        <p-dropdown [options]="parentItems" formControlName="selectedParentItem"
+                            (onChange)="changeForm()">
+                        </p-dropdown>
+                    </div>
+                </div>
+            </div>
+        </p-fieldset>
+    </form>
+    <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-12">
+                <button pButton type="button" class="ui-button-raised" icon="pi pi-plus" iconPos="left"
+                    style="width: auto !important;margin: 0px 0px 1em 0;"
+                    label="{{'NewRecord' | globalizationdictionary}}" (click)="newRecordClick()"></button>
+            </div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-12">
+                <p *ngIf="loading" style="text-align: center">
+                    <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+                    <br>
+                    {{'PleaseWait' | globalizationdictionary}}
+                </p>
+                <p *ngIf="!loading" style="margin-top: 0">
+                    <strong>{{'TotalRecordCount' | globalizationdictionary}}:</strong>
+                    {{listModel.paging.totalItemCount}}
+                </p>
+
+
+                <p-table *ngIf="!loading" [value]="listModel.items" [responsive]="true">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>
+                                {{'Image' | globalizationdictionary}}
+                            </th>
+                           
+                            <th [pSortableColumn]="'name'">
+                                {{'Name' | globalizationdictionary}}
+                                <p-sortIcon [field]="'name'"></p-sortIcon>
+                            </th>
+                            <th [pSortableColumn]="'language.value'">
+                                    {{'Category' | globalizationdictionary}}
+                                    <p-sortIcon [field]="'language.value'"></p-sortIcon>
+                                </th>
+                            <th [pSortableColumn]="'language.value'">
+                                {{'Language' | globalizationdictionary}}
+                                <p-sortIcon [field]="'language.value'"></p-sortIcon>
+                            </th>
+
+                            <th [pSortableColumn]="'lastModificationTime'">
+                                {{'LastModificationTime' | globalizationdictionary}}
+                                <p-sortIcon [field]="'lastModificationTime'"></p-sortIcon>
+                            </th>
+                            <th [pSortableColumn]="'isApproved'">
+                                {{'ApprovalStatus' | globalizationdictionary}}
+                                <p-sortIcon [field]="'isApproved'"></p-sortIcon>
+                            </th>
+                            <th class="tableOpsTh">{{'Actions' | globalizationdictionary}}</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-item>
+                        <tr>
+                            <td class="text-center">
+
+
+
+                                <p-lightbox type="content" *ngIf="item.imagePath">
+                                    <a class="group" href="#">
+                                        <img alt="{{appSettingsService.apiUrl+ item.imagePath}}"
+                                            src="{{appSettingsService.apiUrl+ item.imagePath}}?date={{item.lastModificationTime}}"
+                                            class="img-thumbnail coverimage" />
+                                    </a>
+                                    <img src="{{appSettingsService.apiUrl+ item.imagePath}}" class="lightboxImage" />
+                                </p-lightbox>
+
+
+                            </td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.category.value}}</td>
+                            <td>{{item.language.value}}</td>
+                            <td class="text-center">{{item.lastModificationTime | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                            <td class="text-center">
+                                <p-checkbox [(ngModel)]="item.isApproved" binary="true" disabled="disabled">
+                                </p-checkbox>
+                            </td>
+                            <td class="text-center tableOpsTd">
+                                <p-splitButton label="{{'Actions' | globalizationdictionary}}" styleClass="tableOpsBtn"
+                                    icon="pi pi-cog" [model]="tableOps(item.contentId, item.language.key)"
+                                    (onClick)="detail(item.contentId, item.language.key)">
+                                </p-splitButton>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+                <p-paginator [rows]="selectedPageSize" [rowsPerPageOptions]="rowsPerPageOptions"
+                    [totalRecords]="listModel.paging.totalItemCount" (onPageChange)="paginate($event)"></p-paginator>
+            </div>
+        </div>
+    </div>
+</div>

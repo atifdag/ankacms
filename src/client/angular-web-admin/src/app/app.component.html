@@ -1,0 +1,7 @@
+<router-outlet *ngIf="!loading"></router-outlet>
+<p-toast [baseZIndex]="99999"></p-toast>
+<p *ngIf="loading" style="text-align: center">
+    <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+    <br>
+    {{'PleaseWait' | globalizationdictionary}}
+</p>

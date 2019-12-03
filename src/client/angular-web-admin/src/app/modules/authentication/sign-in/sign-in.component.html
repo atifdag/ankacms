@@ -1,0 +1,50 @@
+<p-toast [baseZIndex]="99999"></p-toast>
+<div class="content-section introduction">
+    <div>
+        <span class="feature-title">&nbsp;</span>
+        <span>{{'EnterYourUsernamePassword' | globalizationmessages}}</span>
+    </div>
+</div>
+<div class="content-section implementation signin-wrapper">
+    
+    <div class="signindiv">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <fieldset [disabled]="disabledFieldset">
+                <legend>{{'SignIn' | globalizationdictionary}}</legend>
+                <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-12">
+                            <label>{{ 'Username' | globalizationdictionary }}</label>
+                            <input pInputText type="text" formControlName="username" />
+                            <p-message severity="error"
+                                [text]="userForm.controls['username'].errors['required'] ? globalizationMessagesByParameter('DangerFieldIsEmpty','Username') : userForm.controls['username'].errors['minlength'] ? globalizationMessagesByParameter2('DangerFieldLengthLimit','Username','8') : ''"
+                                *ngIf="!userForm.controls['username'].valid&&userForm.controls['username'].dirty">
+                            </p-message>
+                        </div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-12">
+                            <label>{{  'Password' | globalizationdictionary }}</label>
+                            <input pInputText type="password" formControlName="password" />
+                            <p-message severity="error"
+                                [text]="userForm.controls['password'].errors['required'] ? globalizationMessagesByParameter('DangerFieldIsEmpty','Password') : userForm.controls['password'].errors['minlength'] ? globalizationMessagesByParameter2('DangerFieldLengthLimit','Password','8') : ''"
+                                *ngIf="!userForm.controls['password'].valid&&userForm.controls['password'].dirty">
+                            </p-message>
+                        </div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-12">
+                            <button pButton type="submit" class="ui-button-success"
+                                label="{{ 'Send' | globalizationdictionary }}" [disabled]="!userForm.valid"></button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <p *ngIf="loading" style="text-align: center">
+            <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+            <br>
+            {{'PleaseWait' | globalizationdictionary}}
+        </p>
+    </div>
+</div>

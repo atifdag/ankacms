@@ -88,7 +88,7 @@ namespace AnkaCMS.SetupConsoleApp.Installation
                 BirthDate = DateTime.MinValue
             };
 
-            var firstPassword = firstPerson.FirstName.ToStringForSeo().Substring(0, 1) + firstPerson.LastName.ToStringForSeo().Substring(0, 1) + ".Kaya2019";
+            var firstPassword = firstPerson.FirstName.ToStringForSeo().Substring(0, 1) + firstPerson.LastName.ToStringForSeo().Substring(0, 1) + ".Anka2019";
 
             var firstUser = new User
             {

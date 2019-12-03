@@ -97,15 +97,6 @@ namespace AnkaCMS.Core.Globalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yaş Grubu.
-        /// </summary>
-        public static string AgeGroup {
-            get {
-                return ResourceManager.GetString("AgeGroup", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Tümü.
         /// </summary>
         public static string All {
@@ -187,33 +178,6 @@ namespace AnkaCMS.Core.Globalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ayet Sayısı.
-        /// </summary>
-        public static string AyatCount {
-            get {
-                return ResourceManager.GetString("AyatCount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ayet.
-        /// </summary>
-        public static string AyatManagement {
-            get {
-                return ResourceManager.GetString("AyatManagement", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ayet Metni.
-        /// </summary>
-        public static string AyatText {
-            get {
-                return ResourceManager.GetString("AyatText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Geri.
         /// </summary>
         public static string Back {
@@ -237,24 +201,6 @@ namespace AnkaCMS.Core.Globalization {
         public static string Biography {
             get {
                 return ResourceManager.GetString("Biography", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Kitap Detayı.
-        /// </summary>
-        public static string BookDetail {
-            get {
-                return ResourceManager.GetString("BookDetail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Kitap.
-        /// </summary>
-        public static string BookManagement {
-            get {
-                return ResourceManager.GetString("BookManagement", resourceCulture);
             }
         }
         
@@ -300,15 +246,6 @@ namespace AnkaCMS.Core.Globalization {
         public static string CategoryManagement {
             get {
                 return ResourceManager.GetString("CategoryManagement", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nüzul Sırası.
-        /// </summary>
-        public static string ChronologicalOrder {
-            get {
-                return ResourceManager.GetString("ChronologicalOrder", resourceCulture);
             }
         }
         
@@ -372,33 +309,6 @@ namespace AnkaCMS.Core.Globalization {
         public static string Contents {
             get {
                 return ResourceManager.GetString("Contents", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Katkıcı.
-        /// </summary>
-        public static string Contributor {
-            get {
-                return ResourceManager.GetString("Contributor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Katkıcı.
-        /// </summary>
-        public static string ContributorManagement {
-            get {
-                return ResourceManager.GetString("ContributorManagement", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Katkıcılar.
-        /// </summary>
-        public static string Contributors {
-            get {
-                return ResourceManager.GetString("Contributors", resourceCulture);
             }
         }
         
@@ -511,15 +421,6 @@ namespace AnkaCMS.Core.Globalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Farklı Kelimelerin Sayısı.
-        /// </summary>
-        public static string DifferentWordsCount {
-            get {
-                return ResourceManager.GetString("DifferentWordsCount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Boyutlar.
         /// </summary>
         public static string Dimensions {
@@ -543,24 +444,6 @@ namespace AnkaCMS.Core.Globalization {
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to E-posta Abonesi.
-        /// </summary>
-        public static string EmailSubscriber {
-            get {
-                return ResourceManager.GetString("EmailSubscriber", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to E-posta Abonesi.
-        /// </summary>
-        public static string EmailSubscriberManagement {
-            get {
-                return ResourceManager.GetString("EmailSubscriberManagement", resourceCulture);
             }
         }
         
@@ -628,65 +511,11 @@ namespace AnkaCMS.Core.Globalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bulunan Kelime Sayısı.
-        /// </summary>
-        public static string FoundWordCount {
-            get {
-                return ResourceManager.GetString("FoundWordCount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Gönderici.
         /// </summary>
         public static string FromUser {
             get {
                 return ResourceManager.GetString("FromUser", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tür.
-        /// </summary>
-        public static string Genre {
-            get {
-                return ResourceManager.GetString("Genre", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Yayın Türü.
-        /// </summary>
-        public static string GenreManagement {
-            get {
-                return ResourceManager.GetString("GenreManagement", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Türler.
-        /// </summary>
-        public static string Genres {
-            get {
-                return ResourceManager.GetString("Genres", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tarihsel Dönem.
-        /// </summary>
-        public static string HistoricalPeriod {
-            get {
-                return ResourceManager.GetString("HistoricalPeriod", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tarihsel Dönem.
-        /// </summary>
-        public static string HistoricalPeriodManagement {
-            get {
-                return ResourceManager.GetString("HistoricalPeriodManagement", resourceCulture);
             }
         }
         
@@ -745,24 +574,6 @@ namespace AnkaCMS.Core.Globalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Çizer.
-        /// </summary>
-        public static string Illustrator {
-            get {
-                return ResourceManager.GetString("Illustrator", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Çizerler.
-        /// </summary>
-        public static string Illustrators {
-            get {
-                return ResourceManager.GetString("Illustrators", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Resim.
         /// </summary>
         public static string Image {
@@ -777,24 +588,6 @@ namespace AnkaCMS.Core.Globalization {
         public static string Installation {
             get {
                 return ResourceManager.GetString("Installation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ISBN.
-        /// </summary>
-        public static string Isbn {
-            get {
-                return ResourceManager.GetString("Isbn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cüz.
-        /// </summary>
-        public static string Juz {
-            get {
-                return ResourceManager.GetString("Juz", resourceCulture);
             }
         }
         
@@ -898,24 +691,6 @@ namespace AnkaCMS.Core.Globalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Harf.
-        /// </summary>
-        public static string Letter {
-            get {
-                return ResourceManager.GetString("Letter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Harf.
-        /// </summary>
-        public static string LetterManagement {
-            get {
-                return ResourceManager.GetString("LetterManagement", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Seviye.
         /// </summary>
         public static string Level {
@@ -966,15 +741,6 @@ namespace AnkaCMS.Core.Globalization {
         public static string Message {
             get {
                 return ResourceManager.GetString("Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Müdevvene.
-        /// </summary>
-        public static string Mudevvene {
-            get {
-                return ResourceManager.GetString("Mudevvene", resourceCulture);
             }
         }
         
@@ -1231,96 +997,6 @@ namespace AnkaCMS.Core.Globalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fiyatı.
-        /// </summary>
-        public static string Price {
-            get {
-                return ResourceManager.GetString("Price", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to İşlem.
-        /// </summary>
-        public static string Process {
-            get {
-                return ResourceManager.GetString("Process", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to İşlem Tarihi.
-        /// </summary>
-        public static string ProcessTime {
-            get {
-                return ResourceManager.GetString("ProcessTime", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Yayın Tarihi.
-        /// </summary>
-        public static string PublicationDate {
-            get {
-                return ResourceManager.GetString("PublicationDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Yayın Durumu.
-        /// </summary>
-        public static string PublicationStatus {
-            get {
-                return ResourceManager.GetString("PublicationStatus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Yayın Durumu.
-        /// </summary>
-        public static string PublicationStatuses {
-            get {
-                return ResourceManager.GetString("PublicationStatuses", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Yayın Durumu.
-        /// </summary>
-        public static string PublicationStatusManagement {
-            get {
-                return ResourceManager.GetString("PublicationStatusManagement", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Yayınevi.
-        /// </summary>
-        public static string Publisher {
-            get {
-                return ResourceManager.GetString("Publisher", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Yayınevi.
-        /// </summary>
-        public static string PublisherManagement {
-            get {
-                return ResourceManager.GetString("PublisherManagement", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Yayınevleri.
-        /// </summary>
-        public static string Publishers {
-            get {
-                return ResourceManager.GetString("Publishers", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Yönlendirme.
         /// </summary>
         public static string Redirection {
@@ -1452,15 +1128,6 @@ namespace AnkaCMS.Core.Globalization {
         public static string Series {
             get {
                 return ResourceManager.GetString("Series", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Seri.
-        /// </summary>
-        public static string SeriesManagement {
-            get {
-                return ResourceManager.GetString("SeriesManagement", resourceCulture);
             }
         }
         
@@ -1645,33 +1312,6 @@ namespace AnkaCMS.Core.Globalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sure.
-        /// </summary>
-        public static string Surah {
-            get {
-                return ResourceManager.GetString("Surah", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sure.
-        /// </summary>
-        public static string SurahManagement {
-            get {
-                return ResourceManager.GetString("SurahManagement", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tertib Sırası.
-        /// </summary>
-        public static string TartibOrder {
-            get {
-                return ResourceManager.GetString("TartibOrder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Tema.
         /// </summary>
         public static string Theme {
@@ -1699,15 +1339,6 @@ namespace AnkaCMS.Core.Globalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Toplam Kelime Sayısı.
-        /// </summary>
-        public static string TotalWordsCount {
-            get {
-                return ResourceManager.GetString("TotalWordsCount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Alıcı.
         /// </summary>
         public static string ToUser {
@@ -1722,15 +1353,6 @@ namespace AnkaCMS.Core.Globalization {
         public static string Translator {
             get {
                 return ResourceManager.GetString("Translator", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Çevirmenler.
-        /// </summary>
-        public static string Translators {
-            get {
-                return ResourceManager.GetString("Translators", resourceCulture);
             }
         }
         
@@ -1875,51 +1497,6 @@ namespace AnkaCMS.Core.Globalization {
         public static string ViewCount {
             get {
                 return ResourceManager.GetString("ViewCount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ağırlık.
-        /// </summary>
-        public static string Weight {
-            get {
-                return ResourceManager.GetString("Weight", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Kelime.
-        /// </summary>
-        public static string Word {
-            get {
-                return ResourceManager.GetString("Word", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Kelime Grubu.
-        /// </summary>
-        public static string WordGroup {
-            get {
-                return ResourceManager.GetString("WordGroup", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Kelime Grubu.
-        /// </summary>
-        public static string WordGroupManagement {
-            get {
-                return ResourceManager.GetString("WordGroupManagement", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Kelime.
-        /// </summary>
-        public static string WordManagement {
-            get {
-                return ResourceManager.GetString("WordManagement", resourceCulture);
             }
         }
         

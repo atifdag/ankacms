@@ -1,0 +1,83 @@
+<p-toast position="center" key="c" (onClose)="onReject()" [modal]="true" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div style="text-align: center">
+            <i class="pi pi-exclamation-triangle" style="font-size: 3em"></i>
+            <h3>{{message.summary}}</h3>
+            <p>{{message.detail}}</p>
+        </div>
+        <div class="ui-g ui-fluid">
+            <div class="ui-g-6 text-center">
+                <p-button type="button" (click)="onConfirm()" label="{{'Yes' | globalizationdictionary}}"
+                    styleClass="ui-button-raised ui-button-success" icon="pi pi-check" iconPos="left"
+                    [style]="{'width': 'auto'}"></p-button>
+            </div>
+            <div class="ui-g-6 text-center">
+                <p-button type="button" (click)="onReject()" label="{{'No' | globalizationdictionary}}"
+                    icon="pi pi-angle-left" iconPos="left" [style]="{'width': 'auto'}"
+                    styleClass="ui-button-raised ui-button-secondary"></p-button>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
+<p-toast [baseZIndex]="99999"></p-toast>
+<div class="layout-wrapper">
+    <div id="layout-topbar">
+        <a href="#" class="menu-button" (click)="onMenuButtonClick($event)">
+            <i class="fa fa-bars"></i>
+        </a>
+        <a class="logo" [routerLink]="['/Home']">
+            <img alt="logo" src="assets/showcase/images/logo.png" />
+        </a>
+        <ul class="topbar-menu">
+            <li><a>{{'RemainingSessionTime' | globalizationdictionary}}: {{counter | timeCountDown}}</a></li>
+            <li class="topbar-menu-dropdowns">
+                <a class="topbar-profile">{{ profileModel.userModel.displayName }}</a>
+                <ul>
+                    <li><a routerLink="/User/MyProfile">{{'UserProfile' | globalizationdictionary}}</a></li>
+                    <li><a (click)="showConfirm()">{{'SignOut' | globalizationdictionary}}</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div id="layout-sidebar" [ngClass]="{'active': menuActive}">
+        <div *ngIf="loading" style="text-align: center">
+            <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+        </div>
+        <div class="layout-menu">
+            <div class="layout-menu-search ui-fluid">
+                <p-autoComplete [(ngModel)]="searchText" [suggestions]="filteredRoutes"
+                    (completeMethod)="filterRoutes($event)" (onSelect)="selectRoute($event)" placeholder="{{'Search' | globalizationdictionary}}">
+                </p-autoComplete>
+                <i class="pi pi-search"></i>
+            </div>
+            <ng-template ngFor let-rootMenu [ngForOf]="profileModel.rootMenus">
+
+                <a id="{{rootMenu.name}}_menutitle" #inputmenutitle
+                    [class.active-menuitem]="inputmenutitle.id == activeMenuId" tabindex="0"
+                    (keydown)="onKeydown($event, inputmenutitle.id)" (click)="toggle(inputmenutitle.id)">
+                    <img src="assets/showcase/images/icons/overlay-active.svg" class="layout-menu-icon-active" />
+                    <img src="assets/showcase/images/icons/overlay.svg" class="layout-menu-icon-inactive" />
+                    <span *ngIf="rootMenu.childMenus">{{rootMenu.name}}</span>
+                    <span *ngIf="!rootMenu.childMenus"><a [routerLink]=[rootMenu.address]>{{rootMenu.name}}</a></span>
+                </a>
+                <div [@animation]="(inputmenutitle.id == activeMenuId) ? 'visible' : 'hidden'"
+                    (@animation.start)="onAnimationStart($event)" (@animation.done)="onAnimationDone($event)">
+                    <a [routerLink]=[childMenu.address] (click)="menuActive = false"
+                        *ngFor="let childMenu of rootMenu.childMenus"><i class="{{childMenu.icon}}"></i> {{childMenu.name}}</a>
+                </div>
+            </ng-template>
+
+        </div>
+    </div>
+    <div class="layout-mask" *ngIf="menuActive">
+    </div>
+    <div id="layout-content">
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+        <div class="content-section layout-footer clearfix">
+            <p>&copy; 2019 {{'ApplicationName' | globalizationdictionary}}. {{'AllRightsReserved' | globalizationdictionary}} </p>
+        </div>
+    </div>
+</div>

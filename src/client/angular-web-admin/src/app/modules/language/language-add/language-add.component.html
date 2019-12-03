@@ -1,0 +1,69 @@
+<p-toast [baseZIndex]="99999"></p-toast> 
+<div class="content-section introduction">
+    <div>
+      <span class="feature-title">{{'LanguageManagement' | globalizationdictionary}}</span>
+      <span>{{'NewRecord' | globalizationdictionary}}</span>
+    </div>
+  </div>
+  <div class="content-section implementation">
+    <p-breadcrumb [model]="breadcrumbItems"></p-breadcrumb>
+    <form [formGroup]="userForm" class="userForm" (ngSubmit)="onSubmit()">
+      <fieldset [disabled]="disabledFieldset">
+        <legend>{{'NewRecord' | globalizationdictionary}}</legend>
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-2 text-right bold">
+              {{'Code' | globalizationdictionary}}
+            </div>
+            <div class="ui-grid-col-10">
+              <input pInputText type="text" formControlName="code" />
+              <p-message severity="error"
+              [text]="userForm.controls['code'].errors['required'] ? globalizationMessagesByParameter('DangerFieldIsEmpty','Code') : userForm.controls['code'].errors['minlength'] ? globalizationMessagesByParameter2('DangerFieldLengthLimit','Code','2') : ''"
+              *ngIf="!userForm.controls['code'].valid&&userForm.controls['code'].dirty">
+            </p-message>
+            </div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-2 text-right bold">
+              {{'Name' | globalizationdictionary}}
+            </div>
+            <div class="ui-grid-col-10">
+              <input pInputText type="text" formControlName="name" />
+              <p-message severity="error"
+                [text]="userForm.controls['name'].errors['required'] ? globalizationMessagesByParameter('DangerFieldIsEmpty','Name') : userForm.controls['name'].errors['minlength'] ? globalizationMessagesByParameter2('DangerFieldLengthLimit','Name','2') : ''"
+                *ngIf="!userForm.controls['name'].valid&&userForm.controls['name'].dirty">
+              </p-message>
+            </div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-2 text-right bold">
+              {{'Description' | globalizationdictionary}}
+            </div>
+            <div class="ui-grid-col-10">
+              <textarea pInputTextarea formControlName="description"></textarea>
+            </div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-2 text-right bold">
+              {{'ApprovalStatus' | globalizationdictionary}}
+            </div>
+            <div class="ui-grid-col-10">
+              <p-checkbox formControlName="isApproved" binary="true" [(ngModel)]="isApprovedChecked"
+                label="{{isApprovedChecked ? globalizationDictionaryPipe.transform('Approved'):globalizationDictionaryPipe.transform('NotApproved')}}">
+              </p-checkbox>
+            </div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-2"></div>
+            <div class="ui-grid-col-10">
+              <button pButton type="button" class="ui-button-raised ui-button-secondary" icon="pi pi-angle-left"
+                iconPos="left" style="width: auto !important;margin: 5px 5px 5px 0;" label="{{'Back' | globalizationdictionary}}"
+                (click)="backClick()"></button>
+              <button pButton type="submit" class="ui-button-raised ui-button-success" icon="pi pi-check" iconPos="left"
+                style="width: auto !important;margin: 5px 5px;" label="{{'Save' | globalizationdictionary}}" [disabled]="!userForm.valid"></button>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
