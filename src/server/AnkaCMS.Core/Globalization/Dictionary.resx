@@ -1,0 +1,955 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Username" xml:space="preserve">
+    <value>Kullanıcı Adı</value>
+    <comment>Kullanıcı Adı</comment>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Eposta</value>
+    <comment>Eposta</comment>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Adı</value>
+    <comment>Adı</comment>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Soyadı</value>
+    <comment>Soyadı</comment>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Şifre</value>
+    <comment>Şifre</comment>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Kod</value>
+    <comment>Kod</comment>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Adı</value>
+    <comment>Adı</comment>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Tümü</value>
+    <comment>Tümü</comment>
+  </data>
+  <data name="Server" xml:space="preserve">
+    <value>Sunucu</value>
+    <comment>Sunucu</comment>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>Veritabanı</value>
+    <comment>Veritabanı</comment>
+  </data>
+  <data name="Url" xml:space="preserve">
+    <value>Url</value>
+    <comment>Url</comment>
+  </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Anka CMS</value>
+    <comment>Kaşif Çocuk Yayınları</comment>
+  </data>
+  <data name="SmtpPassword" xml:space="preserve">
+    <value>SMTP Şifre</value>
+    <comment>SMTP Şifre</comment>
+  </data>
+  <data name="SmtpPort" xml:space="preserve">
+    <value>SMTP Portu</value>
+    <comment>SMTP Portu</comment>
+  </data>
+  <data name="SmtpSenderMail" xml:space="preserve">
+    <value>SMTP Gönderen Eposta</value>
+    <comment>SMTP Gönderen Eposta</comment>
+  </data>
+  <data name="SmtpSenderName" xml:space="preserve">
+    <value>SMTP Gönderen Adı</value>
+    <comment>SMTP Gönderen Adı</comment>
+  </data>
+  <data name="SmtpServer" xml:space="preserve">
+    <value>SMTP Sunucusu</value>
+    <comment>SMTP Sunucusu</comment>
+  </data>
+  <data name="SmtpSsl" xml:space="preserve">
+    <value>SMTP SSL Kullanılıyor mu?</value>
+    <comment>SMTP SSL Kullanılıyor mu?</comment>
+  </data>
+  <data name="SmtpUser" xml:space="preserve">
+    <value>SMTP Kullanıcı Adı</value>
+    <comment>SMTP Kullanıcı Adı</comment>
+  </data>
+  <data name="BuildVersion" xml:space="preserve">
+    <value>Derleme Sürümü</value>
+    <comment>Derleme Sürümü</comment>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Tema</value>
+    <comment>Telefon</comment>
+  </data>
+  <data name="Installation" xml:space="preserve">
+    <value>Kurulum</value>
+    <comment>Kurulum</comment>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>İleri</value>
+    <comment>İleri</comment>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Geri</value>
+    <comment>Geri</comment>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Adres</value>
+    <comment>Adres</comment>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Şifreyi Onayla</value>
+    <comment>Şifre</comment>
+  </data>
+  <data name="CorporationName" xml:space="preserve">
+    <value>Firma Adı</value>
+    <comment>Firma Adı</comment>
+  </data>
+  <data name="Fax" xml:space="preserve">
+    <value>Faks</value>
+    <comment>Faks</comment>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telefon</value>
+    <comment>Şifreyi Onayla</comment>
+  </data>
+  <data name="Step" xml:space="preserve">
+    <value>Aşama</value>
+    <comment>Aşama</comment>
+  </data>
+  <data name="Redirection" xml:space="preserve">
+    <value>Yönlendirme</value>
+    <comment>Yönlendirme</comment>
+  </data>
+  <data name="RedirectionMessage" xml:space="preserve">
+    <value>Yönlendirme gerçekleşme bu bağlantıya tıklayınız...</value>
+    <comment>Yönlendirme gerçekleşme bu bağlantıya tıklayınız...</comment>
+  </data>
+  <data name="RedirectionTitle" xml:space="preserve">
+    <value>Şimdi Yönlendiriliyorsunuz...</value>
+    <comment>Şimdi Yönlendiriliyorsunuz...</comment>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Yeni Şifre</value>
+    <comment>Yeni Şifre</comment>
+  </data>
+  <data name="UserInformation" xml:space="preserve">
+    <value>Kullanıcı Bilgisi</value>
+    <comment>Kullanıcı Bilgisi</comment>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Beni Hatırla</value>
+    <comment>Beni Hatırla</comment>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Giriş Yap</value>
+    <comment>Giriş Yap</comment>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Gönder</value>
+    <comment>Gönder</comment>
+  </data>
+  <data name="IForgotMyPassword" xml:space="preserve">
+    <value>Şifremi Unuttum</value>
+    <comment>Şifremi Unuttum</comment>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Kaydol</value>
+    <comment>Kaydol</comment>
+  </data>
+  <data name="UserSignIn" xml:space="preserve">
+    <value>Kullanıcı Girişi</value>
+    <comment>Kullanıcı Girişi</comment>
+  </data>
+  <data name="IApproveContract" xml:space="preserve">
+    <value>Sözleşmeyi okudum ve onaylıyorum.</value>
+  </data>
+  <data name="Key" xml:space="preserve">
+    <value>Anahtar</value>
+    <comment>Anahtars</comment>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Kapat</value>
+    <comment>Kapat</comment>
+  </data>
+  <data name="UserAgreement" xml:space="preserve">
+    <value>Kullanıcı Sözleşmesi</value>
+    <comment>Kullanıcı Sözleşmesi</comment>
+  </data>
+  <data name="CreationDate" xml:space="preserve">
+    <value>Kayıt Tarihi</value>
+    <comment>Kayıt Tarihi</comment>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Çıkış Yap</value>
+    <comment>Çıkış Yap</comment>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Hayır</value>
+    <comment>Hayır</comment>
+  </data>
+  <data name="RemainingSessionTime" xml:space="preserve">
+    <value>Kalan Oturum Süresi</value>
+    <comment>Kalan Oturum Süresi</comment>
+  </data>
+  <data name="UserProfile" xml:space="preserve">
+    <value>Hesabım</value>
+    <comment>Hesabım</comment>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Evet</value>
+    <comment>Evet</comment>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Ana Sayfa</value>
+    <comment>Ana Sayfa</comment>
+  </data>
+  <data name="LastLoginTime" xml:space="preserve">
+    <value>Son Giriş Zamanı</value>
+    <comment>Son Giriş Zamanı</comment>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Sürüm</value>
+    <comment>Sürüm</comment>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>Çevrimiçi</value>
+    <comment>Çevrimiçi</comment>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Arama</value>
+    <comment>Arama</comment>
+  </data>
+  <data name="Session" xml:space="preserve">
+    <value>Oturum</value>
+    <comment>Oturum</comment>
+  </data>
+  <data name="UpdateMyInformation" xml:space="preserve">
+    <value>Bilgilerimi Güncelle</value>
+    <comment>Bilgilerimi Güncelle</comment>
+  </data>
+  <data name="UpdateMyPassword" xml:space="preserve">
+    <value>Şifremi Değiştir</value>
+    <comment>Şifremi Değiştir</comment>
+  </data>
+  <data name="NewRecord" xml:space="preserve">
+    <value>Yeni Kayıt Ekle</value>
+    <comment>Yeni Kayıt Ekle</comment>
+  </data>
+  <data name="ParameterGroupManagement" xml:space="preserve">
+    <value>Parametre Grubu</value>
+    <comment>Parametre Grubu</comment>
+  </data>
+  <data name="ApprovalStatus" xml:space="preserve">
+    <value>Onay Durumu</value>
+    <comment>Onay Durumu</comment>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Onayla</value>
+    <comment>Onayla</comment>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Geri</value>
+    <comment>Geri</comment>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Açıklama</value>
+    <comment>Açıklama</comment>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Kaydet</value>
+    <comment>Kaydet</comment>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>Listele</value>
+    <comment>Listele</comment>
+  </data>
+  <data name="SearchWord" xml:space="preserve">
+    <value>Aranan</value>
+    <comment>Aranan</comment>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Başlangıç Tarihi</value>
+    <comment>Başlangıç Tarihi</comment>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>İşlemler</value>
+    <comment>İşlemler</comment>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Onaylanmış</value>
+    <comment>Onaylanmış</comment>
+  </data>
+  <data name="ApproveSelectedItems" xml:space="preserve">
+    <value>Seçili Olan Kayıtları Onayla</value>
+    <comment>Seçili Olan Kayıtları Onayla</comment>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>Ekleyen</value>
+    <comment>Ekleyen</comment>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Sil</value>
+    <comment>Sil</comment>
+  </data>
+  <data name="DeleteSelectedItems" xml:space="preserve">
+    <value>Seçili Olanları Sil</value>
+    <comment>Seçili Olanları Sil</comment>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Bitiş Tarihi</value>
+    <comment>Bitiş Tarihi</comment>
+  </data>
+  <data name="NotApproved" xml:space="preserve">
+    <value>Onaylanmadı</value>
+    <comment>Onaylanmadı</comment>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Gözat</value>
+    <comment>Gözat</comment>
+  </data>
+  <data name="SaveSort" xml:space="preserve">
+    <value>Sıralamayı Kaydet</value>
+    <comment>Sıralamayı Kaydet</comment>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Göster</value>
+    <comment>Göster</comment>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Durum</value>
+    <comment>Durum</comment>
+  </data>
+  <data name="TotalRecordCount" xml:space="preserve">
+    <value>Toplam Kayıt Sayısı</value>
+    <comment>Toplam Kayıt Sayısı</comment>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Güncelle</value>
+    <comment>Güncelle</comment>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>Detay</value>
+    <comment>Detay</comment>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Kimlik</value>
+    <comment>Kimlik</comment>
+  </data>
+  <data name="UpdateDate" xml:space="preserve">
+    <value>Güncelleme Tarihi</value>
+    <comment>Güncelleme Tarihi</comment>
+  </data>
+  <data name="UpdatedBy" xml:space="preserve">
+    <value>Güncelleyen</value>
+    <comment>Güncelleyen</comment>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Eski Şifre</value>
+    <comment>Eski Şifre</comment>
+  </data>
+  <data name="ParameterManagement" xml:space="preserve">
+    <value>Parametre</value>
+    <comment>Parametre</comment>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Değer</value>
+    <comment>Değer</comment>
+  </data>
+  <data name="ParameterGroup" xml:space="preserve">
+    <value>Parametre Grubu</value>
+    <comment>Parametre Grubu</comment>
+  </data>
+  <data name="Erasable" xml:space="preserve">
+    <value>Silinebilir</value>
+    <comment>Silinebilir</comment>
+  </data>
+  <data name="ErasableStatus" xml:space="preserve">
+    <value>Silinebilme Durumu</value>
+    <comment>Silinebilme Durumu</comment>
+  </data>
+  <data name="NotErasable" xml:space="preserve">
+    <value>Silinemez</value>
+    <comment>Silinemez</comment>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Rol</value>
+    <comment>Rol</comment>
+  </data>
+  <data name="RoleManagement" xml:space="preserve">
+    <value>Rol</value>
+    <comment>Rol</comment>
+  </data>
+  <data name="ActionName" xml:space="preserve">
+    <value>Aksiyon Adı</value>
+    <comment>Aksiyon Adı</comment>
+  </data>
+  <data name="ControllerName" xml:space="preserve">
+    <value>Kontrolör Adı</value>
+    <comment>Kontrolör Adı</comment>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>Yetki</value>
+    <comment>Yetki</comment>
+  </data>
+  <data name="PermissionManagement" xml:space="preserve">
+    <value>Yetki</value>
+    <comment>Yetki</comment>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Kategori</value>
+    <comment>Kategori</comment>
+  </data>
+  <data name="CategoryManagement" xml:space="preserve">
+    <value>Kategori</value>
+    <comment>Kategori</comment>
+  </data>
+  <data name="DisplayOrder" xml:space="preserve">
+    <value>Sıra No</value>
+    <comment>Sıra No</comment>
+  </data>
+  <data name="Parent" xml:space="preserve">
+    <value>Üst</value>
+    <comment>Üst</comment>
+  </data>
+  <data name="MenuManagement" xml:space="preserve">
+    <value>Menü</value>
+    <comment>Menü</comment>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Başlık</value>
+    <comment>Başlık</comment>
+  </data>
+  <data name="Icon" xml:space="preserve">
+    <value>İkon</value>
+    <comment>İkon</comment>
+  </data>
+  <data name="UserManagement" xml:space="preserve">
+    <value>Kullanıcı</value>
+    <comment>Kullanıcı</comment>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Roller</value>
+    <comment>Roller</comment>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>Yetkiler</value>
+    <comment>Yetkiler</comment>
+  </data>
+  <data name="Menus" xml:space="preserve">
+    <value>Menüler</value>
+    <comment>Menuler</comment>
+  </data>
+  <data name="Part" xml:space="preserve">
+    <value>Bölüm</value>
+    <comment>Bölüm</comment>
+  </data>
+  <data name="PartManagement" xml:space="preserve">
+    <value>Bölüm</value>
+    <comment>Bölüm</comment>
+  </data>
+  <data name="Parts" xml:space="preserve">
+    <value>Bölümler</value>
+    <comment>Bölümler</comment>
+  </data>
+  <data name="Keywords" xml:space="preserve">
+    <value>Anahtar Kelimeler</value>
+    <comment>Anahtar Kelimeler</comment>
+  </data>
+  <data name="Contents" xml:space="preserve">
+    <value>İçerikler</value>
+    <comment>İçerikler</comment>
+  </data>
+  <data name="ContentManagement" xml:space="preserve">
+    <value>İçerik</value>
+    <comment>İçerik</comment>
+  </data>
+  <data name="ShortName" xml:space="preserve">
+    <value>Kısa Ad</value>
+    <comment>Kısa Ad</comment>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Resim</value>
+    <comment>Resim</comment>
+  </data>
+  <data name="ViewCount" xml:space="preserve">
+    <value>Görüntülenme Sayısı</value>
+    <comment>Görüntülenme Sayısı</comment>
+  </data>
+  <data name="IdentityCode" xml:space="preserve">
+    <value>Kimlik No</value>
+    <comment>Kimlik No</comment>
+  </data>
+  <data name="AyatCount" xml:space="preserve">
+    <value>Ayet Sayısı</value>
+    <comment>Ayet Sayısı</comment>
+  </data>
+  <data name="ChronologicalOrder" xml:space="preserve">
+    <value>Nüzul Sırası</value>
+    <comment>Nüzul Sırası</comment>
+  </data>
+  <data name="Juz" xml:space="preserve">
+    <value>Cüz</value>
+    <comment>Cüz</comment>
+  </data>
+  <data name="TurkishName" xml:space="preserve">
+    <value>Adı (Türkçe)</value>
+    <comment>Adı (Türkçe)</comment>
+  </data>
+  <data name="AyatText" xml:space="preserve">
+    <value>Ayet Metni</value>
+    <comment>Ayet Metni</comment>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Gönder</value>
+    <comment>Gönder</comment>
+  </data>
+  <data name="AllRightsReserved" xml:space="preserve">
+    <value>Tüm hakları saklıdır</value>
+    <comment>Tüm hakları saklıdır.</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Hata!</value>
+    <comment>Hata!</comment>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Lütfen bekleyiniz...</value>
+    <comment>Lütfen bekleyiniz...</comment>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Başarılı!</value>
+    <comment>Başarılı!</comment>
+  </data>
+  <data name="BookManagement" xml:space="preserve">
+    <value>Kitap</value>
+    <comment>Kitap</comment>
+  </data>
+  <data name="HistoricalPeriod" xml:space="preserve">
+    <value>Tarihsel Dönem</value>
+    <comment>Tarihsel Dönem</comment>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Seçiniz</value>
+    <comment>[Seçiniz]</comment>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Yıl</value>
+    <comment>Yıl</comment>
+  </data>
+  <data name="CreationTime" xml:space="preserve">
+    <value>Oluşturulma Zamanı</value>
+    <comment>Oluşturulma Zamanı</comment>
+  </data>
+  <data name="Creator" xml:space="preserve">
+    <value>Oluşturan</value>
+    <comment>Oluşturan</comment>
+  </data>
+  <data name="LastModificationTime" xml:space="preserve">
+    <value>Son Değişiklik Zamanı</value>
+    <comment>Son Değişiklik Zamanı</comment>
+  </data>
+  <data name="LastModifier" xml:space="preserve">
+    <value>Son Değiştiren</value>
+    <comment>Son Değiştiren</comment>
+  </data>
+  <data name="HistoricalPeriodManagement" xml:space="preserve">
+    <value>Tarihsel Dönem</value>
+    <comment>Tarihsel Dönem</comment>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtrele</value>
+    <comment>Filtrele</comment>
+  </data>
+  <data name="Surah" xml:space="preserve">
+    <value>Sure</value>
+    <comment>Sure</comment>
+  </data>
+  <data name="AyatManagement" xml:space="preserve">
+    <value>Ayet</value>
+    <comment>Ayet</comment>
+  </data>
+  <data name="Letter" xml:space="preserve">
+    <value>Harf</value>
+    <comment>Harf</comment>
+  </data>
+  <data name="LetterManagement" xml:space="preserve">
+    <value>Harf</value>
+    <comment>Harf</comment>
+  </data>
+  <data name="SurahManagement" xml:space="preserve">
+    <value>Sure</value>
+    <comment>Sure</comment>
+  </data>
+  <data name="WordGroup" xml:space="preserve">
+    <value>Kelime Grubu</value>
+    <comment>Kelime Grubu</comment>
+  </data>
+  <data name="WordGroupManagement" xml:space="preserve">
+    <value>Kelime Grubu</value>
+    <comment>Kelime Grubu</comment>
+  </data>
+  <data name="Word" xml:space="preserve">
+    <value>Kelime</value>
+    <comment>Kelime</comment>
+  </data>
+  <data name="WordManagement" xml:space="preserve">
+    <value>Kelime</value>
+    <comment>Kelime</comment>
+  </data>
+  <data name="DifferentWordsCount" xml:space="preserve">
+    <value>Farklı Kelimelerin Sayısı</value>
+    <comment>Farklı Kelimelerin Sayısı</comment>
+  </data>
+  <data name="TotalWordsCount" xml:space="preserve">
+    <value>Toplam Kelime Sayısı</value>
+    <comment>Toplam Kelime Sayısı</comment>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Dil</value>
+    <comment>Dil</comment>
+  </data>
+  <data name="LanguageManagement" xml:space="preserve">
+    <value>Dil</value>
+    <comment>Dil</comment>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>İçerik</value>
+    <comment>İçerik</comment>
+  </data>
+  <data name="ContentDetail" xml:space="preserve">
+    <value>İçerik Detayı</value>
+    <comment>İçerik Detayı</comment>
+  </data>
+  <data name="NewImage" xml:space="preserve">
+    <value>Yeni Resim</value>
+    <comment>Yeni Resim</comment>
+  </data>
+  <data name="TartibOrder" xml:space="preserve">
+    <value>Tertib Sırası</value>
+    <comment>Tertip Sırası</comment>
+  </data>
+  <data name="FoundWordCount" xml:space="preserve">
+    <value>Bulunan Kelime Sayısı</value>
+    <comment>Bulunan Kelime Sayısı</comment>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>Seviye</value>
+    <comment>Seviye</comment>
+  </data>
+  <data name="Mudevvene" xml:space="preserve">
+    <value>Müdevvene</value>
+    <comment>Müdevvene</comment>
+  </data>
+  <data name="FromUser" xml:space="preserve">
+    <value>Gönderici</value>
+    <comment>Gönderici</comment>
+  </data>
+  <data name="LastProcess" xml:space="preserve">
+    <value>Son İşlem</value>
+    <comment>Son İşlem</comment>
+  </data>
+  <data name="LastProcessTime" xml:space="preserve">
+    <value>Son İşlem Tarihi</value>
+    <comment>Son İşlem Tarihi</comment>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Not</value>
+    <comment>Not</comment>
+  </data>
+  <data name="Process" xml:space="preserve">
+    <value>İşlem</value>
+    <comment>İşlem</comment>
+  </data>
+  <data name="ProcessTime" xml:space="preserve">
+    <value>İşlem Tarihi</value>
+    <comment>İşlem Tarihi</comment>
+  </data>
+  <data name="ToUser" xml:space="preserve">
+    <value>Alıcı</value>
+    <comment>Alıcı</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>İptal</value>
+    <comment>İptal</comment>
+  </data>
+  <data name="MyContentManagement" xml:space="preserve">
+    <value>İçeriklerim</value>
+    <comment>İçeriklerim</comment>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Ekle</value>
+    <comment>Ekle</comment>
+  </data>
+  <data name="Contributor" xml:space="preserve">
+    <value>Katkıcı</value>
+    <comment>Katkıcı</comment>
+  </data>
+  <data name="ContributorManagement" xml:space="preserve">
+    <value>Katkıcı</value>
+    <comment>Katkıcı</comment>
+  </data>
+  <data name="Genre" xml:space="preserve">
+    <value>Tür</value>
+    <comment>Tür</comment>
+  </data>
+  <data name="GenreManagement" xml:space="preserve">
+    <value>Yayın Türü</value>
+    <comment>Yayın Türü</comment>
+  </data>
+  <data name="Publisher" xml:space="preserve">
+    <value>Yayınevi</value>
+    <comment>Yayınevi</comment>
+  </data>
+  <data name="PublisherManagement" xml:space="preserve">
+    <value>Yayınevi</value>
+    <comment>Yayınevi</comment>
+  </data>
+  <data name="Series" xml:space="preserve">
+    <value>Seri</value>
+    <comment>Seri</comment>
+  </data>
+  <data name="SeriesManagement" xml:space="preserve">
+    <value>Seri</value>
+    <comment>Seri</comment>
+  </data>
+  <data name="AgeGroup" xml:space="preserve">
+    <value>Yaş Grubu</value>
+    <comment>Yaş Grubu</comment>
+  </data>
+  <data name="Barcode" xml:space="preserve">
+    <value>Barkod</value>
+    <comment>Barkod</comment>
+  </data>
+  <data name="BookDetail" xml:space="preserve">
+    <value>Kitap Detayı</value>
+    <comment>Kitap Detayı</comment>
+  </data>
+  <data name="Cover" xml:space="preserve">
+    <value>Kapak</value>
+    <comment>Kapak</comment>
+  </data>
+  <data name="Dimensions" xml:space="preserve">
+    <value>Boyutlar</value>
+    <comment>Boyutlar</comment>
+  </data>
+  <data name="Isbn" xml:space="preserve">
+    <value>ISBN</value>
+    <comment>ISBN</comment>
+  </data>
+  <data name="PageNumber" xml:space="preserve">
+    <value>Sayfa Sayısı</value>
+    <comment>Sayfa Sayısı</comment>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Fiyatı</value>
+    <comment>Fiyatı</comment>
+  </data>
+  <data name="PublicationDate" xml:space="preserve">
+    <value>Yayın Tarihi</value>
+    <comment>Yayın Tarihi</comment>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>Ağırlık</value>
+    <comment>Ağırlık</comment>
+  </data>
+  <data name="Genres" xml:space="preserve">
+    <value>Türler</value>
+    <comment>Türler</comment>
+  </data>
+  <data name="Contributors" xml:space="preserve">
+    <value>Katkıcılar</value>
+    <comment>Katkıcılar</comment>
+  </data>
+  <data name="PublicationStatus" xml:space="preserve">
+    <value>Yayın Durumu</value>
+    <comment>Yayın Durumu</comment>
+  </data>
+  <data name="PublicationStatusManagement" xml:space="preserve">
+    <value>Yayın Durumu</value>
+    <comment>Yayın Durumu</comment>
+  </data>
+  <data name="EmailSubscriber" xml:space="preserve">
+    <value>E-posta Abonesi</value>
+    <comment>E-posta Abonesi</comment>
+  </data>
+  <data name="EmailSubscriberManagement" xml:space="preserve">
+    <value>E-posta Abonesi</value>
+    <comment>E-posta Abonesi</comment>
+  </data>
+  <data name="PublicationStatuses" xml:space="preserve">
+    <value>Yayın Durumu</value>
+    <comment>Yayın Durumu</comment>
+  </data>
+  <data name="CacheManagement" xml:space="preserve">
+    <value>Önbellek</value>
+    <comment>Önbellek</comment>
+  </data>
+  <data name="Biography" xml:space="preserve">
+    <value>Özgeçmiş</value>
+    <comment>Özgeçmiş</comment>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Mesaj</value>
+    <comment>Mesaj</comment>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Konu</value>
+    <comment>Konu</comment>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Yazar</value>
+    <comment>Yazar</comment>
+  </data>
+  <data name="Authors" xml:space="preserve">
+    <value>Yazarlar</value>
+    <comment>Yazarlar</comment>
+  </data>
+  <data name="Illustrator" xml:space="preserve">
+    <value>Çizer</value>
+    <comment>Çizer</comment>
+  </data>
+  <data name="Illustrators" xml:space="preserve">
+    <value>Çizerler</value>
+    <comment>Çizerler</comment>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Diller</value>
+    <comment>Diller</comment>
+  </data>
+  <data name="Publishers" xml:space="preserve">
+    <value>Yayınevleri</value>
+    <comment>Yayınevleri</comment>
+  </data>
+  <data name="Translator" xml:space="preserve">
+    <value>Çevirmen</value>
+    <comment>Çevirmen</comment>
+  </data>
+  <data name="Translators" xml:space="preserve">
+    <value>Çevirmenler</value>
+    <comment>Çevirmenler</comment>
+  </data>
+</root>

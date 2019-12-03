@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DangerAssociatedRecordNotDeleted" xml:space="preserve">
+    <value>İlişkili kayıt silinemez!</value>
+    <comment>İlişkili kayıt silinemez!</comment>
+  </data>
+  <data name="DangerFieldDuplicated" xml:space="preserve">
+    <value>{0} daha önce kullanılmış!</value>
+    <comment>{0} daha önce kullanılmış!</comment>
+  </data>
+  <data name="DangerFieldIsEmpty" xml:space="preserve">
+    <value>{0} alanı boş bırakılamaz!</value>
+    <comment>{0} alanı boş bırakılamaz!</comment>
+  </data>
+  <data name="DangerFieldLengthLimit" xml:space="preserve">
+    <value>{0} alanı {1} karakterden az girilmiş!</value>
+    <comment>{0} alanı {1} karakterden az girilmiş!</comment>
+  </data>
+  <data name="DangerIdentityUserNotFound" xml:space="preserve">
+    <value>Kimlik bilgileri bulunamadı!</value>
+    <comment>Kimlik bilgileri bulunamadı!</comment>
+  </data>
+  <data name="DangerIncorrectOldPassword" xml:space="preserve">
+    <value>Mevcut şifre hatalı!</value>
+    <comment>Mevcut şifre hatalı!</comment>
+  </data>
+  <data name="DangerIncorrectPassword" xml:space="preserve">
+    <value>Hatalı şifre!</value>
+    <comment>Hatalı şifre!</comment>
+  </data>
+  <data name="DangerInvalidEntitiy" xml:space="preserve">
+    <value>İçerik geçerli değil!</value>
+    <comment>İçerik geçerli değil!</comment>
+  </data>
+  <data name="DangerInvalidPassword" xml:space="preserve">
+    <value>Şifre yeterince karmaşık değil!</value>
+    <comment>Şifre yeterince karmaşık değil!</comment>
+  </data>
+  <data name="DangerItemNotApproved" xml:space="preserve">
+    <value>İlgili kayıt onaylı değil!</value>
+    <comment>İlgili kayıt onaylı değil!</comment>
+  </data>
+  <data name="DangerUserHasNoRole" xml:space="preserve">
+    <value>Kullanıcıya tanımlı bir rol bulunamadı!</value>
+    <comment>Kullanıcıya tanımlı bir rol bulunamadı!</comment>
+  </data>
+  <data name="DangerListEmpty" xml:space="preserve">
+    <value>Liste boş!</value>
+    <comment>Liste boş!</comment>
+  </data>
+  <data name="DangerMailDeliveryFailed" xml:space="preserve">
+    <value>Posta gönderimi başarısız oldu!</value>
+    <comment>Posta gönderimi başarısız oldu!</comment>
+  </data>
+  <data name="DangerNoPermission" xml:space="preserve">
+    <value>Bu işlem için yetkiniz yok!</value>
+    <comment>Bu işlem için yetkiniz yok!</comment>
+  </data>
+  <data name="DangerPage404Message" xml:space="preserve">
+    <value>Üzgünüz böyle bir sayfa yok. Sayfa adresi yanlış yazılmış veya aradığınız sayfa yayından kaldırılmış olabilir. Şimdi anasayfaya yönlendiriliyorsunuz.</value>
+  </data>
+  <data name="DangerPage404Title" xml:space="preserve">
+    <value>Sayfa bulunamadı!</value>
+    <comment>Aradığınız sayfa bulunamadı!</comment>
+  </data>
+  <data name="DangerParentNotFound" xml:space="preserve">
+    <value>Bağlanacak üst kayıt bulunamadı!</value>
+    <comment>Bağlanacak üst kayıt bulunamadı!</comment>
+  </data>
+  <data name="DangerPasswordsDoNotMatch" xml:space="preserve">
+    <value>Şifreler aynı değil!</value>
+    <comment>Şifreler aynı değil!</comment>
+  </data>
+  <data name="DangerRecordNotFound" xml:space="preserve">
+    <value>Kayıt bulunamadı!</value>
+    <comment>Kayıt bulunamadı!</comment>
+  </data>
+  <data name="DangerApplicationNotFound" xml:space="preserve">
+    <value>Uygulama bulunamadı!</value>
+    <comment>Uygulama bulunamadı!</comment>
+  </data>
+  <data name="DangerUserNotFound" xml:space="preserve">
+    <value>Kullanıcı bulunamadı!</value>
+    <comment>Kullanıcı bulunamadı!</comment>
+  </data>
+  <data name="DangerRecordNotFoundInPage" xml:space="preserve">
+    <value>Sayfada kayıt bulunamadı!</value>
+    <comment>Sayfada kayıt bulunamadı!</comment>
+  </data>
+  <data name="DangerSecurityCodesDoNotMatched" xml:space="preserve">
+    <value>Güvenlik kodu uyuşmuyor!</value>
+    <comment>Güvenlik kodu uyuşmuyor!</comment>
+  </data>
+  <data name="InfoDeletionOperationSuccessful" xml:space="preserve">
+    <value>Silme işlemi başarıyla tamamlandı.</value>
+    <comment>Silme işlemi başarıyla tamamlandı.</comment>
+  </data>
+  <data name="InfoLoginOperationSuccessful" xml:space="preserve">
+    <value>Başarıyla giriş yapıldı.</value>
+    <comment>Başarıyla giriş yapıldı.</comment>
+  </data>
+  <data name="InfoLogoutOperationSuccessful" xml:space="preserve">
+    <value>Başarıyla çıkış yapıldı.</value>
+    <comment>Başarıyla çıkış yapıldı.</comment>
+  </data>
+  <data name="InfoPasswordSentSuccesfully" xml:space="preserve">
+    <value>Şifre başarıyla gönderildi.</value>
+    <comment>Şifre başarıyla gönderildi.</comment>
+  </data>
+  <data name="InfoSaveOperationSuccessful" xml:space="preserve">
+    <value>Kaydetme işlemi başarıyla tamamlandı.</value>
+    <comment>Kaydetme işlemi başarıyla tamamlandı.</comment>
+  </data>
+  <data name="InfoUpdateOperationSuccessful" xml:space="preserve">
+    <value>Düzenleme işlemi başarılı.</value>
+    <comment>Düzenleme işlemi başarılı.</comment>
+  </data>
+  <data name="QuestionAreYouSure" xml:space="preserve">
+    <value>Emin misiniz?</value>
+    <comment>Emin misiniz?</comment>
+  </data>
+  <data name="QuestionAreYouSureApproveSelected" xml:space="preserve">
+    <value>Seçilenleri onaylamak istediğinizden emin misiniz?</value>
+    <comment>Seçilenleri onaylamak istediğinizden emin misiniz?</comment>
+  </data>
+  <data name="QuestionAreYouSureDelete" xml:space="preserve">
+    <value>Silmek istediğinizden emin misiniz?</value>
+    <comment>Silmek istediğinizden emin misiniz?</comment>
+  </data>
+  <data name="QuestionAreYouSureDeleteSelected" xml:space="preserve">
+    <value>Seçili olanları silmek istediğinizden emin misiniz?</value>
+    <comment>Seçili olanları silmek istediinizden emin misiniz?</comment>
+  </data>
+  <data name="QuestionAreYouSureLogout" xml:space="preserve">
+    <value>Oturumu sonlandırmak istediğinizden emin misiniz?</value>
+    <comment>Oturumu sonlandırmak istediğinizden emin misiniz?</comment>
+  </data>
+  <data name="WarnInvalidField" xml:space="preserve">
+    <value>{0} alanına geçerli veri giriniz!</value>
+    <comment>{0} alanına geçerli veri giriniz!</comment>
+  </data>
+  <data name="WarnLoginOrRegister" xml:space="preserve">
+    <value>Giriş yapmalı ya da kayıt olmalısınız!</value>
+    <comment>Giriş yapmalı ya da kayıt olmalısınız!</comment>
+  </data>
+  <data name="WarnSessionTimeOut" xml:space="preserve">
+    <value>Oturum süresi doldu!</value>
+    <comment>Oturum süresi doldu!</comment>
+  </data>
+  <data name="DangerThisRecordCanNotDeleted" xml:space="preserve">
+    <value>Bu kayıt silinemez!</value>
+    <comment>Bu kayıt silinemez!</comment>
+  </data>
+  <data name="EnterYourUsernamePassword" xml:space="preserve">
+    <value>Lütfen kullanıcı adınızı ve şifrenizi giriniz.</value>
+    <comment>Lütfen kullanıcı adınızı ve şifrenizi giriniz.</comment>
+  </data>
+  <data name="EnterYourUsername" xml:space="preserve">
+    <value>Lütfen kullanıcı adınızı giriniz.</value>
+    <comment>Lütfen kullanıcı adınızı giriniz.</comment>
+  </data>
+  <data name="FillForm" xml:space="preserve">
+    <value>Lütfen formu doldurunuz.</value>
+    <comment>Lütfen formu doldurunuz.</comment>
+  </data>
+  <data name="DangerInvalidEmail" xml:space="preserve">
+    <value>E-posta adresi geçerli değil!</value>
+    <comment>E-posta adresi geçerli değil!</comment>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>{0} adet seçildi.</value>
+  </data>
+  <data name="DangerInvalidUploadJpgPng" xml:space="preserve">
+    <value>Yüklemek istediğiniz dosya ".jpg" ya da ".png" dosyası değil! </value>
+    <comment>Yüklemek istediğiniz dosya .jpg ya da .png dosyası değil!</comment>
+  </data>
+  <data name="DangerInvalidApiClient" xml:space="preserve">
+    <value>Api client yetkili değil!</value>
+    <comment>Api client yetkili değil!</comment>
+  </data>
+  <data name="DangerInvalidFileSize1MB" xml:space="preserve">
+    <value>1 MB'lık dosya boyutu kotasını aştınız!</value>
+    <comment>1 MB'lık dosya boyutu kotasını aştınız!</comment>
+  </data>
+</root>
