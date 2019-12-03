@@ -1,5 +1,7 @@
 # AnkaCMS
-Anka efsanevi bir kuştur. Doğu mitoloji ve efsanelerinde yer edinmiştir. Anka'nın en yaygın özelliği sonsuzluğu, kimseye muhtaç olmadan kendi başına yaşadığı için kanaati temsil etmesidir. Kaf Dağı gibi efsanevî bir yerde yaşar. Kanaat sahibi ve alçak gönüllü, her şeye ve herkese eğilmeyen, kimseye minnet etmeyen, uzlete çekilmiş kişileri ifade eder. Aynı zaman da projenin çıkış şehri Ankara'ya nispetle Anka ön eki kullanılmıştır :) CMS (Content Management System - İçerik Yönetim Sistemi) projenin ilk ürün hedefini ifade etmektedir. Bu nedenle AnkaCMS.
+Anka efsanevi bir kuştur. Doğu mitoloji ve efsanelerinde yer edinmiştir. Sonsuzluğu, kimseye muhtaç olmamayı, kendi başına yaşamayı  seçtiği için kanaat sahibi olmayı, alçak gönüllülüğü temsil eder. Her şeye ve herkese eğilmez. Kimseye minnet etmez. Kaf Dağı gibi efsanevî bir yerde yaşar. 
+Aynı zaman da projenin çıkış şehri Ankara'ya nispetle Anka ön eki kullanılmıştır :) 
+CMS (Content Management System - İçerik Yönetim Sistemi) projenin ilk ürün hedefini ifade etmektedir. Bu nedenle AnkaCMS.
 ## Proje Yapısı
 - Proje dokümanları "/doc" klasöründe,
 - Projede kullanılan ham kodlar, muhtelif dosyalar ve materyaller "/res" klasöründe,
