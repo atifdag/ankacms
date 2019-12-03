@@ -10,3 +10,7 @@ git config --global user.email "epostaadresiniz@siteniz.com"
 2. Komut satırından ```git --version``` komutuyla kurulumu test edin. Karşınızda git’in versiyonunu görüyorsanız git istemcisini başarılı bir şekilde kurdunuz demektir.
 3. https://nodejs.org adresinden adresinden kendi sisteminize uygun olan kurulum dosyasını indirin ve kurulumu başlatın. Kurulum sonrasında komut satırından ```npm --version``` komutuyla kurulumu test edin. Karşınızda npm’in versiyonunu görüyorsanız kurulum başarılı demektir.
 4. https://dotnet.microsoft.com/download/dotnet-core/current/runtime adresinden kendi sisteminize uygun olan ".NET Core Runtime" ve ".NET Core Desktop Runtime" kurulum dosyalarını indirin ve kurulumu başlatın. Kurulum sonrasında komut satırından ```dotnet --version``` komutuyla kurulumu test edin. Karşınızda dotnet’in versiyonunu görüyorsanız kurulum başarılı demektir.
+5. Komut satırından ```git clone https://github.com/atifdag/ankacms.git``` komutuyla projeyi bilgisayarınıza indirin.
+6. ```npm i -g @angular/cli``` komutuyla "Angular CLI" paketini indirip kurun.
+7. Komut satırından projenin olduğu klasörde iken ```npm i``` komutuyla projede kullanılan paketleri kurun.
+8. ```ng s -o``` komutuyla projeyi çalıştırın.
