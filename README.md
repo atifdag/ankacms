@@ -12,7 +12,7 @@ CMS (Content Management System - İçerik Yönetim Sistemi) projenin ilk ürün 
 bulunmaktadır.
 Projenin sunucu taraflı kodları ".NET Core" ile istemci-web taraflı kodları ise Angular ile hazırlanmaktadır.
 ## Projeyi Çalıştırma
-Projeyi çalıştırmak için şu aşamaları takip edin:
+Projeyi çalıştırmak için bilgisayarınızda ".Net Core", "git" ve "Node.js" kurulu olmalıdır. Eğer yoksa şu aşamaları takip edin:
 1. https://git-scm.com/download adresinden kendi sisteminize uygun olan kurulum dosyasını indirin ve kurulumu başlatın. Kurulum sonrasında komut satırından aşağıdaki komutlarla git istemcisine kendinizi tanıtın.
 ```
 git config --global user.name "Adınız ve Soyadınız"
