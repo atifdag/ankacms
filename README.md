@@ -9,7 +9,7 @@ bulunmaktadır.
 Projenin sunucu taraflı kodları ".NET Core" ile istemci-web taraflı kodları ise Angular ile hazırlanmaktadır.
 ## Projeyi Çalıştırma
 Projeyi çalıştırmak için şu aşamaları takip edin:
-1. https://git-scm.com/download/win adresinden kendi sisteminize uygun olan kurulum dosyasını indirin ve kurulumu başlatın. Kurulum sonrasında komut satırından aşağıdaki komutlarla git istemcisine kendinizi tanıtın.
+1. https://git-scm.com/download adresinden kendi sisteminize uygun olan kurulum dosyasını indirin ve kurulumu başlatın. Kurulum sonrasında komut satırından aşağıdaki komutlarla git istemcisine kendinizi tanıtın.
 ```
 git config --global user.name "Adınız ve Soyadınız"
 git config --global user.email "epostaadresiniz@siteniz.com"
@@ -19,9 +19,9 @@ git config --global user.email "epostaadresiniz@siteniz.com"
 4. https://dotnet.microsoft.com/download/dotnet-core/current/runtime adresinden kendi sisteminize uygun olan ".NET Core Runtime" ve ".NET Core Desktop Runtime" kurulum dosyalarını indirin ve kurulumu başlatın. Kurulum sonrasında komut satırından ```dotnet --version``` komutuyla kurulumu test edin. Karşınızda dotnet’in versiyonunu görüyorsanız kurulum başarılı demektir.
 5. Komut satırından ```git clone https://github.com/atifdag/ankacms.git``` komutuyla projeyi bilgisayarınıza indirin.
 6. Komut satırından ```npm i -g @angular/cli``` komutuyla "Angular CLI" paketini indirip kurun.
-7. Komut satırından "/src/client/angular-web-admin" klasöründe iken ```npm i``` komutuyla bu projede kullanılan paketleri kurun.
-8. Komut satırından "/src/client/angular-web-admin" klasöründe iken ```ng s -o``` komutuyla Angular tabanlı web sitesi yönetim paneli projesini çalıştırın.
+7. Komut satırından "src/client/angular-web-admin" klasöründe iken ```npm i``` komutuyla bu projede kullanılan paketleri kurun.
+8. Komut satırından "src/client/angular-web-admin" klasöründe iken ```ng s -o``` komutuyla Angular tabanlı web sitesi yönetim paneli projesini çalıştırın.
 9. Komut satırından "src/server/AnkaCMS.SetupConsoleApp" klasöründe iken ```dotnet run``` komutuyla kurulumu yapın.
 10. Komut satırından "src/server/AnkaCMS.WebApi" klasöründe iken ```dotnet run --urls="http://localhost:10001"``` komutuyla Web Api projesini çalıştırın.
-11. Komut satırından "/src/client/angular-web-admin" klasöründe iken ```npm i``` komutuyla bu projede kullanılan paketleri kurun.
-12. Komut satırından "/src/client/angular-web-admin" klasöründe iken ```ng s -o``` komutuyla projenin Angular tabanlı halka açık web sitesini çalıştırın.
+11. Komut satırından "src/client/angular-web-admin" klasöründe iken ```npm i``` komutuyla bu projede kullanılan paketleri kurun.
+12. Komut satırından "src/client/angular-web-admin" klasöründe iken ```ng s -o``` komutuyla projenin Angular tabanlı halka açık web sitesini çalıştırın.
