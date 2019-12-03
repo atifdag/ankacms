@@ -1,5 +1,5 @@
 # AnkaCMS
-Anka efsanevi bir kuştur. Doğu mitoloji ve efsanelerinde yer edinmiştir. Sonsuzluğu, kimseye muhtaç olmamayı, kendi başına yaşamayı  seçtiği için kanaat sahibi olmayı, alçak gönüllülüğü temsil eder. Her şeye ve herkese eğilmez. Kimseye minnet etmez. Kaf Dağı gibi efsanevî bir yerde yaşar. 
+Anka efsanevi bir kuştur. Doğu mitoloji ve efsanelerinde yer edinmiştir. Kimseye muhtaç olmamayı, kendi başına yaşamayı  seçtiği için kanaat sahibi olmayı, alçak gönüllülüğü ve sonsuzluğu temsil eder. Her şeye ve herkese eğilmez. Kimseye minnet etmez. Kaf Dağı gibi efsanevî bir yerde yaşar. 
 
 Aynı zaman da projenin çıkış şehri Ankara'ya nispetle Anka ön eki kullanılmıştır :) 
 
