@@ -19,10 +19,10 @@ namespace AnkaCMS.SetupConsoleApp
             get
             {
 
-                var path = AppDomain.CurrentDomain.BaseDirectory;
-                if (AppDomain.CurrentDomain.BaseDirectory.Contains("bin"))
+                var path = AppContext.BaseDirectory;
+                if (AppContext.BaseDirectory.Contains("bin"))
                 {
-                    path = AppDomain.CurrentDomain.BaseDirectory.Split(new[] { @"bin\" }, StringSplitOptions.None)[0];
+                    path = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.IndexOf("bin", StringComparison.Ordinal));
                 }
 
                 var appsettingFile = "appsettings.json";
