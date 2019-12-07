@@ -10,7 +10,7 @@ export class AppSettingsService {
     private previousUrl: string = undefined;
     private currentUrl: string = undefined;
 
-    jwtSecurityKey = '5837b4ce-5a74-4cea-9f65-4d10cdc464ce';
+    jwtSecurityKey = 'f2ee3016-cbae-4a6a-9732-15e7b46407fc';
     tokenKey = 'ankacms-token';
     apiUrl = environment.apiUrl;
     calendarTr = {

@@ -4,6 +4,42 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="ContentFiles\0cb38d13-de6d-44de-9a2e-a81800d26438\blank.txt" />
+    <None Remove="ContentFiles\1ae2a647-ee19-42ee-b737-a81800d52513\blank.txt" />
+    <None Remove="ContentFiles\20db39d5-e11f-42b9-9a00-a81800bbde8a\blank.txt" />
+    <None Remove="ContentFiles\42a02345-646b-49b2-98ee-a81800d2576d\blank.txt" />
+    <None Remove="ContentFiles\8f8c46cc-7c58-4646-98f0-a81800d2640c\blank.txt" />
+    <None Remove="ContentFiles\9303ca32-5cde-407c-ac89-a81800d524da\blank.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ContentFiles\0cb38d13-de6d-44de-9a2e-a81800d26438\blank.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ContentFiles\1ae2a647-ee19-42ee-b737-a81800d52513\blank.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ContentFiles\20db39d5-e11f-42b9-9a00-a81800bbde8a\blank.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ContentFiles\42a02345-646b-49b2-98ee-a81800d2576d\blank.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ContentFiles\8f8c46cc-7c58-4646-98f0-a81800d2640c\blank.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ContentFiles\9303ca32-5cde-407c-ac89-a81800d524da\blank.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AnkaCMS.Data\AnkaCMS.Data.csproj" />
   </ItemGroup>
