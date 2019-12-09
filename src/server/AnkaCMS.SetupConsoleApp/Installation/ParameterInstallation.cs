@@ -34,7 +34,7 @@ namespace AnkaCMS.SetupConsoleApp.Installation
             new Tuple<string, string, string>("PGAPPLICATION","SessionTimeOut","20"),
             new Tuple<string, string, string>("PGAPPLICATION","PageSizeList","5,10,25,50,100,500"),
             new Tuple<string, string, string>("PGAPPLICATION","DefaultPageSize","10"),
-            new Tuple<string, string, string>("PGAPPLICATION","EmailTemplatePath","wwwroot/Assets/EmailTemplates"),
+            new Tuple<string, string, string>("PGAPPLICATION","EmailTemplatePath","wwwroot/EmailTemplates"),
             new Tuple<string, string, string>("PGAPPLICATION","MemoryCacheMainKey","AnkaCMSWebApiCacheMainKey"),
             new Tuple<string, string, string>("PGMAIL","SmtpServer","smtp.office365.com"),
             new Tuple<string, string, string>("PGMAIL","SmtpPort","587"),

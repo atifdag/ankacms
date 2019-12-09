@@ -1,14 +1,14 @@
-﻿using AnkaCMS.Service;
-using AnkaCMS.Core.Helpers;
-using AnkaCMS.Core.Security;
-using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text;
+using AnkaCMS.Core.Helpers;
+using AnkaCMS.Core.Security;
+using AnkaCMS.Service;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json.Linq;
 
-namespace AnkaCMS.WebApi.Infrastructure
+namespace AnkaCMS.WebApi
 {
     public class TokenBaseIdentityService : IIdentityService
     {

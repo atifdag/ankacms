@@ -1,14 +1,14 @@
-﻿using AnkaCMS.Service;
-using AnkaCMS.Core.Security;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
+using AnkaCMS.Core.Security;
+using AnkaCMS.Service;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace AnkaCMS.WebApi.Infrastructure
+namespace AnkaCMS.WebApi
 {
 
     // Her request öncesi çalışır.

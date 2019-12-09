@@ -1,18 +1,17 @@
-﻿using AnkaCMS.Data.DataAccess.EntityFramework;
+﻿using AnkaCMS.Core;
+using AnkaCMS.Core.Caching;
+using AnkaCMS.Core.Helpers;
+using AnkaCMS.Data.DataAccess.EntityFramework;
 using AnkaCMS.Service;
 using AnkaCMS.Service.Implementations;
 using AnkaCMS.Service.Implementations.EmailMessaging.SystemNet;
-using AnkaCMS.Core;
-using AnkaCMS.Core.Caching;
-using AnkaCMS.Core.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-
-namespace AnkaCMS.WebApi.Infrastructure
+namespace AnkaCMS.WebApi
 {
     public static class ServiceCollectionExtensions
     {
