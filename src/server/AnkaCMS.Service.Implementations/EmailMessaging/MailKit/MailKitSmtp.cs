@@ -66,20 +66,17 @@ namespace AnkaCMS.Service.Implementations.EmailMessaging.MailKit
                 };
             }
 
-            using (var smtpClient = new SmtpClient())
+            using var smtpClient = new SmtpClient();
+            smtpClient.Connect(_smtpClient.Host, _smtpClient.Port, _smtpClient.EnableSsl ? SecureSocketOptions.SslOnConnect : SecureSocketOptions.None);
+            if (!_smtpClient.UseDefaultCredentials)
             {
-
-                smtpClient.Connect(_smtpClient.Host, _smtpClient.Port, _smtpClient.EnableSsl ? SecureSocketOptions.SslOnConnect : SecureSocketOptions.None);
-                if (!_smtpClient.UseDefaultCredentials)
+                if (!_smtpClient.UseDefaultNetworkCredentials)
                 {
-                    if (!_smtpClient.UseDefaultNetworkCredentials)
-                    {
-                        smtpClient.Authenticate(_smtpClient.Username, _smtpClient.Password);
-                    }
+                    smtpClient.Authenticate(_smtpClient.Username, _smtpClient.Password);
                 }
-                smtpClient.Send(message);
-                smtpClient.Disconnect(true);
             }
+            smtpClient.Send(message);
+            smtpClient.Disconnect(true);
         }
 
         public void SendWithTemplate(EmailMessage emailMessage, string emailTemplate, List<EmailRow> emailRows)

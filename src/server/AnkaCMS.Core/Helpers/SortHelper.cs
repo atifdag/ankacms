@@ -16,7 +16,7 @@ namespace AnkaCMS.Core.Helpers
         }
 
         private Collection<Dictionary<LambdaExpression, SortObject>> _sortingExpressionList;
-        private Collection<Dictionary<LambdaExpression, SortObject>> SortingExpressionList => _sortingExpressionList ?? (_sortingExpressionList = new Collection<Dictionary<LambdaExpression, SortObject>>());
+        private Collection<Dictionary<LambdaExpression, SortObject>> SortingExpressionList => _sortingExpressionList ??= new Collection<Dictionary<LambdaExpression, SortObject>>();
 
         public IOrderedQueryable<T> GenerateOrderedQuery(IOrderedQueryable<T> query)
         {

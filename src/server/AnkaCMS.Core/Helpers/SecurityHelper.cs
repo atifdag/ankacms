@@ -13,11 +13,11 @@ namespace AnkaCMS.Core.Helpers
     /// </summary>
     public static class SecurityHelper
     {
-        private const string InitVector = "6X#ny0Y-!i1WbJ%2";
+        private const string InitVector = "d4464086+f8f7!42";
         private const int KeySize = 256;
         private const int PasswordIterations = 10000;
-        private const string SaltValue = "1jT?!C6rSm-05By%b8#W7+Fo@Gf32z#XwE9!4q+Y@9PeZ%g6-2HcpQ?1?5Jta+8R";
-        private const string PassPhrase = "y+H6#A5p";
+        private const string SaltValue = "c077cff4-72bd-4636-afb9-d3148b515bbd";
+        private const string PassPhrase = "c9c806da-0c16-4e73-b78d-d78dd8c382d5";
 
 
         /// <summary>
@@ -31,28 +31,18 @@ namespace AnkaCMS.Core.Helpers
             var passwordBytes = Encoding.UTF8.GetBytes(PassPhrase);
             var plainTextBytes = Encoding.UTF8.GetBytes(plainText);
             var saltValueBytes = Encoding.UTF8.GetBytes(SaltValue);
-            using (var password = new Rfc2898DeriveBytes(passwordBytes, saltValueBytes, PasswordIterations))
-            {
-                var keyBytes = password.GetBytes(KeySize / 8);
-                using (var rijndaelManaged = new RijndaelManaged { Mode = CipherMode.CBC })
-                {
-                    using (var encryptor = rijndaelManaged.CreateEncryptor(keyBytes, initVectorBytes))
-                    {
-                        using (var memoryStream = new MemoryStream())
-                        {
-                            using (var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
-                            {
-                                cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
-                                cryptoStream.FlushFinalBlock();
-                                var t = memoryStream.ToArray();
-                                cryptoStream.Close();
-                                memoryStream.Close();
-                                return Convert.ToBase64String(t);
-                            }
-                        }
-                    }
-                }
-            }
+            using var password = new Rfc2898DeriveBytes(passwordBytes, saltValueBytes, PasswordIterations);
+            var keyBytes = password.GetBytes(KeySize / 8);
+            using var rijndaelManaged = new RijndaelManaged { Mode = CipherMode.CBC };
+            using var encryptor = rijndaelManaged.CreateEncryptor(keyBytes, initVectorBytes);
+            using var memoryStream = new MemoryStream();
+            using var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write);
+            cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
+            cryptoStream.FlushFinalBlock();
+            var t = memoryStream.ToArray();
+            cryptoStream.Close();
+            memoryStream.Close();
+            return Convert.ToBase64String(t);
         }
 
         /// <summary>
@@ -66,26 +56,16 @@ namespace AnkaCMS.Core.Helpers
             var initVectorBytes = Encoding.UTF8.GetBytes(InitVector);
             var passwordBytes = Encoding.UTF8.GetBytes(PassPhrase);
             var saltValueBytes = Encoding.UTF8.GetBytes(SaltValue);
-            using (var password = new Rfc2898DeriveBytes(passwordBytes, saltValueBytes, PasswordIterations))
-            {
-                var keyBytes = password.GetBytes(KeySize / 8);
-                using (var rijndaelManaged = new RijndaelManaged { Mode = CipherMode.CBC })
-                {
-                    using (var decryptor = rijndaelManaged.CreateDecryptor(keyBytes, initVectorBytes))
-                    {
-                        using (var memoryStream = new MemoryStream(encryptedTextBytes))
-                        {
-                            using (var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
-                            {
-                                var plainTextBytes = new byte[encryptedTextBytes.Length];
-                                var decryptedByteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
-                                cryptoStream.Close();
-                                return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount);
-                            }
-                        }
-                    }
-                }
-            }
+            using var password = new Rfc2898DeriveBytes(passwordBytes, saltValueBytes, PasswordIterations);
+            var keyBytes = password.GetBytes(KeySize / 8);
+            using var rijndaelManaged = new RijndaelManaged { Mode = CipherMode.CBC };
+            using var decryptor = rijndaelManaged.CreateDecryptor(keyBytes, initVectorBytes);
+            using var memoryStream = new MemoryStream(encryptedTextBytes);
+            using var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read);
+            var plainTextBytes = new byte[encryptedTextBytes.Length];
+            var decryptedByteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
+            cryptoStream.Close();
+            return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount);
         }
 
         /// <summary>
@@ -97,11 +77,9 @@ namespace AnkaCMS.Core.Helpers
         public static string ToHmacSha256(string input, string key)
         {
             var byteKey = Encoding.UTF8.GetBytes(key);
-            using (var hash = new HMACSHA256(byteKey))
-            {
-                var bytes = hash.ComputeHash(Encoding.UTF8.GetBytes(input));
-                return Convert.ToBase64String(bytes);
-            }
+            using var hash = new HMACSHA256(byteKey);
+            var bytes = hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+            return Convert.ToBase64String(bytes);
         }
 
         /// <summary>
@@ -178,16 +156,14 @@ namespace AnkaCMS.Core.Helpers
         /// <returns></returns>
         public static string ToSha512(this string str)
         {
-            using (var hashTool = SHA512.Create())
+            using var hashTool = SHA512.Create();
+            var encryptedBytes = hashTool.ComputeHash(Encoding.UTF8.GetBytes(str));
+            var stringBuilder = new StringBuilder();
+            foreach (var t in encryptedBytes)
             {
-                var encryptedBytes = hashTool.ComputeHash(Encoding.UTF8.GetBytes(str));
-                var stringBuilder = new StringBuilder();
-                foreach (var t in encryptedBytes)
-                {
-                    stringBuilder.Append(t.ToString("x2"));
-                }
-                return stringBuilder.ToString();
+                stringBuilder.Append(t.ToString("x2"));
             }
+            return stringBuilder.ToString();
         }
 
         /// <summary>
@@ -220,51 +196,49 @@ namespace AnkaCMS.Core.Helpers
                 leftGroupsOrder[i] = i;
             }
             var randomBytes = new byte[4];
-            using (var rng = RandomNumberGenerator.Create())
+            using var rng = RandomNumberGenerator.Create();
+            rng.GetBytes(randomBytes);
+            var seed = BitConverter.ToInt32(randomBytes, 0);
+            var random = new Random(seed);
+            var password = new char[length];
+            var lastLeftGroupsOrderIdx = leftGroupsOrder.Length - 1;
+            for (var i = 0; i < password.Length; i++)
             {
-                rng.GetBytes(randomBytes);
-                var seed = BitConverter.ToInt32(randomBytes, 0);
-                var random = new Random(seed);
-                var password = new char[length];
-                var lastLeftGroupsOrderIdx = leftGroupsOrder.Length - 1;
-                for (var i = 0; i < password.Length; i++)
+                var nextLeftGroupsOrderIdx = lastLeftGroupsOrderIdx == 0 ? 0 : random.Next(0, lastLeftGroupsOrderIdx);
+                var nextGroupIdx = leftGroupsOrder[nextLeftGroupsOrderIdx];
+                var lastCharIdx = charsLeftInGroup[nextGroupIdx] - 1;
+                var nextCharIdx = lastCharIdx == 0 ? 0 : random.Next(0, lastCharIdx + 1);
+                password[i] = charGroups[nextGroupIdx][nextCharIdx];
+                if (lastCharIdx == 0)
                 {
-                    var nextLeftGroupsOrderIdx = lastLeftGroupsOrderIdx == 0 ? 0 : random.Next(0, lastLeftGroupsOrderIdx);
-                    var nextGroupIdx = leftGroupsOrder[nextLeftGroupsOrderIdx];
-                    var lastCharIdx = charsLeftInGroup[nextGroupIdx] - 1;
-                    var nextCharIdx = lastCharIdx == 0 ? 0 : random.Next(0, lastCharIdx + 1);
-                    password[i] = charGroups[nextGroupIdx][nextCharIdx];
-                    if (lastCharIdx == 0)
-                    {
-                        charsLeftInGroup[nextGroupIdx] = charGroups[nextGroupIdx].Length;
-                    }
-                    else
-                    {
-                        if (lastCharIdx != nextCharIdx)
-                        {
-                            var temp = charGroups[nextGroupIdx][lastCharIdx];
-                            charGroups[nextGroupIdx][lastCharIdx] = charGroups[nextGroupIdx][nextCharIdx];
-                            charGroups[nextGroupIdx][nextCharIdx] = temp;
-                        }
-                        charsLeftInGroup[nextGroupIdx]--;
-                    }
-                    if (lastLeftGroupsOrderIdx == 0)
-                    {
-                        lastLeftGroupsOrderIdx = leftGroupsOrder.Length - 1;
-                    }
-                    else
-                    {
-                        if (lastLeftGroupsOrderIdx != nextLeftGroupsOrderIdx)
-                        {
-                            var temp = leftGroupsOrder[lastLeftGroupsOrderIdx];
-                            leftGroupsOrder[lastLeftGroupsOrderIdx] = leftGroupsOrder[nextLeftGroupsOrderIdx];
-                            leftGroupsOrder[nextLeftGroupsOrderIdx] = temp;
-                        }
-                        lastLeftGroupsOrderIdx--;
-                    }
+                    charsLeftInGroup[nextGroupIdx] = charGroups[nextGroupIdx].Length;
                 }
-                return new string(password);
+                else
+                {
+                    if (lastCharIdx != nextCharIdx)
+                    {
+                        var temp = charGroups[nextGroupIdx][lastCharIdx];
+                        charGroups[nextGroupIdx][lastCharIdx] = charGroups[nextGroupIdx][nextCharIdx];
+                        charGroups[nextGroupIdx][nextCharIdx] = temp;
+                    }
+                    charsLeftInGroup[nextGroupIdx]--;
+                }
+                if (lastLeftGroupsOrderIdx == 0)
+                {
+                    lastLeftGroupsOrderIdx = leftGroupsOrder.Length - 1;
+                }
+                else
+                {
+                    if (lastLeftGroupsOrderIdx != nextLeftGroupsOrderIdx)
+                    {
+                        var temp = leftGroupsOrder[lastLeftGroupsOrderIdx];
+                        leftGroupsOrder[lastLeftGroupsOrderIdx] = leftGroupsOrder[nextLeftGroupsOrderIdx];
+                        leftGroupsOrder[nextLeftGroupsOrderIdx] = temp;
+                    }
+                    lastLeftGroupsOrderIdx--;
+                }
             }
+            return new string(password);
         }
 
     }

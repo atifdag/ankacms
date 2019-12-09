@@ -113,34 +113,27 @@ namespace AnkaCMS.Core.Helpers
 
             // Convert other formats (including CMYK) to RGB.
 
-            using (var newImage = new Bitmap(_newWidth, _newHeight, PixelFormat.Format24bppRgb))
+            using var newImage = new Bitmap(_newWidth, _newHeight, PixelFormat.Format24bppRgb);
+            // Draws the image in the specified size with quality mode set to HighQuality
+            using (var graphics = Graphics.FromImage(newImage))
             {
-                // Draws the image in the specified size with quality mode set to HighQuality
-                using (var graphics = Graphics.FromImage(newImage))
-                {
-                    graphics.CompositingQuality = CompositingQuality.HighQuality;
-                    graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                    graphics.SmoothingMode = SmoothingMode.HighQuality;
-                    graphics.DrawImage(image, 0, 0, _newWidth, _newHeight);
-                }
-
-                // Create an Encoder object for the Quality parameter.
-                var encoder = Encoder.Quality;
-
-                // Create an EncoderParameters object. 
-                var encoderParameters = new EncoderParameters(1);
-
-                // Save the image as a JPEG file with quality level.
-                var encoderParameter = new EncoderParameter(encoder, quality);
-                encoderParameters.Param[0] = encoderParameter;
-
-                return newImage;
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.DrawImage(image, 0, 0, _newWidth, _newHeight);
             }
 
+            // Create an Encoder object for the Quality parameter.
+            var encoder = Encoder.Quality;
 
+            // Create an EncoderParameters object. 
+            var encoderParameters = new EncoderParameters(1);
 
+            // Save the image as a JPEG file with quality level.
+            var encoderParameter = new EncoderParameter(encoder, quality);
+            encoderParameters.Param[0] = encoderParameter;
 
-
+            return newImage;
         }
 
         #endregion
@@ -155,11 +148,9 @@ namespace AnkaCMS.Core.Helpers
         /// <returns>byte[]</returns>
         public static byte[] ToByteArray(this Image image, ImageFormat format)
         {
-            using (var memoryStream = new MemoryStream())
-            {
-                image.Save(memoryStream, format);
-                return memoryStream.ToArray();
-            }
+            using var memoryStream = new MemoryStream();
+            image.Save(memoryStream, format);
+            return memoryStream.ToArray();
         }
 
         #endregion
@@ -682,13 +673,9 @@ namespace AnkaCMS.Core.Helpers
         /// <returns>Bitmap</returns>
         public static Image CutImage(Image image, int width, int height, DirectionOption directionOption)
         {
-            using (var bitmap = ImageToBitmap(image))
-            {
-                using (var yeniBitmap = bitmap.Clone(new Rectangle(0, 0, width, height), bitmap.PixelFormat))
-                {
-                    return BitmapToImage(yeniBitmap);
-                }
-            }
+            using var bitmap = ImageToBitmap(image);
+            using var yeniBitmap = bitmap.Clone(new Rectangle(0, 0, width, height), bitmap.PixelFormat);
+            return BitmapToImage(yeniBitmap);
         }
         #endregion
 
@@ -712,10 +699,8 @@ namespace AnkaCMS.Core.Helpers
         {
             try
             {
-                using (var img = Image.FromFile(path))
-                {
-                    return ImageToBitmap(img);
-                }
+                using var img = Image.FromFile(path);
+                return ImageToBitmap(img);
             }
             catch (Exception ex)
             {
@@ -728,11 +713,9 @@ namespace AnkaCMS.Core.Helpers
             // Convert base 64 string to byte[]
             var imageBytes = Convert.FromBase64String(base64String);
             // Convert byte[] to Image
-            using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
-            {
-                var image = Image.FromStream(ms, true);
-                return image;
-            }
+            using var ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
+            var image = Image.FromStream(ms, true);
+            return image;
         }
 
 
@@ -761,12 +744,10 @@ namespace AnkaCMS.Core.Helpers
         /// <returns>Stream</returns>
         public static Stream BitmapToStream(Bitmap bitmap, ImageFormat imageFormat)
         {
-            using (var memoryStream = new MemoryStream())
-            {
-                _stream = memoryStream;
-                bitmap.Save(_stream, imageFormat);
-                return _stream;
-            }
+            using var memoryStream = new MemoryStream();
+            _stream = memoryStream;
+            bitmap.Save(_stream, imageFormat);
+            return _stream;
         }
 
         /// <summary>
@@ -822,12 +803,9 @@ namespace AnkaCMS.Core.Helpers
         public static void SaveImageFromBase64String(string base64String, string filePath)
         {
             var bytes = Convert.FromBase64String(base64String);
-            using (var imageFile = new FileStream(filePath, FileMode.Create))
-            {
-                imageFile.Write(bytes, 0, bytes.Length);
-                imageFile.Flush();
-            }
-
+            using var imageFile = new FileStream(filePath, FileMode.Create);
+            imageFile.Write(bytes, 0, bytes.Length);
+            imageFile.Flush();
         }
 
         public static string AddCharacterForSplitedText(string text, string joinText)
