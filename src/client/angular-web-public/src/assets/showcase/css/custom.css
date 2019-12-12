@@ -1,0 +1,136 @@
+html {
+    overflow-y: scroll;
+  }
+  .topbar-menu>li.topbar-menu-dropdowns {
+    position: relative;
+}
+
+
+.topbar-menu > li{
+    padding: 0 15px;
+}
+
+.topbar-profile {
+    background: url('/assets/showcase/images/user.png') no-repeat 16px 50%;
+    padding-left: 58px;
+}
+
+.topbar-menu>li.topbar-menu-dropdowns>a {
+    min-width: 40px;
+    cursor: pointer;
+}
+
+.topbar-menu>li.topbar-menu-dropdowns:hover>ul {
+    display: block;
+}
+
+.topbar-menu>li.topbar-menu-dropdowns>ul {
+    position: absolute;
+    top: 65px;
+    max-height: 300px;
+    background-color: #ffffff;
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    list-style-type: none;
+    padding: 15px 0;
+    margin: 0;
+    border-radius: 3px;
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    animation-duration: .5s;
+}
+
+.topbar-menu>li.topbar-menu-dropdowns>ul a {
+    text-decoration: none;
+    color: #404C51;
+    padding: 6px 12px;
+    display: block;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.topbar-menu>li.topbar-menu-dropdowns>ul a:hover {
+    background-color: #eeeeee;
+}
+
+
+.text-left{
+    text-align: left;
+}
+
+
+.text-center{
+    text-align: center;
+}
+
+.text-right{
+    text-align: right;
+}
+
+fieldset{
+    border: 1px solid #c8c8c8;
+    border-radius: 3px;
+}
+
+fieldset legend{
+padding: 0 5px;
+}
+
+form.userForm{
+    margin: 1em 0;
+}
+
+.signin-wrapper {
+    padding-bottom: 0px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.signindiv {
+    margin: 0px auto;
+    max-width: 350px;
+}
+
+.tableOpsBtn{
+    width: auto !important;
+}
+
+.tableOpsBtn .ui-menuitem-link{
+    text-align: left;
+}
+
+.coverimage {
+	max-width: 170px !important;
+
+}
+
+
+.coverblankimage {
+	width: 170px;
+	height: 100px;
+}
+
+.img-thumbnail {
+    padding: .25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    max-width: 100%;
+    height: auto;
+    -webkit-border-radius: .25rem;
+    -moz-border-radius: .25rem;
+    -ms-border-radius: .25rem;
+    -o-border-radius: .25rem;
+}
+
+.lightboxImage{
+    max-width: 800px;
+}
+
+.arabic{
+    font-size: 150%;
+}
