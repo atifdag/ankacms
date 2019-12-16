@@ -121,6 +121,12 @@ namespace AnkaCMS.SetupConsoleApp.Installation
                 Tuple.Create("MANSET","42A02345-646B-49B2-98EE-A81800D2576D"),
                 Tuple.Create("MANSET","8F8C46CC-7C58-4646-98F0-A81800D2640C"),
                 Tuple.Create("MANSET","9303CA32-5CDE-407C-AC89-A81800D524DA"),
+                Tuple.Create("MANSETALTI","0CB38D13-DE6D-44DE-9A2E-A81800D26438"),
+                Tuple.Create("MANSETALTI","8F8C46CC-7C58-4646-98F0-A81800D2640C"),
+                Tuple.Create("BAGLANTILAR","9303CA32-5CDE-407C-AC89-A81800D524DA"),
+
+
+
             };
 
             var counterPartContentLine = 1;
@@ -128,7 +134,7 @@ namespace AnkaCMS.SetupConsoleApp.Installation
             foreach (var (item1, item2) in partContents)
             {
                 var itemPart = repositoryPart.Get(x => x.Code == item1);
-                var itemContent = repositoryContent.Get(x => x.Code == item2);
+                var itemContent = repositoryContent.Get(x => x.Id == Guid.Parse(item2));
 
                 var line = new PartContentLine
                 {

@@ -35,6 +35,7 @@ import { GalleriaModule } from 'src/app/primeng/components/galleria/galleria';
 import { DataViewModule } from 'src/app/primeng/components/dataview/dataview';
 import { DublinCoreMetadataService } from 'src/app/dublin-core-metadata.service';
 import { CarouselModule } from 'src/app/primeng/components/carousel/carousel';
+import { PickListModule } from 'src/app/primeng/components/picklist/picklist';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import { CarouselModule } from 'src/app/primeng/components/carousel/carousel';
     OverlayPanelModule,
     PaginatorModule,
     PanelModule,
+    PickListModule,
     ProgressBarModule,
     ProgressSpinnerModule,
     SplitButtonModule,
@@ -110,6 +112,7 @@ import { CarouselModule } from 'src/app/primeng/components/carousel/carousel';
     OverlayPanelModule,
     PaginatorModule,
     PanelModule,
+    PickListModule,
     ProgressBarModule,
     ProgressSpinnerModule,
     SplitButtonModule,

@@ -69,7 +69,14 @@
                         {{'Contents' | globalizationdictionary}}
                     </div>
                     <div class="ui-grid-col-10">
-                      <p-multiSelect [options]="allContents" formControlName="contents" optionLabel="name" [defaultLabel]="globalizationDictionaryPipe.transform('Select')" selectedItemsLabel="{0}" [showToggleAll]="true" filter="filter" [virtualScroll]="true" itemSize="30"></p-multiSelect>
+
+                        <p-pickList [source]="pickSourceList" [target]="pickTargetList" [responsive]="true" sourceHeader="Müsait" targetHeader="Seçilen" dragdrop="true" filterBy="name">
+                            <ng-template let-item pTemplate="item">
+                               {{item.name}}
+                            </ng-template>
+                        </p-pickList>
+
+                      <!-- <p-multiSelect [options]="allContents" formControlName="contents" optionLabel="name" [defaultLabel]="globalizationDictionaryPipe.transform('Select')" selectedItemsLabel="{0}" [showToggleAll]="true" filter="filter" [virtualScroll]="true" itemSize="30"></p-multiSelect> -->
                     </div>
                   </div>
 

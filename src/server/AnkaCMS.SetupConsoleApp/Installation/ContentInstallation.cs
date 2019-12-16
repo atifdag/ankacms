@@ -92,7 +92,7 @@ namespace AnkaCMS.SetupConsoleApp.Installation
                 var item = new Content
                 {
                     Id = Guid.Parse(item2),
-                    Code = item2,
+                    Code = "yazi-ornegi-" + item3,
                     CreationTime = DateTime.Now,
                     Creator = user,
                     LastModifier = user,

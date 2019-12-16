@@ -30,9 +30,10 @@ export class PartUpdateComponent implements OnInit {
   ];
   partId: string;
   languageId: string;
-  allContents: IdCodeNameSelected[];
-  contents: IdCodeNameSelected[] = [];
-
+  // allContents: IdCodeNameSelected[];
+  // contents: IdCodeNameSelected[] = [];
+  pickSourceList: IdCodeNameSelected[] = [];
+  pickTargetList: IdCodeNameSelected[] = [];
   constructor(
     private route: ActivatedRoute,
     private messageService: MessageService,
@@ -54,7 +55,7 @@ export class PartUpdateComponent implements OnInit {
       name: new FormControl('', [Validators.required, Validators.minLength(2)]),
       description: new FormControl(''),
       keywords: new FormControl(''),
-      contents: new FormControl(''),
+     // contents: new FormControl(''),
       creator: new FormControl(''),
       creationTime: new FormControl(''),
       lastModifier: new FormControl(''),
@@ -74,13 +75,17 @@ export class PartUpdateComponent implements OnInit {
         if (res.status === 200) {
           this.model = res.body as UpdateModel<PartModel>;
           if (this.model.item != null) {
-            this.allContents = this.model.item.contents;
-            this.allContents.forEach(x => {
+            const allContents = this.model.item.contents;
+            allContents.forEach(x => {
               if (x.selected) {
-                this.contents.push(x);
+             //   this.contents.push(x);
+                this.pickTargetList.push(x);
+              } else {
+                this.pickSourceList.push(x);
               }
+
             });
-            this.userForm.get('contents').setValue(this.contents);
+          //  this.userForm.get('contents').setValue(this.contents);
             this.userForm.get('part').setValue(this.model.item.partId);
             this.userForm.get('language').setValue(this.model.item.language.name);
             this.userForm.get('code').setValue(this.model.item.code);
@@ -163,12 +168,11 @@ export class PartUpdateComponent implements OnInit {
     this.model.item.name = this.f.name.value;
     this.model.item.description = this.f.description.value;
     this.model.item.keywords = this.f.keywords.value;
-    this.model.item.contents = this.f.contents.value;
+    this.model.item.contents = this.pickTargetList;
     this.model.item.isApproved = this.f.isApproved.value;
     this.servicePart.update(this.model).subscribe(
       res => {
         console.log(res);
-        debugger;
         if (res.status === 200) {
           this.disabledFieldset = true;
           this.messageService.add({

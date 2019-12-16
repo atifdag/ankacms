@@ -15,6 +15,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using AnkaCMS.Service.Implementations.ValidationRules.FluentValidation;
+using MailKit.Search;
 
 namespace AnkaCMS.Service.Implementations
 {
@@ -99,54 +100,67 @@ namespace AnkaCMS.Service.Implementations
         {
             var language = _repositoryLanguage.Get(x => x.Id == languageId);
 
-            var item = _repositoryPart
+            var itemPart = _repositoryPart
                 .Join(x => x.Creator.Person)
                 .Join(x => x.LastModifier.Person)
                 .Join(z => z.PartLanguageLines)
                 .ThenJoin(x => x.Language)
                 .FirstOrDefault(x => x.Id == partId);
 
-            if (item == null)
+            if (itemPart == null)
             {
                 throw new NotFoundException(Messages.DangerRecordNotFound);
             }
 
-            //////
+            var allContents = _repositoryContent.Get().Select(x=> new IdCodeName(x.Id, x.Code, x.Code)).ToList();
 
-            var listContent = new List<IdCodeNameSelected>();
-
-            var allContent = _repositoryContent.Get();
-
-            var itemContents = _repositoryPartContentLine
+            var itemPartContents = _repositoryPartContentLine
                 .Join(x => x.Content)
                 .ThenJoin(x => x.ContentLanguageLines)
                 .ThenJoin(x => x.Language)
-                .Where(x => x.Part.Id == item.Id).Select(x => x.Content.Id).ToList();
+                .OrderBy(x=>x.DisplayOrder)
+                .Where(x => x.Part.Id == itemPart.Id).Select(x => x.Content.Id).ToList();
 
-            foreach (var itemContent in allContent)
+
+            var unSelectedContents = new List<IdCodeNameSelected>();
+            var selectedContents = new List<IdCodeNameSelected>();
+
+            foreach (var itemContent in allContents)
             {
-                // var itemLine = itemContent.ContentLanguageLines.FirstOrDefault(x => x.Language.Id == languageId);
-                listContent.Add(itemContents.Contains(itemContent.Id) ? new IdCodeNameSelected(itemContent.Id, itemContent.Code,itemContent.Code, true) : new IdCodeNameSelected(itemContent.Id, itemContent.Code, itemContent.Code, false));
+                if (itemPartContents.Contains(itemContent.Id))
+                {
+                    selectedContents.Add(new IdCodeNameSelected(itemContent.Id, itemContent.Code, itemContent.Code, true));
+                }
+                else
+                {
+                    unSelectedContents.Add(new IdCodeNameSelected(itemContent.Id, itemContent.Code, itemContent.Code, false));
+                }
             }
 
-
-
+            var orderedSelectedContents = itemPartContents.Select(itemContent => selectedContents.FirstOrDefault(x => x.Id == itemContent)).ToList();
+            
             PartModel modelItem;
-            if (item.PartLanguageLines == null)
+            if (itemPart.PartLanguageLines == null)
             {
                 modelItem = new PartModel();
             }
             else
             {
-                var itemLine = item.PartLanguageLines.FirstOrDefault(x => x.Language.Id == languageId);
+                var itemLine = itemPart.PartLanguageLines.FirstOrDefault(x => x.Language.Id == languageId);
                 modelItem = itemLine != null ? itemLine.CreateMapped<PartLanguageLine, PartModel>() : new PartModel();
             }
 
-            modelItem.Creator = new IdCodeName(item.Creator.Id, item.Creator.Username, item.Creator.Person.DisplayName);
-            modelItem.LastModifier = new IdCodeName(item.LastModifier.Id,item.LastModifier.Username, item.LastModifier.Person.DisplayName);
+            modelItem.Creator = new IdCodeName(itemPart.Creator.Id, itemPart.Creator.Username, itemPart.Creator.Person.DisplayName);
+            modelItem.LastModifier = new IdCodeName(itemPart.LastModifier.Id, itemPart.LastModifier.Username, itemPart.LastModifier.Person.DisplayName);
             modelItem.Language = new IdCodeName(language.Id,language.Code, language.Name);
-            modelItem.PartId = item.Id;
-            modelItem.Contents = listContent;
+            modelItem.PartId = itemPart.Id;
+
+
+            var modelItemContents = unSelectedContents;
+
+            modelItemContents.AddRange(orderedSelectedContents);
+
+            modelItem.Contents = modelItemContents;
 
             return new DetailModel<PartModel>
             {
@@ -484,42 +498,55 @@ namespace AnkaCMS.Service.Implementations
         {
             var language = _repositoryLanguage.Get(x => x.Id == languageId);
 
-            var item = _repositoryPart
+            var itemPart = _repositoryPart
                 .Join(x => x.Creator.Person)
                 .Join(x => x.LastModifier.Person)
                 .Join(z => z.PartLanguageLines)
                 .ThenJoin(x => x.Language)
                 .FirstOrDefault(x => x.Id == partId);
 
-            if (item == null)
+            if (itemPart == null)
             {
                 throw new NotFoundException(Messages.DangerRecordNotFound);
             }
 
-            var listContent = new List<IdCodeNameSelected>();
 
-            var allContent = _repositoryContent.Get();
 
-            var itemContents = _repositoryPartContentLine
+            var allContents = _repositoryContent.Get().Select(x => new IdCodeName(x.Id, x.Code, x.Code)).ToList();
+
+            var itemPartContents = _repositoryPartContentLine
                 .Join(x => x.Content)
                 .ThenJoin(x => x.ContentLanguageLines)
                 .ThenJoin(x => x.Language)
-                .Where(x => x.Part.Id == item.Id).Select(x => x.Content.Id).ToList();
+                .OrderBy(x => x.DisplayOrder)
+                .Where(x => x.Part.Id == itemPart.Id).Select(x => x.Content.Id).ToList();
 
-            foreach (var itemContent in allContent)
+
+            var unSelectedContents = new List<IdCodeNameSelected>();
+            var selectedContents = new List<IdCodeNameSelected>();
+
+            foreach (var itemContent in allContents)
             {
-                listContent.Add(itemContents.Contains(itemContent.Id) ? new IdCodeNameSelected(itemContent.Id, itemContent.Code, itemContent.Code, true) : new IdCodeNameSelected(itemContent.Id, itemContent.Code, itemContent.Code, false));
+                if (itemPartContents.Contains(itemContent.Id))
+                {
+                    selectedContents.Add(new IdCodeNameSelected(itemContent.Id, itemContent.Code, itemContent.Code, true));
+                }
+                else
+                {
+                    unSelectedContents.Add(new IdCodeNameSelected(itemContent.Id, itemContent.Code, itemContent.Code, false));
+                }
             }
 
+            var orderedSelectedContents = itemPartContents.Select(itemContent => selectedContents.FirstOrDefault(x => x.Id == itemContent)).ToList();
 
             PartModel modelItem;
-            if (item.PartLanguageLines == null)
+            if (itemPart.PartLanguageLines == null)
             {
                 modelItem = new PartModel();
             }
             else
             {
-                var itemLine = item.PartLanguageLines.FirstOrDefault(x => x.Language.Id == languageId);
+                var itemLine = itemPart.PartLanguageLines.FirstOrDefault(x => x.Language.Id == languageId);
                 if (itemLine != null)
                 {
                     modelItem = itemLine.CreateMapped<PartLanguageLine, PartModel>();
@@ -532,9 +559,13 @@ namespace AnkaCMS.Service.Implementations
                 }
             }
 
-            modelItem.Contents = listContent;
+            var modelItemContents = unSelectedContents;
+
+            modelItemContents.AddRange(orderedSelectedContents);
+
+            modelItem.Contents = modelItemContents;
             modelItem.Language = new IdCodeName(language.Id,language.Code, language.Name);
-            modelItem.PartId = item.Id;
+            modelItem.PartId = itemPart.Id;
 
 
             return new UpdateModel<PartModel>
@@ -652,6 +683,9 @@ namespace AnkaCMS.Service.Implementations
                 }
             }
 
+           
+
+
             var itemHistory = item.CreateMapped<Part, PartHistory>();
             itemHistory.Id = GuidHelper.NewGuid();
             itemHistory.ReferenceId = item.Id;
@@ -679,6 +713,8 @@ namespace AnkaCMS.Service.Implementations
                 _repositoryPartContentLine.Delete(line, true);
             }
 
+            var counterIdCodeNameSelected = 1;
+
             foreach (var idCodeNameSelected in updateModel.Item.Contents)
             {
                 var itemContent = _repositoryContent.Get(x => x.Id == idCodeNameSelected.Id);
@@ -690,7 +726,7 @@ namespace AnkaCMS.Service.Implementations
                     Part = affectedItem,
                     Creator = IdentityUser,
                     CreationTime = DateTime.Now,
-                    DisplayOrder = 1,
+                    DisplayOrder = counterIdCodeNameSelected,
                     LastModifier = IdentityUser,
                     LastModificationTime = DateTime.Now,
                     Version = 1
@@ -705,9 +741,17 @@ namespace AnkaCMS.Service.Implementations
                 lineHistory.CreatorId = affectedLine.Creator.Id;
 
                 _repositoryPartContentLineHistory.Add(lineHistory, true);
+                counterIdCodeNameSelected++;
             }
 
-
+           
+            //foreach (var idCodeNameSelected in updateModel.Item.Contents)
+            //{
+            //    var line = _repositoryPartContentLine.Get(x => x.Part.Id == item.Id && x.Content.Code == idCodeNameSelected.Code);
+            //    line.DisplayOrder = counterIdCodeNameSelected;
+            //    _repositoryPartContentLine.Update(line, true);
+            //    counterIdCodeNameSelected++;
+            //}
 
 
 
