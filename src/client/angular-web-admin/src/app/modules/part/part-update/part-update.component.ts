@@ -78,14 +78,12 @@ export class PartUpdateComponent implements OnInit {
             const allContents = this.model.item.contents;
             allContents.forEach(x => {
               if (x.selected) {
-             //   this.contents.push(x);
                 this.pickTargetList.push(x);
               } else {
                 this.pickSourceList.push(x);
               }
 
             });
-          //  this.userForm.get('contents').setValue(this.contents);
             this.userForm.get('part').setValue(this.model.item.partId);
             this.userForm.get('language').setValue(this.model.item.language.name);
             this.userForm.get('code').setValue(this.model.item.code);
@@ -172,7 +170,6 @@ export class PartUpdateComponent implements OnInit {
     this.model.item.isApproved = this.f.isApproved.value;
     this.servicePart.update(this.model).subscribe(
       res => {
-        console.log(res);
         if (res.status === 200) {
           this.disabledFieldset = true;
           this.messageService.add({
