@@ -82,7 +82,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "ankacms:build",
-            "port": 19002
+            "port": 19003
           },
           "configurations": {
             "production": {

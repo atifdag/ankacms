@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MessageService } from './primeng/components/common/api';
 import { PublicLayoutComponent } from './layouts/public/public-layout/public-layout.component';
 import { HomeModule } from './modules/home/home.module';
+import { PartModule } from './modules/part/part.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HomeModule } from './modules/home/home.module';
     HttpClientModule,
     SharedModule,
     HomeModule,
+    PartModule,
 
   ],
   providers: [

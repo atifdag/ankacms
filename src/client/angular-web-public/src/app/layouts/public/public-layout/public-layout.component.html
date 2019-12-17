@@ -1,1 +1,76 @@
-<router-outlet></router-outlet>
+<div class="layout-wrapper public-layout-wrapper">
+    <div id="layout-topbar">
+        <div class="header-container">
+            <a href="#" class="menu-button" (click)="onMenuButtonClick($event)">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a class="logo" [routerLink]="['/']">
+                <img alt="logo" src="assets/showcase/images/logo-header.png" />
+            </a>
+            <ul class="topbar-menu">
+                <li>
+                    <a [routerLink]="['/sayfa/kurumsal']">Kurumsal</a>
+                    <a [routerLink]="['/sayfa/haberler']">Haberler</a>
+                    <a [routerLink]="['/sayfa/baglantilar']">Bağlantılar</a>
+                    <a [routerLink]="['/iletisim']">İletişim</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="layout-sidebar" [ngClass]="{'active': menuActive}">
+        <div class="layout-menu">
+            <a id="menu_kurumsal" (click)="toggle(inputmenutitle.id,'/sayfa/kurumsal')" #inputmenutitle
+                [class.active-menuitem]="inputmenutitle.id == activeMenuId" tabindex="0">
+                <img src="assets/showcase/images/icons/overlay-active.svg" class="layout-menu-icon-active" />
+                <img src="assets/showcase/images/icons/overlay.svg" class="layout-menu-icon-inactive" />
+                <span>Kurumsal</span>
+            </a>
+            <a id="menu_haberler" (click)="toggle(inputmenutitle.id,'/sayfa/haberler')" #inputmenutitle
+                [class.active-menuitem]="inputmenutitle.id == activeMenuId" tabindex="0">
+                <img src="assets/showcase/images/icons/overlay-active.svg" class="layout-menu-icon-active" />
+                <img src="assets/showcase/images/icons/overlay.svg" class="layout-menu-icon-inactive" />
+                <span>Haberler</span>
+            </a>
+            <a id="menu_baglantilar" (click)="toggle(inputmenutitle.id,'/sayfa/baglantilar')" #inputmenutitle
+                [class.active-menuitem]="inputmenutitle.id == activeMenuId" tabindex="0">
+                <img src="assets/showcase/images/icons/overlay-active.svg" class="layout-menu-icon-active" />
+                <img src="assets/showcase/images/icons/overlay.svg" class="layout-menu-icon-inactive" />
+                <span>Bağlantılar</span>
+            </a>
+            <a id="menu_iletisim" (click)="toggle(inputmenutitle.id,'/iletisim')" #inputmenutitle
+                [class.active-menuitem]="inputmenutitle.id == activeMenuId" tabindex="0">
+                <img src="assets/showcase/images/icons/overlay-active.svg" class="layout-menu-icon-active" />
+                <img src="assets/showcase/images/icons/overlay.svg" class="layout-menu-icon-inactive" />
+                <span>İletişim</span>
+            </a>
+        </div>
+    </div>
+    <div class="layout-mask" *ngIf="menuActive">
+    </div>
+    <div id="layout-content">
+        <div class="content-section implementation">
+            <div class="body-layout">
+                <div class="public-layout-card-inner">
+                    <div class="content-area">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-section layout-footer clearfix">
+            <p class="text-center footer-menu">
+                <a [routerLink]="['/sayfa/kurumsal']">Kurumsal</a>
+                <a [routerLink]="['/sayfa/haberler']">Haberler</a>
+                <a [routerLink]="['/sayfa/baglantilar']">Bağlantılar</a>
+                <a [routerLink]="['/iletisim']">İletişim</a>
+            </p>
+            <p class="text-center footer-social">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+            </p>
+            <p class="footer-text text-center">&copy; 2019 Anka CMS. Tüm hakları saklıdır.</p>
+            <p class="footer-text text-center">Mah Mah. Sok Sok. No:1/A 06000 Çankaya/İstanbul</p>
+        </div>
+    </div>
+</div>
