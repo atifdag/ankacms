@@ -12,6 +12,8 @@
     <None Remove="ContentFiles\42a02345-646b-49b2-98ee-a81800d2576d\yazi-ornegi-4.txt" />
     <None Remove="ContentFiles\8f8c46cc-7c58-4646-98f0-a81800d2640c\yazi-ornegi-5.txt" />
     <None Remove="ContentFiles\9303ca32-5cde-407c-ac89-a81800d524da\yazi-ornegi-6.txt" />
+    <None Remove="ContentFiles\ac31b1a9-b441-4765-b706-6ec996d8cbe3\yazi-ornegi-7.txt" />
+    <None Remove="ContentFiles\deea1ddd-0c25-4ad7-be29-3b5bdc2a4e6a\yazi-ornegi-8.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +38,14 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Include="ContentFiles\9303ca32-5cde-407c-ac89-a81800d524da\yazi-ornegi-6.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ContentFiles\ac31b1a9-b441-4765-b706-6ec996d8cbe3\yazi-ornegi-7.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ContentFiles\deea1ddd-0c25-4ad7-be29-3b5bdc2a4e6a\yazi-ornegi-8.txt">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>

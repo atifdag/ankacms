@@ -15,9 +15,9 @@ export class PartService {
   }
 
 
-  GetPublicCarouselContents(partCode: string, languageCode: string): Observable<HttpResponse<any>> {
+  GetPublicPartContents(partCode: string, languageCode: string): Observable<HttpResponse<any>> {
     return this.httpClient.get(
-      this.appSettingsService.apiUrl + '/Part/GetPublicCarouselContents?partCode=' + partCode + '&languageCode=' + languageCode,
+      this.appSettingsService.apiUrl + '/Part/GetPublicPartContents?partCode=' + partCode + '&languageCode=' + languageCode,
       { observe: 'response' }
     );
   }

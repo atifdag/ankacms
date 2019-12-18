@@ -183,7 +183,7 @@ color: #fff;
 
 
     .public-layout-wrapper .content-area{
-        padding: 0 0 0 0;
+        padding: 1em;
     }
 
     .public-layout-wrapper .content-section{
@@ -236,7 +236,7 @@ color: #fff;
 
   .homedataview .book-grid-item img{
     box-shadow: 0 0 10px #707070; 
-    width:150px;
+    width:250px;
     max-width: 100%;
   }
 
@@ -497,4 +497,8 @@ margin: 0;
     display: block;
     margin: 0 0 0 0;
     box-shadow: 0 0 10px #707070; 
+  }
+
+  .homecards{
+      padding: 1em 0 0 0; 
   }

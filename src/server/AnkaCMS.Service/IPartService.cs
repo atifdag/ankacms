@@ -14,6 +14,6 @@ namespace AnkaCMS.Service
         UpdateModel<PartModel> Update(Guid partId, Guid languageId);
         void Delete(Guid partId, Guid languageId);
         List<IdCodeName> List(Guid languageId);
-        PublicPartModel GetPublicCarouselContents(string partCode, string languageCode);
+        PublicPartModel GetPublicPartContents(string partCode, string languageCode);
     }
 }

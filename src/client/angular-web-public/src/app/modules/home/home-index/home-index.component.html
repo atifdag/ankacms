@@ -9,3 +9,31 @@
         </ng-template>
     </p-carousel>
 </div>
+<div class="homecards">
+    <div class="p-grid">
+        <div *ngFor="let item of homeCardModel.contents" class="p-col p-col-12 p-md-6 p-lg-4">
+            <p-card header="{{item.name}}">
+                <div>{{item.description}}</div>
+            </p-card>
+        </div>
+    </div>
+</div>
+
+<div class="homedataview">
+    <p-dataView #dv [value]="highlightsModel.contents" layout="grid" emptyMessage="Lütfen bekleyiniz..."
+        *ngIf="highlightsModel.contents">
+        <p-header>Öne Çıkanlar</p-header>
+        <ng-template let-item pTemplate="gridItem">
+            <div class="ui-g-12 ui-md-3" style="padding:2em .5em 2em .5em">
+                <div class="book-grid-item text-center">
+                    <p><a [routerLink]="['/kitaplar',item.code]"><img
+                                src="{{appSettingsService.apiUrl+ item.imagePath}}"></a></p>
+                    <p><a [routerLink]="['/kitaplar',item.code]">{{item.shortName}}</a></p>
+                </div>
+            </div>
+        </ng-template>
+        <p-footer style="text-align: right; font-size: 12px;">
+            <a [routerLink]="['/yayindurum','yeni-cikanlar']">Tüm "Yeni Çıkanlar"ı görmek için tıklayınız...</a>
+        </p-footer>
+    </p-dataView>
+</div>

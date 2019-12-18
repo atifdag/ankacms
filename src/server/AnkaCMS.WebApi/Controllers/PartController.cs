@@ -29,21 +29,21 @@ namespace AnkaCMS.WebApi.Controllers
         }
 
 
-        [Route("GetPublicCarouselContents")]
+        [Route("GetPublicPartContents")]
         [HttpGet]
-        public ActionResult<PublicPartModel> GetPublicCarouselContents(string partCode, string languageCode)
+        public ActionResult<PublicPartModel> GetPublicPartContents(string partCode, string languageCode)
         {
             try
             {
                 PublicPartModel model;
-                var cacheKey = "AnkaCMS.WebApi.Controllers.PartController.GetPublicCarouselContents-" + partCode+"-"+ languageCode;
+                var cacheKey = "AnkaCMS.WebApi.Controllers.PartController.GetPublicPartContents-" + partCode+"-"+ languageCode;
                 if (_cacheService.Exists(cacheKey))
                 {
                     model = _cacheService.Get<PublicPartModel>(cacheKey);
                 }
                 else
                 {
-                    model = _servicePart.GetPublicCarouselContents(partCode, languageCode);
+                    model = _servicePart.GetPublicPartContents(partCode, languageCode);
                     _cacheService.Add(cacheKey, model);
                     _cacheService.AddToKeyList(cacheKey);
 

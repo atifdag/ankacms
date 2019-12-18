@@ -21,6 +21,8 @@ namespace AnkaCMS.SetupConsoleApp.Installation
             Tuple.Create("HABERLER","42A02345-646B-49B2-98EE-A81800D2576D",4),
             Tuple.Create("BAGLANTILAR","8F8C46CC-7C58-4646-98F0-A81800D2640C",5),
             Tuple.Create("BAGLANTILAR","9303CA32-5CDE-407C-AC89-A81800D524DA",6),
+            Tuple.Create("BAGLANTILAR","ac31b1a9-b441-4765-b706-6ec996d8cbe3",7),
+            Tuple.Create("BAGLANTILAR","deea1ddd-0c25-4ad7-be29-3b5bdc2a4e6a",8),
         };
 
         public static void Install(IServiceProvider provider)
@@ -126,7 +128,7 @@ namespace AnkaCMS.SetupConsoleApp.Installation
                         Code = "yazi-ornegi-" + item3 + "-" + language.Code,
                         Name = "Yazı Örneği " + item3 + " Uzun Başlık " + language.Code,
                         ShortName = "Yazı Örneği " + item3 + " Kısa Başlık " + language.Code,
-                        Description = "Yazı Örneği " + item3 + " Açıklama " + language.Code,
+                        Description = "Yazı Örneği " + item3 + " Açıklama " + language.Code+ " bu alana gelecek. Yazı Örneği " + item3 + " Açıklama " + language.Code + " bu alana gelecek. Yazı Örneği " + item3 + " Açıklama " + language.Code + " bu alana gelecek. Yazı Örneği " + item3 + " Açıklama " + language.Code + " bu alana gelecek. Yazı Örneği " + item3 + " Açıklama " + language.Code + " bu alana gelecek. ",
                         Keywords = "Yazı Örneği " + item3 + " Anahtar Kelimeler " + language.Code,
                         ContentDetail = "Yazı Örneği " + item3 + " Detay Metni " + language.Code,
                         ImageName = "yazi-ornegi-" + item3 + "-" + language.Code + ".jpg",

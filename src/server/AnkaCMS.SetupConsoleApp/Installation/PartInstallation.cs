@@ -120,10 +120,18 @@ namespace AnkaCMS.SetupConsoleApp.Installation
                 Tuple.Create("MANSET","20DB39D5-E11F-42B9-9A00-A81800BBDE8A"),
                 Tuple.Create("MANSET","42A02345-646B-49B2-98EE-A81800D2576D"),
                 Tuple.Create("MANSET","8F8C46CC-7C58-4646-98F0-A81800D2640C"),
-                Tuple.Create("MANSET","9303CA32-5CDE-407C-AC89-A81800D524DA"),
+                Tuple.Create("MANSETALTI","9303CA32-5CDE-407C-AC89-A81800D524DA"),
                 Tuple.Create("MANSETALTI","0CB38D13-DE6D-44DE-9A2E-A81800D26438"),
                 Tuple.Create("MANSETALTI","8F8C46CC-7C58-4646-98F0-A81800D2640C"),
-                Tuple.Create("BAGLANTILAR","9303CA32-5CDE-407C-AC89-A81800D524DA"),
+                Tuple.Create("ONECIKANLAR","0CB38D13-DE6D-44DE-9A2E-A81800D26438"),
+                Tuple.Create("ONECIKANLAR","1AE2A647-EE19-42EE-B737-A81800D52513"),
+                Tuple.Create("ONECIKANLAR","20DB39D5-E11F-42B9-9A00-A81800BBDE8A"),
+                Tuple.Create("ONECIKANLAR","42A02345-646B-49B2-98EE-A81800D2576D"),
+                Tuple.Create("ONECIKANLAR","8F8C46CC-7C58-4646-98F0-A81800D2640C"),
+                Tuple.Create("ONECIKANLAR","9303CA32-5CDE-407C-AC89-A81800D524DA"),
+                Tuple.Create("ONECIKANLAR","ac31b1a9-b441-4765-b706-6ec996d8cbe3"),
+                Tuple.Create("ONECIKANLAR","deea1ddd-0c25-4ad7-be29-3b5bdc2a4e6a"),
+                Tuple.Create("BAGLANTILAR","deea1ddd-0c25-4ad7-be29-3b5bdc2a4e6a"),
 
 
 

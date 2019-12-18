@@ -178,7 +178,7 @@ namespace AnkaCMS.Service.Implementations
             throw new NotFoundException(Messages.DangerRecordNotFound);
         }
 
-        public PublicPartModel GetPublicCarouselContents(string partCode, string languageCode)
+        public PublicPartModel GetPublicPartContents(string partCode, string languageCode)
         {
             var language = _repositoryLanguage.Get(x => x.Code == languageCode);
 
