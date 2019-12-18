@@ -20,9 +20,9 @@ namespace AnkaCMS.SetupConsoleApp.Installation
         private static readonly List<Tuple<string, string, string>> Parameters = new List<Tuple<string, string, string>>
         {
             new Tuple<string, string, string>("PGAPPLICATION","DefaultLanguage","tr-TR"),
-            new Tuple<string, string, string>("PGAPPLICATION","ApplicationName","Anka CMS"),
+            new Tuple<string, string, string>("PGAPPLICATION","ApplicationName","AnkaCMS"),
             new Tuple<string, string, string>("PGAPPLICATION","ApplicationUrl","http://www.ankacms.com.tr"),
-            new Tuple<string, string, string>("PGAPPLICATION","CorporationName","Anka CMS"),
+            new Tuple<string, string, string>("PGAPPLICATION","CorporationName","AnkaCMS"),
             new Tuple<string, string, string>("PGAPPLICATION","TaxAdministration","Çankaya V.D."),
             new Tuple<string, string, string>("PGAPPLICATION","TaxNumber","1234 5678 901"),
             new Tuple<string, string, string>("PGAPPLICATION","Address","Ankara"),

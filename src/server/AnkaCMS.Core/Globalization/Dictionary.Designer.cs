@@ -115,7 +115,7 @@ namespace AnkaCMS.Core.Globalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Anka CMS.
+        ///   Looks up a localized string similar to AnkaCMS.
         /// </summary>
         public static string ApplicationName {
             get {

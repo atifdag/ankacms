@@ -162,8 +162,8 @@
     <comment>Url</comment>
   </data>
   <data name="ApplicationName" xml:space="preserve">
-    <value>Anka CMS</value>
-    <comment>Anka CMS</comment>
+    <value>AnkaCMS</value>
+    <comment>AnkaCMS</comment>
   </data>
   <data name="SmtpPassword" xml:space="preserve">
     <value>SMTP Şifre</value>
