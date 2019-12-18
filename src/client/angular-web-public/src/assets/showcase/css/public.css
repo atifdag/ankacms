@@ -1,6 +1,6 @@
 .public-layout-wrapper{
     background-color: #e9e9e9 !important;
-    background: url('/assets/showcase/images/bg.jpg') top center;
+    background: url('/assets/showcase/images/bg.jpg');
 }
 
 .public-layout-wrapper .topbar-menu > li{

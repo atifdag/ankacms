@@ -1,14 +1,11 @@
 <div class="homecarousel">
-    <p-carousel [value]="carouselModel.contents" numVisible="1" circular="true" numScroll="1"
+    <p-carousel [value]="carouselModel.contents" numVisible="1" numScroll="2" circular="true"
         responsiveOptions="responsiveOptions" autoplayInterval="5000">
         <ng-template let-content pTemplate="item">
             <a title="{{content.name}}" [routerLink]="['/sayfa/kurumsal/'+content.code]">
                 <img class="carousel-img"
-                src="{{appSettingsService.apiUrl+ content.imagePath}}?date={{carouselModel.lastModificationTime}}" />
+                    src="{{appSettingsService.apiUrl+ content.imagePath}}?date={{carouselModel.lastModificationTime}}" />
             </a>
-            
-           
         </ng-template>
     </p-carousel>
 </div>
-<div style="height: 2600px;"></div>

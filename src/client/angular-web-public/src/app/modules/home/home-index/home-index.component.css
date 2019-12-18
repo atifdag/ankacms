@@ -1,0 +1,25 @@
+.homecarousel .ui-carousel .ui-carousel-content .ui-carousel-item .car-details > .p-grid {
+    border: 1px solid #b3c2ca;
+    border-radius: 3px;
+    margin: 0.3em;
+    text-align: center;
+    padding: 2em 0 2.25em 0;
+}
+
+.homecarousel .ui-carousel .ui-carousel-content .ui-carousel-item button {
+    margin-left: 0.5em;
+}
+.homecarousel .ui-carousel .ui-carousel-content .ui-carousel-item button:first-child {
+    margin-left: 0;
+}
+.homecarousel .ui-carousel.custom-carousel .ui-carousel-dot-icon {
+    width: 16px !important;
+    height: 16px !important;
+    border-radius: 50%;
+}
+.homecarousel .ui-carousel.ui-carousel-horizontal .ui-carousel-content .ui-carousel-item.ui-carousel-item-start > .p-grid {
+    margin-left: 0.6em;
+}
+.homecarousel .ui-carousel.ui-carousel-horizontal .ui-carousel-content .ui-carousel-item.ui-carousel-item-end  > .p-grid {
+    margin-right: 0.6em;
+}
