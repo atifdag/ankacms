@@ -24,6 +24,8 @@ git config --global user.email "epostaadresiniz@siteniz.com"
 5. Komut satırından ```git clone https://github.com/atifdag/ankacms.git``` komutuyla projeyi bilgisayarınıza indirin.
 6. Komut satırından ```npm i -g @angular/cli``` komutuyla "Angular CLI" paketini indirip kurun.
 7. Komut satırından "src/server/AnkaCMS.SetupConsoleApp" klasöründe iken ```dotnet run``` komutuyla veri tabanı kurulumunu yapın.
-8. Komut satırından "src/client/angular-web-admin" klasöründe iken ```npm i``` komutuyla bu projede kullanılan paketleri kurun.
-9. Komut satırından "src/server/AnkaCMS.WebApi" klasöründe iken ```dotnet run --urls="http://localhost:10001"``` komutuyla Web Api projesini çalıştırın.
+8. Komut satırından "src/server/AnkaCMS.WebApi" klasöründe iken ```dotnet run --urls="http://localhost:19001"``` komutuyla Web Api projesini çalıştırın.
+9. Komut satırından "src/client/angular-web-admin" klasöründe iken ```npm i``` komutuyla bu projede kullanılan paketleri kurun.
 10. Komut satırından "src/client/angular-web-admin" klasöründe iken ```ng s -o``` komutuyla Angular tabanlı web sitesi yönetim paneli projesini çalıştırın.
+11. Komut satırından "src/client/angular-web-public" klasöründe iken ```npm i``` komutuyla bu projede kullanılan paketleri kurun.
+12. Komut satırından "src/client/angular-web-public" klasöründe iken ```ng s -o``` komutuyla Angular tabanlı genel site projesini çalıştırın.
