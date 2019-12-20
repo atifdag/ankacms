@@ -800,7 +800,7 @@ namespace AnkaCMS.Service.Implementations
             var rootMenus = new List<RootMenu>();
             foreach (var menuEntity in menuList.OrderBy(x => x.Code))
             {
-                if (menuEntity.ParentMenu.Code != "ROOTMENU") continue;
+                if (menuEntity.ParentMenu.Code != "ADMINROOTMENU") continue;
                 var rootMenu = menuEntity.CreateMapped<Menu, RootMenu>();
                 if (menuEntity.ChildMenus.Any())
                 {
