@@ -1,11 +1,7 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text.RegularExpressions;
 
 namespace AnkaCMS.Core.Helpers
 {
@@ -13,7 +9,7 @@ namespace AnkaCMS.Core.Helpers
     /// <summary>
     /// Tür tip dönüşümleri için yardımcı sınıf
     /// </summary>
-    public static class ConvertHelper
+    public static class TypeHelper
     {
         /// <summary>
         /// Objeyi byte türüne çevirir. Boş bırakılması durumunda varsayılan değer "0" olarak kabul edilir. Hata durumunda varsayılan değer döndürülür.
@@ -122,16 +118,6 @@ namespace AnkaCMS.Core.Helpers
         }
 
         /// <summary>
-        /// Enum olarak verilen parametrenin Description değerini döndürür.
-        /// </summary>
-        /// <param name="e">Enum</param>
-        /// <returns>string</returns>
-        public static string GetEnumDescription(this Enum e)
-        {
-            return e.GetType().GetMember(e.ToString()).FirstOrDefault()?.GetCustomAttribute<DescriptionAttribute>()?.Description;
-        }
-
-        /// <summary>
         /// Şartları sağlayan string ifadeyi bool tipine çevirir.
         /// </summary>
         /// <param name="str"></param>
@@ -144,66 +130,6 @@ namespace AnkaCMS.Core.Helpers
             if (falseStrings.Contains(str, StringComparer.OrdinalIgnoreCase)) return false;
             throw new InvalidCastException("Yalnızca şu ifadeler dönüştürülür: " + string.Join(", ", trueStrings) + " ve " + string.Join(", ", falseStrings));
         }
-
-
-
-        /// <summary>
-        /// string olarak verilen parametrenin değerini SEO'ya (Arama Motoru Optimazsyonu) uygun olarak dönüştürerek geri döndürür.
-        /// </summary>
-        /// <param name="inputString"></param>
-        /// <returns></returns>
-        public static string ToStringForSeo(this string inputString)
-        {
-            try
-            {
-                inputString = inputString.Replace("Ç", "c");
-                inputString = inputString.Replace("ç", "c");
-                inputString = inputString.Replace("Ğ", "g");
-                inputString = inputString.Replace("ğ", "g");
-                inputString = inputString.Replace("I", "i");
-                inputString = inputString.Replace("ı", "i");
-                inputString = inputString.Replace("İ", "i");
-                inputString = inputString.Replace("i", "i");
-                inputString = inputString.Replace("Ö", "o");
-                inputString = inputString.Replace("ö", "o");
-                inputString = inputString.Replace("Ş", "s");
-                inputString = inputString.Replace("ş", "s");
-                inputString = inputString.Replace("Ü", "u");
-                inputString = inputString.Replace("ü", "u");
-                inputString = inputString.Trim().ToLower();
-                inputString = Regex.Replace(inputString, @"\s+", "-");
-                inputString = Regex.Replace(inputString, @"[^A-Za-z0-9_-]", "");
-                return inputString;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-
-            
-        }
-
-        /// <summary>
-        /// string olarak verilen parametrenin değerindeki kelimelerin ilk harflerini büyük harfe çevirir.
-        /// </summary>
-        /// <param name="str"></param>
-        /// <param name="orjnaliKullan">false olması durumunda "Ve, İle" bağlaçları küçük yapılır.</param>
-        /// <returns></returns>
-        public static string ToTitleCase(this string str, bool orjnaliKullan = false)
-        {
-            var result = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
-
-            if (orjnaliKullan)
-            {
-                return result;
-            }
-
-            result = result.Replace(" Ve ", " ve ");
-            result = result.Replace(" İle ", " ile ");
-            return result;
-        }
-
 
         /// <summary>
         /// string bir değeri objeye dönüştürür.
@@ -240,6 +166,8 @@ namespace AnkaCMS.Core.Helpers
         {
             return (T)Enum.Parse(typeof(T), value, true);
         }
+
+
 
     }
 }

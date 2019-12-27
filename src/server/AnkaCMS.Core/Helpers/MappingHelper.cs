@@ -8,7 +8,7 @@ namespace AnkaCMS.Core.Helpers
     /// <summary>
     /// Mapping işlemleri için yardımcı sınıf. Nesneler arası aktarım yapar.
     /// </summary>
-    public static class MapHelper
+    public static class MappingHelper
     {
 
         /// <summary>

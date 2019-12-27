@@ -1,7 +1,7 @@
-﻿using AnkaCMS.Core.Helpers;
-using FluentValidation;
+﻿using FluentValidation;
 using FluentValidation.Results;
 using System.Collections.Generic;
+using AnkaCMS.Core.Helpers;
 
 namespace AnkaCMS.Core.Validation.FluentValidation
 {

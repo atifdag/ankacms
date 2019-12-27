@@ -24,7 +24,7 @@ namespace AnkaCMS.Service.Implementations.EmailMessaging
 
         private static string ConvertTemplateToString(string emailTemplate, EmailRow emailRow)
         {
-            return emailRow.EmailKeys.Aggregate(emailTemplate, (current, key) => StringHelper.TemplateParser(current, EmailConstants.EmailKeyRegEx.Replace(EmailConstants.EmailTokenName, key.Key.ToString()), key.Value));
+            return emailRow.EmailKeys.Aggregate(emailTemplate, (current, key) => current.TemplateParser(EmailConstants.EmailKeyRegEx.Replace(EmailConstants.EmailTokenName, key.Key.ToString()), key.Value));
         }
         public void SendEmailToUser(EmailUser user, EmailTypeOption emailTypes)
         {
