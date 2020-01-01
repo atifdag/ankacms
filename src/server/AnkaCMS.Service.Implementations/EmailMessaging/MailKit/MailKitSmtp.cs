@@ -94,7 +94,7 @@ namespace AnkaCMS.Service.Implementations.EmailMessaging.MailKit
                             toEmail.Address = emailKey.Value;
                             continue;
                         }
-                        emailMessage.Body = StringHelper.TemplateParser(emailMessage.Body, string.Format(EmailConstants.EmailKeyRegEx, emailKey.Key), emailKey.Value);
+                        emailMessage.Body = emailMessage.Body.TemplateParser(string.Format(EmailConstants.EmailKeyRegEx, emailKey.Key), emailKey.Value);
                     }
                     else
                     {

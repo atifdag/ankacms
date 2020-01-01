@@ -72,7 +72,7 @@ namespace AnkaCMS.SetupConsoleApp.Installation
             var rootMenu = new Menu
             {
                 Id = GuidHelper.NewGuid(),
-                Code = "ROOTMENU",
+                Code = "ADMINROOTMENU",
                 Address = "#",
 
                 CreationTime = DateTime.Now,
@@ -294,7 +294,7 @@ namespace AnkaCMS.SetupConsoleApp.Installation
 
         }
 
-        private static void PermissionMenuInstall(User user, List<Menu> repositoryMenu, List<PermissionMenuLine> repositoryPermissionMenuLine, List<PermissionMenuLineHistory> repositoryPermissionMenuLineHistory, IRepository<Permission> repositoryPermission)
+        private static void PermissionMenuInstall(User user, IReadOnlyCollection<Menu> repositoryMenu, ICollection<PermissionMenuLine> repositoryPermissionMenuLine, ICollection<PermissionMenuLineHistory> repositoryPermissionMenuLineHistory, IRepository<Permission> repositoryPermission)
         {
 
             var permissionMenusCount = PermissionMenus.Count;
@@ -332,5 +332,6 @@ namespace AnkaCMS.SetupConsoleApp.Installation
                 permissionMenusCounter++;
             }
         }
+
     }
 }

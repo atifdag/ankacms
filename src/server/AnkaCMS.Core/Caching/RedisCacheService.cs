@@ -1,7 +1,7 @@
-﻿using AnkaCMS.Core.Helpers;
-using StackExchange.Redis;
+﻿using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
+using AnkaCMS.Core.Helpers;
 using Newtonsoft.Json;
 
 namespace AnkaCMS.Core.Caching

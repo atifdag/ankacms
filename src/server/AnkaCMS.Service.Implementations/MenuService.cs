@@ -426,7 +426,7 @@ namespace AnkaCMS.Service.Implementations
 
         public List<IdCodeName> List()
         {
-            var list = _repositoryMenu.Get().Where(x => x.IsApproved && x.ParentMenu.Code == "ROOTMENU").OrderBy(x => x.DisplayOrder).Select(x => new IdCodeName(x.Id, x.Code, x.Name));
+            var list = _repositoryMenu.Get().Where(x => x.IsApproved && x.ParentMenu.Code == "ADMINROOTMENU").OrderBy(x => x.DisplayOrder).Select(x => new IdCodeName(x.Id, x.Code, x.Name));
             if (list.Any())
             {
                 return list.ToList();

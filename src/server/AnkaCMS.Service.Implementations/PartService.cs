@@ -15,7 +15,6 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using AnkaCMS.Service.Implementations.ValidationRules.FluentValidation;
-using MailKit.Search;
 
 namespace AnkaCMS.Service.Implementations
 {
