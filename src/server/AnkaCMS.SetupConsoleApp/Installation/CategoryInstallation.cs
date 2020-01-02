@@ -13,9 +13,9 @@ namespace AnkaCMS.SetupConsoleApp.Installation
     {
         private static readonly List<Tuple<string, string, int>> Items = new List<Tuple<string, string, int>>
         {
-            Tuple.Create("KURUMSAL", "Kurumsal",1),
-            Tuple.Create("HABERLER", "Haberler",2),
-            Tuple.Create("BAGLANTILAR", "Bağlantılar",3)
+            Tuple.Create("kurumsal", "Kurumsal",1),
+            Tuple.Create("haberler", "Haberler",2),
+            Tuple.Create("baglantilar", "Bağlantılar",3)
         };
 
         public static void Install(IServiceProvider provider)
@@ -64,8 +64,10 @@ namespace AnkaCMS.SetupConsoleApp.Installation
                     var line = new CategoryLanguageLine
                     {
                         Id = GuidHelper.NewGuid(),
-                        Code = item1 + " " + language.Code,
+                        Code = item1 + "-" + language.Code,
                         Name = item2 + " " + language.Code,
+                        Description = item2 + " " + language.Code+" açıklama",
+                        Keywords = item2 + " " + language.Code + " anahtar kelimeler",
                         DisplayOrder = item3,
                         Language = language,
                         Category = item,

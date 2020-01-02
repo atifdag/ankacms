@@ -8,6 +8,8 @@ import { MessageService } from './primeng/components/common/api';
 import { PublicLayoutComponent } from './layouts/public/public-layout/public-layout.component';
 import { HomeModule } from './modules/home/home.module';
 import { PartModule } from './modules/part/part.module';
+import { ContentModule } from './modules/content/content.module';
+import { CategoryModule } from './modules/category/category.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { PartModule } from './modules/part/part.module';
     SharedModule,
     HomeModule,
     PartModule,
+    ContentModule,
+    CategoryModule,
 
   ],
   providers: [

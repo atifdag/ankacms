@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using AnkaCMS.Core;
 
 namespace AnkaCMS.WebApi.Controllers
 {
@@ -18,12 +19,53 @@ namespace AnkaCMS.WebApi.Controllers
     {
         private readonly IMainService _serviceMain;
         private readonly ICategoryService _serviceCategory;
+        private readonly ICacheService _cacheService;
 
-        public CategoryController(ICategoryService serviceCategory, IMainService serviceMain)
+        public CategoryController(ICategoryService serviceCategory, IMainService serviceMain, ICacheService cacheService)
         {
             _serviceCategory = serviceCategory;
             _serviceMain = serviceMain;
+            _cacheService = cacheService;
         }
+
+
+
+        [Route("PublicDetail")]
+        [HttpGet]
+        public ActionResult<PublicCategoryModel> PublicDetail(string code)
+        {
+            try
+            {
+                PublicCategoryModel model;
+                var cacheKey = "AnkaCMS.WebApi.Controllers.CategoryController.PublicDetail-" + code;
+                if (_cacheService.Exists(cacheKey))
+                {
+                    model = _cacheService.Get<PublicCategoryModel>(cacheKey);
+                }
+                else
+                {
+                    model = _serviceCategory.PublicDetail(code);
+                    _cacheService.Add(cacheKey, model);
+                    _cacheService.AddToKeyList(cacheKey);
+
+                }
+                return Ok(model);
+            }
+
+            catch (NotFoundException)
+            {
+                ModelState.AddModelError("ErrorMessage", Messages.DangerRecordNotFound);
+                return BadRequest(ModelState);
+            }
+
+            catch (Exception exception)
+            {
+                ModelState.AddModelError("ErrorMessage", Messages.DangerRecordNotFound + " " + exception);
+                return BadRequest(ModelState);
+            }
+        }
+
+
 
         [Route("List")]
         [HttpGet]

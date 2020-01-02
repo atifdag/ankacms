@@ -2,6 +2,8 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { HomeIndexComponent } from './modules/home/home-index/home-index.component';
 import { PublicLayoutComponent } from './layouts/public/public-layout/public-layout.component';
+import { PublicCategoryDetailComponent } from './modules/category/public-category-detail/public-category-detail.component';
+import { PublicContentDetailComponent } from './modules/content/public-content-detail/public-content-detail.component';
 
 @NgModule({
     imports: [
@@ -13,12 +15,14 @@ import { PublicLayoutComponent } from './layouts/public/public-layout/public-lay
                     children: [
                         { path: '', component: HomeIndexComponent, pathMatch: 'full' },
                         { path: 'anasayfa', component: HomeIndexComponent },
+                        { path: 'sayfalar/:code', component: PublicCategoryDetailComponent },
+                        { path: 'sayfalar/:categoryCode/:code', component: PublicContentDetailComponent },
                     ]
                 },
                 { path: '**', redirectTo: '' }
             ], {
-                preloadingStrategy: PreloadAllModules
-            }
+            preloadingStrategy: PreloadAllModules
+        }
         ),
     ],
     exports: [RouterModule]

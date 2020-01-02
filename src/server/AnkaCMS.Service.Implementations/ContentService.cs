@@ -85,12 +85,12 @@ namespace AnkaCMS.Service.Implementations
             var line = _repositoryContentLanguageLine
                 .Join(x => x.Creator.Person)
                 .Join(x => x.LastModifier.Person)
-                .Join(x=>x.Language)
-                .Join(x=>x.Content)
-                .ThenJoin(x=>x.Category)
-                .ThenJoin(x=>x.CategoryLanguageLines)
-                .ThenJoin(x=>x.Language)
-                .FirstOrDefault(x => x.Code == code && x.IsApproved && x.Language.DisplayOrder==1);
+                .Join(x => x.Language)
+                .Join(x => x.Content)
+                .ThenJoin(x => x.Category)
+                .ThenJoin(x => x.CategoryLanguageLines)
+                .ThenJoin(x => x.Language)
+                .FirstOrDefault(x => x.Code == code && x.IsApproved);
             if (line == null)
             {
                 throw new NotFoundException(Messages.DangerRecordNotFound);
@@ -98,7 +98,13 @@ namespace AnkaCMS.Service.Implementations
 
             var model = line.CreateMapped<ContentLanguageLine, PublicContentModel>();
 
-            model.Category = new IdCodeName(line.Content.Category.Id, line.Content.Category.Code, line.Content.Category.CategoryLanguageLines.FirstOrDefault(x=>x.Language.Code==line.Language.Code).Name);
+            var lineCategoryLanguage = line.Content.Category.CategoryLanguageLines.FirstOrDefault(x => x.Language.Id == line.Language.Id);
+            if (lineCategoryLanguage == null)
+            {
+                throw new NotFoundException(Messages.DangerRecordNotFound);
+            }
+
+            model.Category = new IdCodeName(line.Content.Category.Id, lineCategoryLanguage.Code, lineCategoryLanguage.Name);
 
             model.Language = new IdCodeName(line.Language.Id, line.Language.Code, line.Language.Name);
 
@@ -150,9 +156,9 @@ namespace AnkaCMS.Service.Implementations
             }
 
             modelItem.Creator = new IdCodeName(item.Creator.Id, item.Creator.Username, item.Creator.Person.DisplayName);
-            modelItem.LastModifier = new IdCodeName(item.LastModifier.Id,item.LastModifier.Username, item.LastModifier.Person.DisplayName);
+            modelItem.LastModifier = new IdCodeName(item.LastModifier.Id, item.LastModifier.Username, item.LastModifier.Person.DisplayName);
             modelItem.Category = new IdCodeName(item.Category.Id, item.Category.Code, item.Category.Code);
-            modelItem.Language = new IdCodeName(language.Id,language.Code, language.Name);
+            modelItem.Language = new IdCodeName(language.Id, language.Code, language.Name);
             modelItem.ContentId = item.Id;
 
             return new DetailModel<ContentModel>
@@ -194,8 +200,6 @@ namespace AnkaCMS.Service.Implementations
                 throw new NotFoundException(Messages.DangerRecordNotFound);
             }
 
-            //////
-
 
             ContentModel modelItem;
             if (item.ContentLanguageLines == null)
@@ -209,9 +213,9 @@ namespace AnkaCMS.Service.Implementations
             }
 
             modelItem.Creator = new IdCodeName(item.Creator.Id, item.Creator.Username, item.Creator.Person.DisplayName);
-            modelItem.LastModifier = new IdCodeName(item.LastModifier.Id,item.LastModifier.Username, item.LastModifier.Person.DisplayName);
+            modelItem.LastModifier = new IdCodeName(item.LastModifier.Id, item.LastModifier.Username, item.LastModifier.Person.DisplayName);
             modelItem.Category = new IdCodeName(item.Category.Id, item.Category.Code, item.Category.Code);
-            modelItem.Language = new IdCodeName(language.Id,language.Code, language.Name);
+            modelItem.Language = new IdCodeName(language.Id, language.Code, language.Name);
             modelItem.ContentId = item.Id;
 
             return new DetailModel<ContentModel>
@@ -364,10 +368,10 @@ namespace AnkaCMS.Service.Implementations
 
 
 
-            addModel.Item.Creator = new IdCodeName(IdentityUser.Id,IdentityUser.Username, IdentityUser.Person.DisplayName);
-            addModel.Item.LastModifier = new IdCodeName(IdentityUser.Id,IdentityUser.Username, IdentityUser.Person.DisplayName);
-            addModel.Item.Language = new IdCodeName(language.Id,language.Code, language.Name);
-            addModel.Item.Category = new IdCodeName(parent.Id,parent.Code, parent.Code);
+            addModel.Item.Creator = new IdCodeName(IdentityUser.Id, IdentityUser.Username, IdentityUser.Person.DisplayName);
+            addModel.Item.LastModifier = new IdCodeName(IdentityUser.Id, IdentityUser.Username, IdentityUser.Person.DisplayName);
+            addModel.Item.Language = new IdCodeName(language.Id, language.Code, language.Name);
+            addModel.Item.Category = new IdCodeName(parent.Id, parent.Code, parent.Code);
             return addModel;
         }
 
@@ -399,9 +403,9 @@ namespace AnkaCMS.Service.Implementations
                 if (itemLine != null)
                 {
                     modelItem = itemLine.CreateMapped<ContentLanguageLine, ContentModel>();
-                    modelItem.Creator = new IdCodeName(itemLine.Creator.Id,itemLine.Creator.Username, itemLine.Creator.Person.DisplayName);
+                    modelItem.Creator = new IdCodeName(itemLine.Creator.Id, itemLine.Creator.Username, itemLine.Creator.Person.DisplayName);
                     modelItem.Category = new IdCodeName(item.Category.Id, item.Category.Code, item.Category.Code);
-                    modelItem.LastModifier = new IdCodeName(itemLine.LastModifier.Id,itemLine.LastModifier.Username, itemLine.LastModifier.Person.DisplayName);
+                    modelItem.LastModifier = new IdCodeName(itemLine.LastModifier.Id, itemLine.LastModifier.Username, itemLine.LastModifier.Person.DisplayName);
                 }
                 else
                 {
@@ -410,7 +414,7 @@ namespace AnkaCMS.Service.Implementations
             }
 
 
-            modelItem.Language = new IdCodeName(language.Id,language.Code, language.Name);
+            modelItem.Language = new IdCodeName(language.Id, language.Code, language.Name);
             modelItem.ContentId = item.Id;
 
             return new UpdateModel<ContentModel>
@@ -568,8 +572,8 @@ namespace AnkaCMS.Service.Implementations
                     modelItem = affectedItemLine.CreateMapped<ContentLanguageLine, ContentModel>();
 
 
-                    modelItem.Creator = new IdCodeName(itemLine.Creator.Id,itemLine.Creator.Username, itemLine.Creator.Person.DisplayName);
-                    modelItem.LastModifier = new IdCodeName(IdentityUser.Id,IdentityUser.Username, IdentityUser.Person.DisplayName);
+                    modelItem.Creator = new IdCodeName(itemLine.Creator.Id, itemLine.Creator.Username, itemLine.Creator.Person.DisplayName);
+                    modelItem.LastModifier = new IdCodeName(IdentityUser.Id, IdentityUser.Username, IdentityUser.Person.DisplayName);
 
                 }
 
@@ -654,8 +658,8 @@ namespace AnkaCMS.Service.Implementations
             var affectedItem = _repositoryContent.Update(item, true);
 
             modelItem.ContentId = affectedItem.Id;
-            modelItem.Language = new IdCodeName(language.Id,language.Code, language.Name);
-            modelItem.Category = new IdCodeName(parent.Id,parent.Code, parent.Code);
+            modelItem.Language = new IdCodeName(language.Id, language.Code, language.Name);
+            modelItem.Category = new IdCodeName(parent.Id, parent.Code, parent.Code);
 
             updateModel.Item = modelItem;
 
@@ -806,9 +810,9 @@ namespace AnkaCMS.Service.Implementations
                 }
 
                 modelItem.Creator = new IdCodeName(item.Creator.Id, item.Creator.Username, item.Creator.Person.DisplayName);
-                modelItem.LastModifier = new IdCodeName(item.LastModifier.Id,item.LastModifier.Username, item.LastModifier.Person.DisplayName);
+                modelItem.LastModifier = new IdCodeName(item.LastModifier.Id, item.LastModifier.Username, item.LastModifier.Person.DisplayName);
                 modelItem.Category = new IdCodeName(item.Category.Id, item.Category.Code, item.Category.Code);
-                modelItem.Language = new IdCodeName(language.Id,language.Code, language.Name);
+                modelItem.Language = new IdCodeName(language.Id, language.Code, language.Name);
                 modelItem.ContentId = item.Id;
                 modelItems.Add(modelItem);
             }
@@ -969,9 +973,9 @@ namespace AnkaCMS.Service.Implementations
                 }
 
                 modelItem.Creator = new IdCodeName(item.Creator.Id, item.Creator.Username, item.Creator.Person.DisplayName);
-                modelItem.LastModifier = new IdCodeName(item.LastModifier.Id,item.LastModifier.Username, item.LastModifier.Person.DisplayName);
+                modelItem.LastModifier = new IdCodeName(item.LastModifier.Id, item.LastModifier.Username, item.LastModifier.Person.DisplayName);
                 modelItem.Category = new IdCodeName(item.Category.Id, item.Category.Code, item.Category.Code);
-                modelItem.Language = new IdCodeName(language.Id,language.Code, language.Name);
+                modelItem.Language = new IdCodeName(language.Id, language.Code, language.Name);
                 modelItem.ContentId = item.Id;
                 modelItems.Add(modelItem);
             }
@@ -1184,10 +1188,10 @@ namespace AnkaCMS.Service.Implementations
 
 
 
-            addModel.Item.Creator = new IdCodeName(IdentityUser.Id,IdentityUser.Username, IdentityUser.Person.DisplayName);
-            addModel.Item.LastModifier = new IdCodeName(IdentityUser.Id,IdentityUser.Username, IdentityUser.Person.DisplayName);
-            addModel.Item.Language = new IdCodeName(language.Id,language.Code, language.Name);
-            addModel.Item.Category = new IdCodeName(parent.Id,parent.Code, parent.Code);
+            addModel.Item.Creator = new IdCodeName(IdentityUser.Id, IdentityUser.Username, IdentityUser.Person.DisplayName);
+            addModel.Item.LastModifier = new IdCodeName(IdentityUser.Id, IdentityUser.Username, IdentityUser.Person.DisplayName);
+            addModel.Item.Language = new IdCodeName(language.Id, language.Code, language.Name);
+            addModel.Item.Category = new IdCodeName(parent.Id, parent.Code, parent.Code);
             return addModel;
         }
 
@@ -1224,9 +1228,9 @@ namespace AnkaCMS.Service.Implementations
                 if (itemLine != null)
                 {
                     modelItem = itemLine.CreateMapped<ContentLanguageLine, ContentModel>();
-                    modelItem.Creator = new IdCodeName(itemLine.Creator.Id,itemLine.Creator.Username, itemLine.Creator.Person.DisplayName);
+                    modelItem.Creator = new IdCodeName(itemLine.Creator.Id, itemLine.Creator.Username, itemLine.Creator.Person.DisplayName);
                     modelItem.Category = new IdCodeName(item.Category.Id, item.Category.Code, item.Category.Code);
-                    modelItem.LastModifier = new IdCodeName(itemLine.LastModifier.Id,itemLine.LastModifier.Username, itemLine.LastModifier.Person.DisplayName);
+                    modelItem.LastModifier = new IdCodeName(itemLine.LastModifier.Id, itemLine.LastModifier.Username, itemLine.LastModifier.Person.DisplayName);
                 }
                 else
                 {
@@ -1235,7 +1239,7 @@ namespace AnkaCMS.Service.Implementations
             }
 
 
-            modelItem.Language = new IdCodeName(language.Id,language.Code, language.Name);
+            modelItem.Language = new IdCodeName(language.Id, language.Code, language.Name);
             modelItem.ContentId = item.Id;
 
             return new UpdateModel<ContentModel>
@@ -1397,8 +1401,8 @@ namespace AnkaCMS.Service.Implementations
                     modelItem = affectedItemLine.CreateMapped<ContentLanguageLine, ContentModel>();
 
 
-                    modelItem.Creator = new IdCodeName(itemLine.Creator.Id,itemLine.Creator.Username, itemLine.Creator.Person.DisplayName);
-                    modelItem.LastModifier = new IdCodeName(IdentityUser.Id,IdentityUser.Username, IdentityUser.Person.DisplayName);
+                    modelItem.Creator = new IdCodeName(itemLine.Creator.Id, itemLine.Creator.Username, itemLine.Creator.Person.DisplayName);
+                    modelItem.LastModifier = new IdCodeName(IdentityUser.Id, IdentityUser.Username, IdentityUser.Person.DisplayName);
 
 
 
@@ -1490,8 +1494,8 @@ namespace AnkaCMS.Service.Implementations
             var affectedItem = _repositoryContent.Update(item, true);
 
             modelItem.ContentId = affectedItem.Id;
-            modelItem.Language = new IdCodeName(language.Id,language.Code, language.Name);
-            modelItem.Category = new IdCodeName(parent.Id,parent.Code, parent.Code);
+            modelItem.Language = new IdCodeName(language.Id, language.Code, language.Name);
+            modelItem.Category = new IdCodeName(parent.Id, parent.Code, parent.Code);
 
             updateModel.Item = modelItem;
 
