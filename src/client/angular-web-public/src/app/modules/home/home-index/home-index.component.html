@@ -2,7 +2,7 @@
     <p-carousel [value]="carouselModel.contents" numVisible="1" numScroll="2" circular="true"
         responsiveOptions="responsiveOptions" autoplayInterval="5000">
         <ng-template let-content pTemplate="item">
-            <a title="{{content.name}}" [routerLink]="['/sayfa/kurumsal/'+content.code]">
+            <a title="{{content.name}}" [routerLink]="['/sayfalar/'+content.category.code,content.code]">
                 <img class="carousel-img"
                     src="{{appSettingsService.apiUrl+ content.imagePath}}?date={{carouselModel.lastModificationTime}}" />
             </a>
@@ -11,10 +11,20 @@
 </div>
 <div class="homecards">
     <div class="p-grid">
-        <div *ngFor="let item of homeCardModel.contents" class="p-col p-col-12 p-md-6 p-lg-4">
-            <p-card header="{{item.name}}">
-                <div>{{item.description}}</div>
+        <div *ngFor="let content of homeCardModel.contents" class="p-col p-col-12 p-md-6 p-lg-4">
+
+            <p-card header="{{content.name}}">
+                <p-header>
+                    <img src="Card" src="{{appSettingsService.apiUrl+ content.imagePath}}">
+                </p-header>
+
+                <div>{{content.description}}</div>
+                <p-footer>
+                    <div class="text-right"><a
+                            [routerLink]="['/sayfalar/'+content.category.code,content.code]">devamı...</a></div>
+                </p-footer>
             </p-card>
+
         </div>
     </div>
 </div>
@@ -23,12 +33,12 @@
     <p-dataView #dv [value]="highlightsModel.contents" layout="grid" emptyMessage="Lütfen bekleyiniz..."
         *ngIf="highlightsModel.contents">
         <p-header>Öne Çıkanlar</p-header>
-        <ng-template let-item pTemplate="gridItem">
+        <ng-template let-content pTemplate="gridItem">
             <div class="ui-g-12 ui-md-3" style="padding:2em .5em 2em .5em">
                 <div class="book-grid-item text-center">
-                    <p><a [routerLink]="['/kitaplar',item.code]"><img
-                                src="{{appSettingsService.apiUrl+ item.imagePath}}"></a></p>
-                    <p><a [routerLink]="['/kitaplar',item.code]">{{item.shortName}}</a></p>
+                    <p><a [routerLink]="['/sayfalar/'+content.category.code,content.code]"><img
+                                src="{{appSettingsService.apiUrl+ content.imagePath}}"></a></p>
+                    <p><a [routerLink]="['/sayfalar/'+content.category.code,content.code]">{{content.shortName}}</a></p>
                 </div>
             </div>
         </ng-template>

@@ -225,10 +225,10 @@ namespace AnkaCMS.Service.Implementations
                     var publicContentModel = contentLanguageLine.CreateMapped<ContentLanguageLine, PublicContentModel>();
                     publicContentModel.ContentId = itemContent.Id;
 
-                    var category = itemContent.Category.CategoryLanguageLines.FirstOrDefault(x => x.Language.Id == language.Id);
-                    if (category != null)
+                    var lineCategoryLanguage = itemContent.Category.CategoryLanguageLines.FirstOrDefault(x => x.Language.Id == language.Id);
+                    if (lineCategoryLanguage != null)
                     {
-                        publicContentModel.Category = new IdCodeName(itemContent.Category.Id, itemContent.Category.Code, category.Name);
+                        publicContentModel.Category = new IdCodeName(lineCategoryLanguage.Category.Id, lineCategoryLanguage.Code, lineCategoryLanguage.Name);
                     }
                     publicContentModel.Language = new IdCodeName(language.Id, language.Code, language.Name);
 
