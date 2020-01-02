@@ -10,6 +10,7 @@ import { GlobalizationMessagesPipe } from 'src/app/pipes/globalization-messages.
 import { AdminLayoutComponent } from 'src/app/layouts/admin/admin-layout/admin-layout.component';
 import { DatePipe } from '@angular/common';
 import { IdCodeNameSelected } from 'src/app/value-objects/id-code-name-selected';
+import { AppSettingsService } from 'src/app/app-settings.service';
 
 @Component({
   selector: 'app-part-update',
@@ -38,6 +39,7 @@ export class PartUpdateComponent implements OnInit {
     private route: ActivatedRoute,
     private messageService: MessageService,
     private servicePart: PartService,
+    public appSettingsService: AppSettingsService,
     public globalizationDictionaryPipe: GlobalizationDictionaryPipe,
     private globalizationMessagesPipe: GlobalizationMessagesPipe,
     private adminLayoutComponent: AdminLayoutComponent,
@@ -55,7 +57,7 @@ export class PartUpdateComponent implements OnInit {
       name: new FormControl('', [Validators.required, Validators.minLength(2)]),
       description: new FormControl(''),
       keywords: new FormControl(''),
-     // contents: new FormControl(''),
+      // contents: new FormControl(''),
       creator: new FormControl(''),
       creationTime: new FormControl(''),
       lastModifier: new FormControl(''),

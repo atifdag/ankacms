@@ -111,7 +111,10 @@ namespace AnkaCMS.Service.Implementations
                 throw new NotFoundException(Messages.DangerRecordNotFound);
             }
 
-            var allContents = _repositoryContent.Get().Select(x=> new IdCodeName(x.Id, x.Code, x.Code)).ToList();
+            var allContents = _repositoryContent.Join(x => x.ContentLanguageLines)
+
+
+                .Select(x => new IdCodeName(x.Id, x.ContentLanguageLines.First(t => t.Language.Id == languageId).Code, x.ContentLanguageLines.First(t => t.Language.Id == languageId).Name)).ToList();
 
             var itemPartContents = _repositoryPartContentLine
                 .Join(x => x.Content)
@@ -128,11 +131,11 @@ namespace AnkaCMS.Service.Implementations
             {
                 if (itemPartContents.Contains(itemContent.Id))
                 {
-                    selectedContents.Add(new IdCodeNameSelected(itemContent.Id, itemContent.Code, itemContent.Code, true));
+                    selectedContents.Add(new IdCodeNameSelected(itemContent.Id, itemContent.Code, itemContent.Name, true));
                 }
                 else
                 {
-                    unSelectedContents.Add(new IdCodeNameSelected(itemContent.Id, itemContent.Code, itemContent.Code, false));
+                    unSelectedContents.Add(new IdCodeNameSelected(itemContent.Id, itemContent.Code, itemContent.Name, false));
                 }
             }
 
@@ -205,18 +208,30 @@ namespace AnkaCMS.Service.Implementations
 
 
 
-            var itemIds = item.PartContentLines.OrderBy(t=>t.DisplayOrder).Select(t => t.Content).Select(c => c.Id).ToList();
+            //var itemIds = item.PartContentLines.OrderBy(t=>t.DisplayOrder).Select(t => t.Content).Select(c => c.Id).ToList();
 
          //   var allContent = _repositoryContent.Get();
 
-         var itemContents = _repositoryContent
-             .Join(x => x.Category)
+
+         var itemContents = _repositoryPartContentLine
+             .Join(x => x.Content)
+             .ThenJoin(x=>x.Category)
              .ThenJoin(x => x.CategoryLanguageLines)
              .ThenJoin(x => x.Language)
-             .Join(x => x.ContentLanguageLines)
+             .Join(x=>x.Content)
+             .ThenJoin(x => x.ContentLanguageLines)
              .ThenJoin(x => x.Language)
-//             .OrderBy(x=>x.)
-             .Where(z => itemIds.Contains(z.Id)).ToList();
+             .OrderBy(x=>x.DisplayOrder)
+             .Where(x => x.Part.Id == item.Id).Select(t=>t.Content).ToList();
+
+         //var itemContents = _repositoryContent
+         //    .Join(x => x.Category)
+         //    .ThenJoin(x => x.CategoryLanguageLines)
+         //    .ThenJoin(x => x.Language)
+         //    .Join(x => x.ContentLanguageLines)
+         //    .ThenJoin(x => x.Language)
+         //    .OrderBy(x=>x.PartContentLines.Select(c=>c.DisplayOrder))
+         //    .Where(z => itemIds.Contains(z.Id)).ToList();
             foreach (var itemContent in itemContents)
             {
                 var contentLanguageLine = itemContent.ContentLanguageLines.FirstOrDefault(x => x.Language.Id == language.Id);
@@ -512,7 +527,10 @@ namespace AnkaCMS.Service.Implementations
 
 
 
-            var allContents = _repositoryContent.Get().Select(x => new IdCodeName(x.Id, x.Code, x.Code)).ToList();
+            var allContents = _repositoryContent.Join(x=>x.ContentLanguageLines)
+                                
+                
+                .Select(x => new IdCodeName(x.Id, x.ContentLanguageLines.First(t=>t.Language.Id==languageId).Code, x.ContentLanguageLines.First(t => t.Language.Id == languageId).Name)).ToList();
 
             var itemPartContents = _repositoryPartContentLine
                 .Join(x => x.Content)
@@ -527,13 +545,14 @@ namespace AnkaCMS.Service.Implementations
 
             foreach (var itemContent in allContents)
             {
+
                 if (itemPartContents.Contains(itemContent.Id))
                 {
-                    selectedContents.Add(new IdCodeNameSelected(itemContent.Id, itemContent.Code, itemContent.Code, true));
+                    selectedContents.Add(new IdCodeNameSelected(itemContent.Id, itemContent.Code, itemContent.Name, true));
                 }
                 else
                 {
-                    unSelectedContents.Add(new IdCodeNameSelected(itemContent.Id, itemContent.Code, itemContent.Code, false));
+                    unSelectedContents.Add(new IdCodeNameSelected(itemContent.Id, itemContent.Code, itemContent.Name, false));
                 }
             }
 
