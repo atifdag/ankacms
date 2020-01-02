@@ -205,7 +205,7 @@ namespace AnkaCMS.Service.Implementations
 
 
 
-            var itemIds = item.PartContentLines.Select(t => t.Content).Select(c => c.Id).ToList();
+            var itemIds = item.PartContentLines.OrderBy(t=>t.DisplayOrder).Select(t => t.Content).Select(c => c.Id).ToList();
 
          //   var allContent = _repositoryContent.Get();
 
@@ -215,6 +215,7 @@ namespace AnkaCMS.Service.Implementations
              .ThenJoin(x => x.Language)
              .Join(x => x.ContentLanguageLines)
              .ThenJoin(x => x.Language)
+//             .OrderBy(x=>x.)
              .Where(z => itemIds.Contains(z.Id)).ToList();
             foreach (var itemContent in itemContents)
             {
