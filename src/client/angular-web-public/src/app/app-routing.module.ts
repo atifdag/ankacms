@@ -13,11 +13,25 @@ import { PublicContentDetailComponent } from './modules/content/public-content-d
                     path: '',
                     component: PublicLayoutComponent,
                     children: [
-                        { path: '', component: HomeIndexComponent, pathMatch: 'full' },
-                        { path: 'anasayfa', component: HomeIndexComponent },
-                        { path: 'sayfalar/:code', component: PublicCategoryDetailComponent },
-                        { path: 'sayfalar/:categoryCode/:code', component: PublicContentDetailComponent },
-                    ]
+                        {
+                            path: '',
+                            component: HomeIndexComponent,
+                            pathMatch: 'full'
+                        },
+                        {
+                            path: 'anasayfa',
+                            component: HomeIndexComponent
+                        },
+                        {
+                            path: 'sayfalar/:categoryCode',
+                            component: PublicCategoryDetailComponent,
+
+                        },
+                        {
+                            path: 'sayfalar/:categoryCode/:contentCode',
+                            component: PublicContentDetailComponent
+                        },
+                    ],
                 },
                 { path: '**', redirectTo: '' }
             ], {

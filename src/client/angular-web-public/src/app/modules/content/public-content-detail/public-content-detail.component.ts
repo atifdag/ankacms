@@ -17,7 +17,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PublicContentDetailComponent implements OnInit {
 
   loading = true;
-  pageCode: string;
+  contentCode: string;
   pageTitle: string;
   dublinCore = new DublinCore();
   breadcrumbItems: any[];
@@ -36,15 +36,16 @@ export class PublicContentDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.pageCode = params.get('code');
+
+    this.route.params.subscribe(params => {
+      this.contentCode = params.contentCode;
+      this.getContentDetail(this.contentCode);
     });
-    this.getContentDetail(this.pageCode);
   }
 
-  getContentDetail(code: string) {
-    this.pageCode = code;
-    this.serviceContent.publicDetail(this.pageCode).subscribe(
+  getContentDetail(contentCode: string) {
+    this.contentCode = contentCode;
+    this.serviceContent.publicDetail(this.contentCode).subscribe(
       responseDetail => {
         if (responseDetail.status === 200) {
           this.model = responseDetail.body as PublicContentModel;

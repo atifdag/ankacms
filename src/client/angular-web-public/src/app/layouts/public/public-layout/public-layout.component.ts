@@ -90,7 +90,7 @@ export class PublicLayoutComponent implements OnInit {
   }
 
   filterRoutes(event) {
-    let query = event.query;
+    const query = event.query;
     this.filteredRoutes = this.routes.filter(route => {
       return route.toLowerCase().includes(query.toLowerCase());
     });

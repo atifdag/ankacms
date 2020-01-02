@@ -9,9 +9,9 @@
             </a>
             <ul class="topbar-menu">
                 <li>
-                    <a [routerLink]="['/sayfalar/kurumsal-tr']">Kurumsal</a>
-                    <a [routerLink]="['/sayfalar/haberler-tr']">Haberler</a>
-                    <a [routerLink]="['/sayfalar/baglantilar-tr']">Bağlantılar</a>
+                    <a [routerLink]="['/sayfalar','kurumsal-tr']">Kurumsal</a>
+                    <a [routerLink]="['/sayfalar','haberler-tr']">Haberler</a>
+                    <a [routerLink]="['/sayfalar','baglantilar-tr']">Bağlantılar</a>
                     <a [routerLink]="['/iletisim']">İletişim</a>
                 </li>
             </ul>
@@ -19,19 +19,19 @@
     </div>
     <div id="layout-sidebar" [ngClass]="{'active': menuActive}">
         <div class="layout-menu">
-            <a id="menu_kurumsal" (click)="toggle(inputmenutitle.id,'/sayfa/kurumsal')" #inputmenutitle
+            <a id="menu_kurumsal" (click)="toggle(inputmenutitle.id,'/sayfalar/kurumsal-tr')" #inputmenutitle
                 [class.active-menuitem]="inputmenutitle.id == activeMenuId" tabindex="0">
                 <img src="assets/showcase/images/icons/overlay-active.svg" class="layout-menu-icon-active" />
                 <img src="assets/showcase/images/icons/overlay.svg" class="layout-menu-icon-inactive" />
                 <span>Kurumsal</span>
             </a>
-            <a id="menu_haberler" (click)="toggle(inputmenutitle.id,'/sayfa/haberler')" #inputmenutitle
+            <a id="menu_haberler" (click)="toggle(inputmenutitle.id,'/sayfalar/haberler-tr')" #inputmenutitle
                 [class.active-menuitem]="inputmenutitle.id == activeMenuId" tabindex="0">
                 <img src="assets/showcase/images/icons/overlay-active.svg" class="layout-menu-icon-active" />
                 <img src="assets/showcase/images/icons/overlay.svg" class="layout-menu-icon-inactive" />
                 <span>Haberler</span>
             </a>
-            <a id="menu_baglantilar" (click)="toggle(inputmenutitle.id,'/sayfa/baglantilar')" #inputmenutitle
+            <a id="menu_baglantilar" (click)="toggle(inputmenutitle.id,'/sayfalar/baglantilar-tr')" #inputmenutitle
                 [class.active-menuitem]="inputmenutitle.id == activeMenuId" tabindex="0">
                 <img src="assets/showcase/images/icons/overlay-active.svg" class="layout-menu-icon-active" />
                 <img src="assets/showcase/images/icons/overlay.svg" class="layout-menu-icon-inactive" />

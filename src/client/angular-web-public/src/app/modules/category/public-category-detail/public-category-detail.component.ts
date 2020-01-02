@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DublinCore } from 'src/app/value-objects/dublin-core';
 import { PublicCategoryModel } from 'src/app/models/public-category-model';
 import { TitleAndMetaService } from 'src/app/title-and-meta.service';
@@ -17,12 +17,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PublicCategoryDetailComponent implements OnInit {
 
   loading = true;
-  pageCode: string;
+  categoryCode: string;
   pageTitle: string;
   dublinCore = new DublinCore();
   breadcrumbItems: any[];
   model = new PublicCategoryModel();
-
 
   constructor(
     private serviceTitleAndMeta: TitleAndMetaService,
@@ -31,20 +30,19 @@ export class PublicCategoryDetailComponent implements OnInit {
     private messageService: MessageService,
     public globalizationDictionaryPipe: GlobalizationDictionaryPipe,
     public appSettingsService: AppSettingsService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) { }
-
-  ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.pageCode = params.get('code');
-    });
-    this.getCategoryDetail(this.pageCode);
+    private route: ActivatedRoute) {
   }
 
-  getCategoryDetail(code: string) {
-    this.pageCode = code;
-    this.serviceCategory.publicDetail(this.pageCode).subscribe(
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.categoryCode = params.categoryCode;
+      this.getCategoryDetail(this.categoryCode);
+    });
+  }
+
+  getCategoryDetail(categoryCode: string) {
+    this.categoryCode = categoryCode;
+    this.serviceCategory.publicDetail(this.categoryCode).subscribe(
       responseDetail => {
         if (responseDetail.status === 200) {
           this.model = responseDetail.body as PublicCategoryModel;
