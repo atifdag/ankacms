@@ -14,7 +14,7 @@
             <img class="public-content-detail-img" src="{{appSettingsService.apiUrl+ model.imagePath}}">
         </div>
         <div *ngIf="model.description" class="public-content-detail-description">
-            <div innerHTML="{{model.description}}" [className]="model.language.code === 'ar' && 'text-arabic'"></div>
+            <blockquote innerHTML="{{model.description}}" [className]="model.language.code === 'ar' && 'text-arabic'"></blockquote>
         </div>
 
         <div class="ui-g-12 content-detail-text" style="padding: 0 0 0 0;">

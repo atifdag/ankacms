@@ -11,7 +11,9 @@
     </p-breadcrumb>
     <div class="ui-g" style="padding: 20px 0 0 0;">
         <div class="ui-g-12 content-detail-text" style="padding: 0 0 0 0;">
-            <div innerHTML="{{model.description}}" [className]="model.language.code === 'ar' && 'text-arabic'"></div>
+            <div *ngIf="model.description" class="public-content-detail-description">
+                <blockquote innerHTML="{{model.description}}" [className]="model.language.code === 'ar' && 'text-arabic'"></blockquote>
+            </div>
             <ul>
                 <li *ngFor="let item of model.contents">
                     <a [routerLink]="['/sayfalar/'+model.code,item.code]">{{item.name}}</a>
