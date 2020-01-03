@@ -1,3 +1,6 @@
+body {
+    font-family: "helveticaregular", "Helvetica Neue", sans-serif;
+}
 .public-layout-wrapper{
     background-color: #e9e9e9 !important;
     background: url('/assets/showcase/images/bg.jpg');
@@ -106,6 +109,7 @@ background: #f6f6e7 !important;
 .public-layout-wrapper .ui-breadcrumb{
     border: none !important;
     border-bottom: 1px solid #d7d7d7 !important;
+    font-family: "helveticanarrow_regular", "Helvetica Neue", sans-serif;
 }
 
 .public-layout-wrapper .layout-footer{
@@ -128,6 +132,7 @@ color: #fff;
 .public-layout-wrapper .content-page-header{
     font-weight: normal;
     margin-top: 0;
+    font-family: "helveticabold", "Helvetica Neue", sans-serif;
 }
 
 .public-layout-wrapper .topbar-menu>li.topbar-menu-dropdowns>a {
@@ -508,13 +513,29 @@ margin: 0;
     width: 100%;
     display: block;
     margin: 0 0 1.5em 0;
-    box-shadow: 0 0 10px #707070; 
+    box-shadow: 0 0 10px #333; 
 }
 
 .public-content-detail-description{
     margin-bottom: 1.5em;
     font-size: 1.25rem;
     font-weight: 300;
-    font-style: italic;
+    color: #707070;
+    /* font-style: italic; */
+    text-align: justify;
+    font-family: "helveticaitalic", "Helvetica Neue", sans-serif;
+}
+
+.home-ui-card-title{
+    font-family: "helveticaultralight", "Helvetica Neue", sans-serif;
+    padding: 1em 1em 0 1em;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: .5em;
+    
+}
+
+.home-card-description{
+    font-size: .9em;
     text-align: justify;
 }

@@ -13,12 +13,15 @@
     <div class="p-grid">
         <div *ngFor="let content of homeCardModel.contents" class="p-col p-col-12 p-md-6 p-lg-4">
 
-            <p-card header="{{content.name}}">
+            <p-card>
                 <p-header>
-                    <img src="{{appSettingsService.apiUrl+ content.imagePath}}">
+                    <a [routerLink]="['/sayfalar/'+content.category.code,content.code]"><img
+                            src="{{appSettingsService.apiUrl+ content.imagePath}}">
+                            <div class="home-ui-card-title">{{content.name}}</div>
+                    </a>
                 </p-header>
 
-                <div>{{content.description}}</div>
+                <div class="home-card-description">{{content.description}}</div>
                 <p-footer>
                     <div class="text-right"><a
                             [routerLink]="['/sayfalar/'+content.category.code,content.code]">devamı...</a></div>
