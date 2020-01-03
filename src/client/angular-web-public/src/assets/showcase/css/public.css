@@ -502,3 +502,19 @@ margin: 0;
   .homecards{
       padding: 1em 0 0 0; 
   }
+
+  .public-content-detail-img{
+    max-width: 1072px;
+    width: 100%;
+    display: block;
+    margin: 0 0 1.5em 0;
+    box-shadow: 0 0 10px #707070; 
+}
+
+.public-content-detail-description{
+    margin-bottom: 1.5em;
+    font-size: 1.25rem;
+font-weight: 300;
+font-style: italic;
+    text-align: justify;
+}

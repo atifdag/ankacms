@@ -10,7 +10,16 @@
         [style]="{'border': 'none', 'font-size':'12px', 'padding-left':'0', 'border-bottom':'1px solid #e9e9e9','border-radius':'0'}">
     </p-breadcrumb>
     <div class="ui-g" style="padding: 20px 0 0 0;">
+        <div *ngIf="model.imagePath">
+            <img class="public-content-detail-img" src="{{appSettingsService.apiUrl+ model.imagePath}}">
+        </div>
+        <div *ngIf="model.description" class="public-content-detail-description">
+            <div innerHTML="{{model.description}}" [className]="model.language.code === 'ar' && 'text-arabic'"></div>
+        </div>
+
         <div class="ui-g-12 content-detail-text" style="padding: 0 0 0 0;">
+            
+
             <div innerHTML="{{model.contentDetail}}" [className]="model.language.code === 'ar' && 'text-arabic'"></div>
         </div>
     </div>

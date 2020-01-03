@@ -120,7 +120,7 @@ namespace AnkaCMS.Service.Implementations
                 .Join(x => x.Content)
                 .ThenJoin(x => x.ContentLanguageLines)
                 .ThenJoin(x => x.Language)
-                .OrderBy(x=>x.DisplayOrder)
+                .OrderBy(x => x.DisplayOrder)
                 .Where(x => x.Part.Id == itemPart.Id).Select(x => x.Content.Id).ToList();
 
 
@@ -140,7 +140,7 @@ namespace AnkaCMS.Service.Implementations
             }
 
             var orderedSelectedContents = itemPartContents.Select(itemContent => selectedContents.FirstOrDefault(x => x.Id == itemContent)).ToList();
-            
+
             PartModel modelItem;
             if (itemPart.PartLanguageLines == null)
             {
@@ -154,7 +154,7 @@ namespace AnkaCMS.Service.Implementations
 
             modelItem.Creator = new IdCodeName(itemPart.Creator.Id, itemPart.Creator.Username, itemPart.Creator.Person.DisplayName);
             modelItem.LastModifier = new IdCodeName(itemPart.LastModifier.Id, itemPart.LastModifier.Username, itemPart.LastModifier.Person.DisplayName);
-            modelItem.Language = new IdCodeName(language.Id,language.Code, language.Name);
+            modelItem.Language = new IdCodeName(language.Id, language.Code, language.Name);
             modelItem.PartId = itemPart.Id;
 
 
@@ -172,7 +172,7 @@ namespace AnkaCMS.Service.Implementations
 
         public List<IdCodeName> List(Guid languageId)
         {
-            var list = _repositoryPartLanguageLine.Get().Where(x => x.Language.Id == languageId).OrderBy(x => x.DisplayOrder).Select(x => new IdCodeName(x.Id,x.Code, x.Name));
+            var list = _repositoryPartLanguageLine.Get().Where(x => x.Language.Id == languageId).OrderBy(x => x.DisplayOrder).Select(x => new IdCodeName(x.Id, x.Code, x.Name));
             if (list.Any())
             {
                 return list.ToList();
@@ -187,10 +187,10 @@ namespace AnkaCMS.Service.Implementations
             var item = _repositoryPart
                 .Join(x => x.Creator.Person)
                 .Join(x => x.LastModifier.Person)
-                .Join(x=>x.PartContentLines)
-                .ThenJoin(x=>x.Content)
+                .Join(x => x.PartContentLines)
+                .ThenJoin(x => x.Content)
                 .Join(z => z.PartLanguageLines)
-                
+
                 .ThenJoin(x => x.Language)
                 .FirstOrDefault(x => x.Code == partCode);
 
@@ -206,36 +206,21 @@ namespace AnkaCMS.Service.Implementations
 
             var listContent = new List<PublicContentModel>();
 
+            var itemContents = _repositoryPartContentLine
+                .Join(x => x.Content)
+                .ThenJoin(x => x.Category)
+                .ThenJoin(x => x.CategoryLanguageLines)
+                .ThenJoin(x => x.Language)
+                .Join(x => x.Content)
+                .ThenJoin(x => x.ContentLanguageLines)
+                .ThenJoin(x => x.Language)
+                .OrderBy(x => x.DisplayOrder)
+                .Where(x => x.Part.Id == item.Id).Select(t => t.Content).ToList();
 
-
-            //var itemIds = item.PartContentLines.OrderBy(t=>t.DisplayOrder).Select(t => t.Content).Select(c => c.Id).ToList();
-
-         //   var allContent = _repositoryContent.Get();
-
-
-         var itemContents = _repositoryPartContentLine
-             .Join(x => x.Content)
-             .ThenJoin(x=>x.Category)
-             .ThenJoin(x => x.CategoryLanguageLines)
-             .ThenJoin(x => x.Language)
-             .Join(x=>x.Content)
-             .ThenJoin(x => x.ContentLanguageLines)
-             .ThenJoin(x => x.Language)
-             .OrderBy(x=>x.DisplayOrder)
-             .Where(x => x.Part.Id == item.Id).Select(t=>t.Content).ToList();
-
-         //var itemContents = _repositoryContent
-         //    .Join(x => x.Category)
-         //    .ThenJoin(x => x.CategoryLanguageLines)
-         //    .ThenJoin(x => x.Language)
-         //    .Join(x => x.ContentLanguageLines)
-         //    .ThenJoin(x => x.Language)
-         //    .OrderBy(x=>x.PartContentLines.Select(c=>c.DisplayOrder))
-         //    .Where(z => itemIds.Contains(z.Id)).ToList();
             foreach (var itemContent in itemContents)
             {
                 var contentLanguageLine = itemContent.ContentLanguageLines.FirstOrDefault(x => x.Language.Id == language.Id);
-                if (contentLanguageLine != null)
+                if (contentLanguageLine == null) continue;
                 {
                     var publicContentModel = contentLanguageLine.CreateMapped<ContentLanguageLine, PublicContentModel>();
                     publicContentModel.ContentId = itemContent.Id;
@@ -350,8 +335,8 @@ namespace AnkaCMS.Service.Implementations
                 }
 
                 modelItem.Creator = new IdCodeName(item.Creator.Id, item.Creator.Username, item.Creator.Person.DisplayName);
-                modelItem.LastModifier = new IdCodeName(item.LastModifier.Id,item.LastModifier.Username, item.LastModifier.Person.DisplayName);
-                modelItem.Language = new IdCodeName(language.Id,language.Code, language.Name);
+                modelItem.LastModifier = new IdCodeName(item.LastModifier.Id, item.LastModifier.Username, item.LastModifier.Person.DisplayName);
+                modelItem.Language = new IdCodeName(language.Id, language.Code, language.Name);
                 modelItem.PartId = item.Id;
                 modelItems.Add(modelItem);
             }
@@ -461,7 +446,7 @@ namespace AnkaCMS.Service.Implementations
                 Creator = IdentityUser,
                 LastModificationTime = DateTime.Now,
                 LastModifier = IdentityUser
-                
+
             };
 
             var affectedItem = _repositoryPart.Add(item, true);
@@ -498,9 +483,9 @@ namespace AnkaCMS.Service.Implementations
 
 
 
-            addModel.Item.Creator = new IdCodeName(IdentityUser.Id,IdentityUser.Username, IdentityUser.Person.DisplayName);
-            addModel.Item.LastModifier = new IdCodeName(IdentityUser.Id,IdentityUser.Username, IdentityUser.Person.DisplayName);
-            addModel.Item.Language = new IdCodeName(language.Id,language.Code, language.Name);
+            addModel.Item.Creator = new IdCodeName(IdentityUser.Id, IdentityUser.Username, IdentityUser.Person.DisplayName);
+            addModel.Item.LastModifier = new IdCodeName(IdentityUser.Id, IdentityUser.Username, IdentityUser.Person.DisplayName);
+            addModel.Item.Language = new IdCodeName(language.Id, language.Code, language.Name);
             return addModel;
         }
 
@@ -527,10 +512,10 @@ namespace AnkaCMS.Service.Implementations
 
 
 
-            var allContents = _repositoryContent.Join(x=>x.ContentLanguageLines)
-                                
-                
-                .Select(x => new IdCodeName(x.Id, x.ContentLanguageLines.First(t=>t.Language.Id==languageId).Code, x.ContentLanguageLines.First(t => t.Language.Id == languageId).Name)).ToList();
+            var allContents = _repositoryContent.Join(x => x.ContentLanguageLines)
+
+
+                .Select(x => new IdCodeName(x.Id, x.ContentLanguageLines.First(t => t.Language.Id == languageId).Code, x.ContentLanguageLines.First(t => t.Language.Id == languageId).Name)).ToList();
 
             var itemPartContents = _repositoryPartContentLine
                 .Join(x => x.Content)
@@ -569,8 +554,8 @@ namespace AnkaCMS.Service.Implementations
                 if (itemLine != null)
                 {
                     modelItem = itemLine.CreateMapped<PartLanguageLine, PartModel>();
-                    modelItem.Creator = new IdCodeName(itemLine.Creator.Id,itemLine.Creator.Username, itemLine.Creator.Person.DisplayName);
-                    modelItem.LastModifier = new IdCodeName(itemLine.LastModifier.Id,itemLine.LastModifier.Username, itemLine.LastModifier.Person.DisplayName);
+                    modelItem.Creator = new IdCodeName(itemLine.Creator.Id, itemLine.Creator.Username, itemLine.Creator.Person.DisplayName);
+                    modelItem.LastModifier = new IdCodeName(itemLine.LastModifier.Id, itemLine.LastModifier.Username, itemLine.LastModifier.Person.DisplayName);
                 }
                 else
                 {
@@ -583,7 +568,7 @@ namespace AnkaCMS.Service.Implementations
             modelItemContents.AddRange(orderedSelectedContents);
 
             modelItem.Contents = modelItemContents;
-            modelItem.Language = new IdCodeName(language.Id,language.Code, language.Name);
+            modelItem.Language = new IdCodeName(language.Id, language.Code, language.Name);
             modelItem.PartId = itemPart.Id;
 
 
@@ -663,8 +648,8 @@ namespace AnkaCMS.Service.Implementations
                     modelItem = affectedItemLine.CreateMapped<PartLanguageLine, PartModel>();
 
 
-                    modelItem.Creator = new IdCodeName(itemLine.Creator.Id,itemLine.Creator.Username, itemLine.Creator.Person.DisplayName);
-                    modelItem.LastModifier = new IdCodeName(IdentityUser.Id,IdentityUser.Username, IdentityUser.Person.DisplayName);
+                    modelItem.Creator = new IdCodeName(itemLine.Creator.Id, itemLine.Creator.Username, itemLine.Creator.Person.DisplayName);
+                    modelItem.LastModifier = new IdCodeName(IdentityUser.Id, IdentityUser.Username, IdentityUser.Person.DisplayName);
 
                 }
 
@@ -702,7 +687,7 @@ namespace AnkaCMS.Service.Implementations
                 }
             }
 
-           
+
 
 
             var itemHistory = item.CreateMapped<Part, PartHistory>();
@@ -763,7 +748,7 @@ namespace AnkaCMS.Service.Implementations
                 counterIdCodeNameSelected++;
             }
 
-           
+
             //foreach (var idCodeNameSelected in updateModel.Item.Contents)
             //{
             //    var line = _repositoryPartContentLine.Get(x => x.Part.Id == item.Id && x.Content.Code == idCodeNameSelected.Code);
@@ -775,7 +760,7 @@ namespace AnkaCMS.Service.Implementations
 
 
             modelItem.PartId = affectedItem.Id;
-            modelItem.Language = new IdCodeName(language.Id,language.Code, language.Name);
+            modelItem.Language = new IdCodeName(language.Id, language.Code, language.Name);
 
             updateModel.Item = modelItem;
 
