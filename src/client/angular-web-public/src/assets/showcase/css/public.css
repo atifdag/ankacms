@@ -514,7 +514,7 @@ margin: 0;
 .public-content-detail-description{
     margin-bottom: 1.5em;
     font-size: 1.25rem;
-font-weight: 300;
-font-style: italic;
+    font-weight: 300;
+    font-style: italic;
     text-align: justify;
 }
