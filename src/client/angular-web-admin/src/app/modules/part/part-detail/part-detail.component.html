@@ -84,6 +84,16 @@
               <textarea pInputTextarea disabled="disabled" formControlName="keywords"></textarea>
             </div>
           </div>
+
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-2 text-right bold">
+                {{'MaxItemCount' | globalizationdictionary}}
+            </div>
+            <div class="ui-grid-col-10">
+              <input pInputText type="text" formControlName="maxItemCount" disabled="disabled" />
+            </div>
+          </div>
+
           <div class="ui-grid-row">
             <div class="ui-grid-col-2 text-right bold">
                 {{'Contents' | globalizationdictionary}}
@@ -115,7 +125,7 @@
               <div class="ui-grid-col-10">
                 <input pInputText disabled="disabled" formControlName="lastModifier" />
               </div>
-            </div>
+            </div> 
             <div class="ui-grid-row">
               <div class="ui-grid-col-2 text-right bold">
                 {{'LastModificationTime' | globalizationdictionary}}

@@ -58,6 +58,7 @@ export class PartDetailComponent implements OnInit {
       keywords: new FormControl(''),
       contents: new FormControl(''),
       creator: new FormControl(''),
+      maxItemCount: new FormControl(''),
       creationTime: new FormControl(''),
       lastModifier: new FormControl(''),
       lastModificationTime: new FormControl(''),
@@ -90,6 +91,7 @@ export class PartDetailComponent implements OnInit {
             this.userForm.get('name').setValue(this.model.item.name);
             this.userForm.get('description').setValue(this.model.item.description);
             this.userForm.get('keywords').setValue(this.model.item.keywords);
+            this.userForm.get('maxItemCount').setValue(this.model.item.maxItemCount);
             this.userForm.get('creator').setValue(this.model.item.creator.name);
             this.userForm.get('creationTime').setValue(
               this.datePipe.transform(this.model.item.creationTime, 'dd/MM/yyyy HH:mm:ss')

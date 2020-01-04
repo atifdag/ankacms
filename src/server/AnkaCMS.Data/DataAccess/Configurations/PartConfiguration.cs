@@ -24,6 +24,7 @@ namespace AnkaCMS.Data.DataAccess.Configurations
             builder.HasOne(x => x.Creator).WithMany(y => y.PartsCreatedBy).IsRequired().OnDelete(DeleteBehavior.Restrict);
             builder.Property(x => x.LastModificationTime).IsRequired();
             builder.HasOne(x => x.LastModifier).WithMany(y => y.PartsLastModifiedBy).IsRequired().OnDelete(DeleteBehavior.Restrict);
+            builder.Property(x => x.MaxItemCount).IsRequired();
         }
     }
 }

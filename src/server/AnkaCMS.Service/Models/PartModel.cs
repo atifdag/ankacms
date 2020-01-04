@@ -20,6 +20,7 @@ namespace AnkaCMS.Service.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Keywords { get; set; }
+        public int MaxItemCount { get; set; }
         public Guid PartId { get; set; }
         public IdCodeName Language { get; set; }
         public List<IdCodeNameSelected> Contents { get; set; }

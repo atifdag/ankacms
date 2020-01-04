@@ -1,3 +1,9 @@
+<p-toast [baseZIndex]="99999"></p-toast>
+<p *ngIf="loading" style="text-align: center">
+    <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+    <br>
+    {{'PleaseWait' | globalizationdictionary}}
+</p>
 <div class="layout-wrapper public-layout-wrapper">
     <div id="layout-topbar">
         <div class="header-container">
@@ -9,9 +15,8 @@
             </a>
             <ul class="topbar-menu">
                 <li>
-                    <a [routerLink]="['/sayfalar','kurumsal-tr']">Kurumsal</a>
-                    <a [routerLink]="['/sayfalar','haberler-tr']">Haberler</a>
-                    <a [routerLink]="['/sayfalar','baglantilar-tr']">Bağlantılar</a>
+                    <a [routerLink]="['/anasayfa']">Ana Sayfa</a>
+                    <a *ngFor="let item of categoryList" [routerLink]="['/sayfalar',item.code]">{{item.name}}</a>
                     <a [routerLink]="['/iletisim']">İletişim</a>
                 </li>
             </ul>
@@ -19,24 +24,22 @@
     </div>
     <div id="layout-sidebar" [ngClass]="{'active': menuActive}">
         <div class="layout-menu">
-            <a id="menu_kurumsal" (click)="toggle(inputmenutitle.id,'/sayfalar/kurumsal-tr')" #inputmenutitle
+
+            <a id="menu_homepage" (click)="toggle(inputmenutitle.id,'/anasayfa')" #inputmenutitle
                 [class.active-menuitem]="inputmenutitle.id == activeMenuId" tabindex="0">
                 <img src="assets/showcase/images/icons/overlay-active.svg" class="layout-menu-icon-active" />
                 <img src="assets/showcase/images/icons/overlay.svg" class="layout-menu-icon-inactive" />
-                <span>Kurumsal</span>
+                <span>Ana Sayfa</span>
             </a>
-            <a id="menu_haberler" (click)="toggle(inputmenutitle.id,'/sayfalar/haberler-tr')" #inputmenutitle
+
+            <a *ngFor="let item of categoryList" id="menu_{{item.code}}"
+                (click)="toggle(inputmenutitle.id,'/sayfalar/'+item.code)" #inputmenutitle
                 [class.active-menuitem]="inputmenutitle.id == activeMenuId" tabindex="0">
                 <img src="assets/showcase/images/icons/overlay-active.svg" class="layout-menu-icon-active" />
                 <img src="assets/showcase/images/icons/overlay.svg" class="layout-menu-icon-inactive" />
-                <span>Haberler</span>
+                <span>{{item.name}}</span>
             </a>
-            <a id="menu_baglantilar" (click)="toggle(inputmenutitle.id,'/sayfalar/baglantilar-tr')" #inputmenutitle
-                [class.active-menuitem]="inputmenutitle.id == activeMenuId" tabindex="0">
-                <img src="assets/showcase/images/icons/overlay-active.svg" class="layout-menu-icon-active" />
-                <img src="assets/showcase/images/icons/overlay.svg" class="layout-menu-icon-inactive" />
-                <span>Bağlantılar</span>
-            </a>
+
             <a id="menu_iletisim" (click)="toggle(inputmenutitle.id,'/iletisim')" #inputmenutitle
                 [class.active-menuitem]="inputmenutitle.id == activeMenuId" tabindex="0">
                 <img src="assets/showcase/images/icons/overlay-active.svg" class="layout-menu-icon-active" />
@@ -59,9 +62,8 @@
         </div>
         <div class="content-section layout-footer clearfix">
             <p class="text-center footer-menu">
-                <a [routerLink]="['/sayfalar/kurumsal-tr']">Kurumsal</a>
-                <a [routerLink]="['/sayfalar/haberler-tr']">Haberler</a>
-                <a [routerLink]="['/sayfalar/baglantilar-tr']">Bağlantılar</a>
+                <a [routerLink]="['/anasayfa']">Ana Sayfa</a>
+                <a *ngFor="let item of categoryList" [routerLink]="['/sayfalar',item.code]">{{item.name}}</a>
                 <a [routerLink]="['/iletisim']">İletişim</a>
             </p>
             <p class="text-center footer-social">

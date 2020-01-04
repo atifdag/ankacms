@@ -664,5 +664,31 @@ namespace AnkaCMS.Service.Implementations
 
             return model;
         }
+
+        public List<PublicCategoryModel> PublicList()
+        {
+            var items = new List<PublicCategoryModel>();
+            var lines = _repositoryCategoryLanguageLine
+                .Join(x => x.Creator.Person)
+                .Join(x => x.LastModifier.Person)
+                .Join(x => x.Language)
+                .Join(x => x.Category)
+                .ThenJoin(x => x.Contents)
+                .ThenJoin(x => x.ContentLanguageLines)
+                .ThenJoin(x => x.Language)
+                .OrderBy(x=>x.DisplayOrder)
+                .Where(x => x.IsApproved && x.Language.Id== _defaultLanguage.Id);
+
+            if (!lines.Any()) throw new NotFoundException(Messages.DangerRecordNotFound);
+            foreach (var line in lines)
+            {
+                var item = line.CreateMapped<CategoryLanguageLine, PublicCategoryModel>();
+                item.CategoryId = line.Category.Id;
+                item.Language = new IdCodeName(_defaultLanguage.Id, _defaultLanguage.Code, _defaultLanguage.Name);
+                items.Add(item);
+            }
+
+            return items;
+        }
     }
 }

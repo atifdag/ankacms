@@ -764,4 +764,8 @@
     <value>Çevirmen</value>
     <comment>Çevirmen</comment>
   </data>
+  <data name="MaxItemCount" xml:space="preserve">
+    <value>Maksimum Öğe Sayısı</value>
+    <comment>Maksimum Öğe Sayısı</comment>
+  </data>
 </root>

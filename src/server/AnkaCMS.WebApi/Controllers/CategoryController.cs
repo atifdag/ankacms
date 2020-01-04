@@ -29,6 +29,42 @@ namespace AnkaCMS.WebApi.Controllers
         }
 
 
+        [Route("PublicList")]
+        [HttpGet]
+        public ActionResult<List<PublicCategoryModel>> PublicList()
+        {
+            try
+            {
+                List<PublicCategoryModel> model;
+                const string cacheKey = "AnkaCMS.WebApi.Controllers.CategoryController.PublicList";
+                if (_cacheService.Exists(cacheKey))
+                {
+                    model = _cacheService.Get<List<PublicCategoryModel>>(cacheKey);
+                }
+                else
+                {
+                    model = _serviceCategory.PublicList();
+                    _cacheService.Add(cacheKey, model);
+                    _cacheService.AddToKeyList(cacheKey);
+
+                }
+                return Ok(model);
+            }
+
+            catch (NotFoundException)
+            {
+                ModelState.AddModelError("ErrorMessage", Messages.DangerRecordNotFound);
+                return BadRequest(ModelState);
+            }
+
+            catch (Exception exception)
+            {
+                ModelState.AddModelError("ErrorMessage", Messages.DangerRecordNotFound + " " + exception);
+                return BadRequest(ModelState);
+            }
+        }
+
+
 
         [Route("PublicDetail")]
         [HttpGet]

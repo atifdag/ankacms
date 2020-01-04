@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { CategoryService } from 'src/app/modules/category/category.service';
+import { PublicCategoryModel } from 'src/app/models/public-category-model';
+import { MessageService } from 'src/app/primeng/components/common/api';
+import { GlobalizationDictionaryPipe } from 'src/app/pipes/globalization-dictionary.pipe';
 
 @Component({
   selector: 'app-public-layout',
@@ -38,12 +42,17 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class PublicLayoutComponent implements OnInit {
 
+  categoryList: PublicCategoryModel[] = [];
+  loading = true;
   menuActive: boolean;
   activeMenuId: string;
   routes: Array<string> = [];
   filteredRoutes: Array<string> = [];
   searchText: string;
   constructor(
+    private serviceCategory: CategoryService,
+    private messageService: MessageService,
+    public globalizationDictionaryPipe: GlobalizationDictionaryPipe,
     private router: Router,
   ) { }
 
@@ -56,6 +65,47 @@ export class PublicLayoutComponent implements OnInit {
         }
       }
     }
+
+    this.getCategories();
+
+
+  }
+  getCategories() {
+    this.serviceCategory.publicList().subscribe(
+      res => {
+        if (res.status === 200) {
+          this.categoryList = res.body as PublicCategoryModel[];
+
+        } else {
+          this.messageService.add({
+            severity: 'error',
+            summary: this.globalizationDictionaryPipe.transform('Error'),
+            detail: 'IN01 ' + res.statusText
+          });
+        }
+        this.loading = false;
+      },
+      err => {
+        if (err.status === 400) {
+          if (err.error != null) {
+            this.messageService.add({
+              severity: 'error',
+              summary: this.globalizationDictionaryPipe.transform('Error'),
+              detail: 'Hata oluştu.'
+            });
+
+          } else {
+            this.messageService.add({
+              severity: 'error',
+              summary: this.globalizationDictionaryPipe.transform('Error'),
+              detail: 'Hata Oluştu.'
+            });
+          }
+          this.loading = false;
+        }
+      }
+    );
+
   }
 
   onAnimationStart(event) {

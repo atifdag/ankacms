@@ -57,7 +57,7 @@ export class PartUpdateComponent implements OnInit {
       name: new FormControl('', [Validators.required, Validators.minLength(2)]),
       description: new FormControl(''),
       keywords: new FormControl(''),
-      // contents: new FormControl(''),
+      maxItemCount: new FormControl('', [Validators.required, Validators.minLength(1)]),
       creator: new FormControl(''),
       creationTime: new FormControl(''),
       lastModifier: new FormControl(''),
@@ -92,6 +92,7 @@ export class PartUpdateComponent implements OnInit {
             this.userForm.get('name').setValue(this.model.item.name);
             this.userForm.get('description').setValue(this.model.item.description);
             this.userForm.get('keywords').setValue(this.model.item.keywords);
+            this.userForm.get('maxItemCount').setValue(this.model.item.maxItemCount);
             this.userForm.get('creator').setValue(this.model.item.creator.name);
             this.userForm.get('creationTime').setValue(
               this.datePipe.transform(this.model.item.creationTime, 'dd/MM/yyyy HH:mm:ss')
@@ -139,11 +140,31 @@ export class PartUpdateComponent implements OnInit {
         }
       }
     );
+
+
+
+
   }
 
   globalizationMessagesByParameter(key: string, parameter: string): string {
     return this.globalizationMessagesPipe.transform(key + ',' + parameter);
   }
+
+
+  moveToTarget() {
+    if (this.pickTargetList.length > this.model.item.maxItemCount) {
+      this.messageService.add({
+        severity: 'error',
+        summary: this.globalizationDictionaryPipe.transform('Error'),
+        detail: 'İzin verilen sayıyı aşmayınız!'
+      });
+
+      const lastItem = this.pickTargetList[this.pickTargetList.length - 1];
+      this.pickTargetList.pop();
+      this.pickSourceList.push(lastItem);
+    }
+  }
+
 
   globalizationMessagesByParameter2(key: string, parameter1: string, parameter2: string): string {
     return this.globalizationMessagesPipe.transform(key + ',' + parameter1 + ',' + parameter2);
@@ -169,6 +190,7 @@ export class PartUpdateComponent implements OnInit {
     this.model.item.description = this.f.description.value;
     this.model.item.keywords = this.f.keywords.value;
     this.model.item.contents = this.pickTargetList;
+    this.model.item.maxItemCount = Number(this.f.maxItemCount.value);
     this.model.item.isApproved = this.f.isApproved.value;
     this.servicePart.update(this.model).subscribe(
       res => {

@@ -11,12 +11,12 @@ namespace AnkaCMS.SetupConsoleApp.Installation
 {
     public static class PartInstallation
     {
-        public static List<Tuple<string, string, int>> PartTuples = new List<Tuple<string, string, int>>
+        public static List<Tuple<string, string, int, int>> PartTuples = new List<Tuple<string, string, int, int>>
         {
-            Tuple.Create("MANSET", "Manşet",1),
-            Tuple.Create("MANSETALTI", "Manşet Altı",2),
-            Tuple.Create("ONECIKANLAR", "Öne Çıkanlar",3),
-            Tuple.Create("BAGLANTILAR", "Bağlantılar",4)
+            Tuple.Create("MANSET", "Manşet",1,5),
+            Tuple.Create("MANSETALTI", "Manşet Altı",2,3),
+            Tuple.Create("ONECIKANLAR", "Öne Çıkanlar",3,6),
+            Tuple.Create("BAGLANTILAR", "Bağlantılar",4,10)
         };
 
         public static void Install(IServiceProvider provider)
@@ -37,7 +37,7 @@ namespace AnkaCMS.SetupConsoleApp.Installation
             var totalCount = PartTuples.Count * languages.Count;
             var counterPart = 1;
 
-            foreach (var (item1, item2, item3) in PartTuples)
+            foreach (var (item1, item2, item3, item4) in PartTuples)
             {
                 var item = new Part
                 {
@@ -46,6 +46,7 @@ namespace AnkaCMS.SetupConsoleApp.Installation
                     CreationTime = DateTime.Now,
                     Creator = user,
                     LastModifier = user,
+                    MaxItemCount = item4,
                     LastModificationTime = DateTime.Now
                 };
 

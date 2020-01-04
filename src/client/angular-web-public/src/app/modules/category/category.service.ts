@@ -21,4 +21,11 @@ export class CategoryService {
       { observe: 'response' }
     );
   }
+
+  publicList(): Observable<HttpResponse<any>> {
+    return this.httpClient.get(
+      this.appSettingsService.apiUrl + '/Category/PublicList',
+      { observe: 'response' }
+    );
+  }
 }

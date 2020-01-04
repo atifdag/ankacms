@@ -58,6 +58,7 @@ export class PartAddComponent implements OnInit {
       name: new FormControl('', [Validators.required, Validators.minLength(2)]),
       description: new FormControl(''),
       keywords: new FormControl(''),
+      maxItemCount: new FormControl('', [Validators.required]),
       isApproved: new FormControl(true)
     });
 
@@ -84,6 +85,7 @@ export class PartAddComponent implements OnInit {
                     this.userForm.get('name').setValue(this.model.item.name);
                     this.userForm.get('description').setValue(this.model.item.description);
                     this.userForm.get('keywords').setValue(this.model.item.keywords);
+                    this.userForm.get('maxItemCount').setValue(this.model.item.maxItemCount);
                     this.userForm.get('isApproved').setValue(this.model.item.isApproved);
                   }
                   this.disabledFieldset = false;
@@ -189,6 +191,7 @@ export class PartAddComponent implements OnInit {
     this.model.item.name = this.f.name.value;
     this.model.item.description = this.f.description.value;
     this.model.item.keywords = this.f.keywords.value;
+    this.model.item.maxItemCount = Number(this.f.maxItemCount.value);
     this.model.item.isApproved = this.f.isApproved.value;
     this.servicePart.add(this.model).subscribe(
       res => {

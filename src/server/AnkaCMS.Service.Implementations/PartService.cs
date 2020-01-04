@@ -156,7 +156,7 @@ namespace AnkaCMS.Service.Implementations
             modelItem.LastModifier = new IdCodeName(itemPart.LastModifier.Id, itemPart.LastModifier.Username, itemPart.LastModifier.Person.DisplayName);
             modelItem.Language = new IdCodeName(language.Id, language.Code, language.Name);
             modelItem.PartId = itemPart.Id;
-
+            modelItem.MaxItemCount = itemPart.MaxItemCount;
 
             var modelItemContents = unSelectedContents;
 
@@ -444,6 +444,7 @@ namespace AnkaCMS.Service.Implementations
                 Id = GuidHelper.NewGuid(),
                 CreationTime = DateTime.Now,
                 Creator = IdentityUser,
+                MaxItemCount = addModel.Item.MaxItemCount,
                 LastModificationTime = DateTime.Now,
                 LastModifier = IdentityUser
 
@@ -570,7 +571,7 @@ namespace AnkaCMS.Service.Implementations
             modelItem.Contents = modelItemContents;
             modelItem.Language = new IdCodeName(language.Id, language.Code, language.Name);
             modelItem.PartId = itemPart.Id;
-
+            modelItem.MaxItemCount = itemPart.MaxItemCount;
 
             return new UpdateModel<PartModel>
             {
@@ -687,7 +688,7 @@ namespace AnkaCMS.Service.Implementations
                 }
             }
 
-
+           
 
 
             var itemHistory = item.CreateMapped<Part, PartHistory>();
@@ -698,6 +699,7 @@ namespace AnkaCMS.Service.Implementations
             _repositoryPartHistory.Add(itemHistory, true);
             item.LastModificationTime = DateTime.Now;
             item.LastModifier = IdentityUser;
+            item.MaxItemCount = updateModel.Item.MaxItemCount;
             var affectedItem = _repositoryPart.Update(item, true);
 
 
@@ -760,6 +762,7 @@ namespace AnkaCMS.Service.Implementations
 
 
             modelItem.PartId = affectedItem.Id;
+            modelItem.MaxItemCount = affectedItem.MaxItemCount;
             modelItem.Language = new IdCodeName(language.Id, language.Code, language.Name);
 
             updateModel.Item = modelItem;

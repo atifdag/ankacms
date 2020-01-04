@@ -16,5 +16,6 @@ namespace AnkaCMS.Service
         List<IdCodeName> List(Guid languageId);
         List<IdCodeName> List();
         PublicCategoryModel PublicDetail(string code);
+        List<PublicCategoryModel> PublicList();
     }
 }

@@ -709,6 +709,15 @@ namespace AnkaCMS.Core.Globalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Maksimum Öğe Sayısı.
+        /// </summary>
+        public static string MaxItemCount {
+            get {
+                return ResourceManager.GetString("MaxItemCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Menu.
         /// </summary>
         public static string Menu {

@@ -24,6 +24,7 @@ namespace AnkaCMS.Data.DataAccess.Configurations
             builder.Property(x => x.ReferenceId).IsRequired();
             builder.Property(x => x.IsDeleted).IsRequired();
             builder.Property(x => x.RestoreVersion).IsRequired();
+            builder.Property(x => x.MaxItemCount).IsRequired();
 
         }
     }

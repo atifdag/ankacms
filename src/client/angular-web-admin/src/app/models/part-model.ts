@@ -16,6 +16,7 @@ export class PartModel {
     keywords: string;
     language: IdCodeName;
     partId: string;
+    maxItemCount: number;
     contents: IdCodeNameSelected[];
     constructor() {
         this.creator = new IdCodeName();
