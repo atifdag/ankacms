@@ -547,3 +547,11 @@ display: none;
 .content-detail-text .ui-dataview .ui-dataview-content{
     border: none;
 }
+
+.content-detail-text .ui-dataview .ui-dataview-content img{
+width: 100%;
+display: block;
+margin: 0 0 1.5em 0;
+box-shadow: 0 0 10px #333; 
+}
+
