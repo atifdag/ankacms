@@ -15,13 +15,20 @@
                 <img class="public-content-detail-img" src="{{appSettingsService.apiUrl+ model.imagePath}}">
             </div>
             <div *ngIf="model.description" class="public-content-detail-description">
-                <blockquote innerHTML="{{model.description}}" [className]="model.language.code === 'ar' && 'text-arabic'"></blockquote>
+                <blockquote innerHTML="{{model.description}}"
+                    [className]="model.language.code === 'ar' && 'text-arabic'"></blockquote>
             </div>
             <div innerHTML="{{model.contentDetail}}" [className]="model.language.code === 'ar' && 'text-arabic'"></div>
         </div>
-        <div class="ui-g-3 ui-lg-3 ui-md-6 ui-sm-12">
-            <h4>Test 1</h4>                
-            <p>fdf</p>
+        <div class="ui-g-3 ui-lg-3 ui-md-6 ui-sm-12 text-center" style="padding: 0 2em;">
+            <h3 style="padding-top: 0; margin-top: 0;">{{categoryModel.name}}</h3>
+            <div *ngFor="let content of categoryModel.contents">
+                <p><a [routerLink]="['/sayfalar/'+content.category.code,content.code]"><img
+                            src="{{appSettingsService.apiUrl+ content.imagePath}}" style="width: 100%;">
+                        <br>
+                        {{content.shortName}}</a></p>
+                        <hr style="margin: 0; padding: 0; border: none; border-bottom: 1px solid #ccc;">
+            </div>
         </div>
-    </div> 
+    </div>
 </div>

@@ -8,6 +8,8 @@ import { MessageService } from 'src/app/primeng/components/common/api';
 import { GlobalizationDictionaryPipe } from 'src/app/pipes/globalization-dictionary.pipe';
 import { AppSettingsService } from 'src/app/app-settings.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CategoryService } from '../../category/category.service';
+import { PublicCategoryModel } from 'src/app/models/public-category-model';
 
 @Component({
   selector: 'app-public-content-detail',
@@ -22,6 +24,7 @@ export class PublicContentDetailComponent implements OnInit {
   dublinCore = new DublinCore();
   breadcrumbItems: any[];
   model = new PublicContentModel();
+  categoryModel = new PublicCategoryModel();
 
 
   constructor(
@@ -32,6 +35,7 @@ export class PublicContentDetailComponent implements OnInit {
     public globalizationDictionaryPipe: GlobalizationDictionaryPipe,
     public appSettingsService: AppSettingsService,
     private route: ActivatedRoute,
+    private serviceCategory: CategoryService,
     private router: Router
   ) { }
 
@@ -65,6 +69,7 @@ export class PublicContentDetailComponent implements OnInit {
           this.dublinCore.language = this.model.language.name;
           this.dublinCore.description = this.model.description;
           this.serviceDublinCoreMetadata.set(this.dublinCore);
+          this.getCategoryDetail(this.model.category.code);
 
         } else {
           this.messageService.add({
@@ -97,6 +102,38 @@ export class PublicContentDetailComponent implements OnInit {
           // }, 3000);
         }
       }
+    );
+  }
+
+
+  getCategoryDetail(categoryCode: string) {
+    this.serviceCategory.publicDetail(categoryCode).subscribe(
+      res => {
+        this.categoryModel = res.body as PublicCategoryModel;
+      },
+      err => {
+        if (err.status === 400) {
+          if (err.error != null) {
+            this.messageService.add({
+              severity: 'error',
+              summary: this.globalizationDictionaryPipe.transform('Error'),
+              detail: 'Hata oluştu.'
+            });
+
+          } else {
+            this.messageService.add({
+              severity: 'error',
+              summary: this.globalizationDictionaryPipe.transform('Error'),
+              detail: 'Hata Oluştu.'
+            });
+          }
+          this.loading = false;
+          // setTimeout(() => {
+          //   this.router.navigate(['/anasayfa']);
+          // }, 3000);
+        }
+
+       }
     );
   }
 

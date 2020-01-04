@@ -15,12 +15,26 @@
                 <blockquote innerHTML="{{model.description}}"
                     [className]="model.language.code === 'ar' && 'text-arabic'"></blockquote>
             </div>
-            <ul>
-                <li *ngFor="let item of model.contents">
-                    <a [routerLink]="['/sayfalar/'+model.code,item.code]">{{item.name}}</a>
 
-                </li>
-            </ul>
+
+            <p-dataView #dv [value]="model.contents" layout="grid" emptyMessage="Lütfen bekleyiniz..."
+                *ngIf="model.contents">
+                <ng-template let-content pTemplate="gridItem">
+                    <div class="ui-g-12 ui-md-3" style="padding:2em .5em 2em .5em">
+                        <div class="book-grid-item text-center">
+                            <p><a [routerLink]="['/sayfalar/'+content.category.code,content.code]"><img
+                                        src="{{appSettingsService.apiUrl+ content.imagePath}}" style="width: 100%;"></a></p>
+                            <p><a
+                                    [routerLink]="['/sayfalar/'+content.category.code,content.code]">{{content.shortName}}</a>
+                            </p>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-dataView>
+
+
+
+            
 
         </div>
 
